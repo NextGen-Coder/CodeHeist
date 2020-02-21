@@ -1,1 +1,1 @@
-# CodingCompetitionSystem
+# Coding Competition System
