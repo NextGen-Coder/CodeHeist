@@ -11,35 +11,21 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <style>
-    .header {
-        padding: 20px;
-        font-size: 20px;
-        font-family: serifs;
-    }
-
-    .header>p {
-        line-height: 0px;
-    }
-
-    .formdiv {
-        width: 30%;
-        border: 2px solid rgb(228, 99, 99);
-        padding: 40px;
-    }
-
-    .inputborder:hover {
-        border: none;
-        border-bottom: 1px solid springgreen;
-    }
-
-    .borderbtn {
-        border-radius: 10px;
-        border: 1px solid red;
-    }
-
-    .borderbtn:hover {
-        border: 1px solid springgreen;
-    }
+.header {padding: 20px;font-size: 20px; font-family: serifs;}
+.header > p {line-height: 0px;}
+.formdiv {
+    width: 30%;
+    border: 2px solid red;
+    padding: 40px;
+}
+.inputborder {
+    border: none;
+    border-bottom: 1px solid grey;
+}
+.inputborder:hover {
+    border: none;
+    border-bottom: 1px solid springgreen;
+}
 
     .fontfam {
         font-family: 'old english';
