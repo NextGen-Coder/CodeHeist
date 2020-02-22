@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <style>
-.header {padding: 20px;font-size: 20px; font-family: serifs;}
-.header > p {line-height: 0px;}
+.header {
+    padding: 20px;font-size: 20px; font-family: serifs;
+}
+.header > p {
+    line-height: 0px;
+}
 .formdiv {
     width: 30%;
     border: 2px solid red;
@@ -29,9 +33,18 @@
 }
 .fontfam {
     font-family: 'old english';
-    }
+}
 </style>
 <body class="bg-dark">
+    <?php 
+        session_start();
+
+        if($_SESSION['login_user']) {
+        } else {
+            echo "<script>window.location='login.php';</script>";
+        }
+    ?>
+
     <nav class="nb navbar navbar-expand-md bg-dark">
         <img class="navbar-brand text-white" href="#">
 
