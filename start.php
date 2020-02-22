@@ -38,7 +38,6 @@
 <body class="bg-dark">
     <?php 
         session_start();
-
         if($_SESSION['login_user']) {
         } else {
             echo "<script>window.location='login.php';</script>";
@@ -47,7 +46,6 @@
 
     <nav class="nb navbar navbar-expand-md bg-dark">
         <img class="navbar-brand text-white" href="#">
-
         <div class="text-center mx-auto">
             <ul class="navbar-nav mr-auto">
                 <div class="header text-white">
@@ -59,32 +57,21 @@
         </div>
         <div class="text-white">
             <img class="navbar-brand text-white" href="#">
-
         </div>
     </nav>
-
     <div class="formdiv container ">
         <div class="row justify-content-center mb-1 mt-3">
-
             <h1 class="text-white fontfam">CODE-RELAY</h1>
-
         </div>
-        <form action="index.php">
-            
+        <form action="./controller/StartController.php">
             <div class="row justify-content-center mt-3 mb-5">
                 <button type="submit" class="btn btn-dark borderbtn">START</button>
             </div>
-            
-          </form>
-
+        </form>
     </div>
-
-    
     <div class="header text-center text-white justify-content-center">
         <p>Powered By</p>
         <h5 style="line-height: 2px;">NextGenCoder</h5>
     </div>
-
-
 </body>
 </html>
