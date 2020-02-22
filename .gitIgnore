@@ -1,2 +1,5 @@
 # Bootstrap Files
 assets/bootstrap/
+
+# Compiler dependencies
+assets/src-noconflict
