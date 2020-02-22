@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,29 +11,41 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <style>
-.header {padding: 20px;font-size: 20px; font-family: serifs;}
-.header > p {line-height: 0px;}
-.formdiv {
-    width: 30%;
-    border: 2px solid red;
-    padding: 40px;
-}
-.inputborder:hover {
-    border: none;
-    border-bottom: 1px solid springgreen;
-}
+    .header {
+        padding: 20px;
+        font-size: 20px;
+        font-family: serifs;
+    }
 
-.borderbtn {
-    border-radius: 10px;
-    border: 1px solid red;
-}
-.borderbtn:hover {
-    border: 1px solid springgreen;
-}
-.fontfam {
-    font-family: 'old english';
+    .header>p {
+        line-height: 0px;
+    }
+
+    .formdiv {
+        width: 30%;
+        border: 2px solid rgb(228, 99, 99);
+        padding: 40px;
+    }
+
+    .inputborder:hover {
+        border: none;
+        border-bottom: 1px solid springgreen;
+    }
+
+    .borderbtn {
+        border-radius: 10px;
+        border: 1px solid red;
+    }
+
+    .borderbtn:hover {
+        border: 1px solid springgreen;
+    }
+
+    .fontfam {
+        font-family: 'old english';
     }
 </style>
+
 <body class="bg-dark">
     <nav class="nb navbar navbar-expand-md bg-dark">
         <img src="./assets/images/clg_logo.png" width="120px" class="img-fluid" alt="">
@@ -50,28 +63,24 @@
 
     <div class="formdiv container ">
         <div class="row justify-content-center mb-3 mt-3">
-
             <h1 class="text-white fontfam">CODE-RELAY</h1>
-
         </div>
-        <form action="start.html">
+        <form action="./controller/LoginController.php" method="POST">
             <div class="form-group text-white mb-4">
-              <label for="email">Login Id:</label>
-              <input type="text" class="inputborder form-control bg-dark text-white" id="email" value="login-id">
+                <label for="id">Login Id:</label>
+                <input name="user" type="text" class="inputborder form-control bg-dark text-white" id="id" placeholder="Enter login id">
             </div>
             <div class="form-group text-white">
-              <label for="pwd">Password:</label>
-              <input type="password" class="inputborder form-control bg-dark text-white" id="pwd" value="password">
+                <label for="pwd">Password:</label>
+                <input name="pass" type="password" class="inputborder form-control bg-dark text-white" id="password" placeholder="Enter password">
             </div>
             <div class="row justify-content-center mt-5">
-                <button type="submit" class="btn btn-dark p-2 pl-5 pr-5 borderbtn">Submit</button>
+                <button type="submit" class="btn btn-dark p-2 pl-5 pr-5 borderbtn">Login</button>
             </div>
-            
-          </form>
-
+        </form>
     </div>
 
-    
+
     <div class="header text-center text-white justify-content-center">
         <p>Powered By</p>
         <h4>NextGenCoder</h4>
@@ -79,4 +88,5 @@
 
 
 </body>
+
 </html>
