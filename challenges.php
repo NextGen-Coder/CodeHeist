@@ -73,8 +73,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
     <div class="header text-center text-white justify-content-center">
@@ -82,10 +80,6 @@
         <h5 style="line-height: 2px;">NextGenCoder</h5>
     </div>
     </div>
-
-
-
-
 </body>
 
 </html>

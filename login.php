@@ -11,21 +11,31 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <style>
-.header {padding: 20px;font-size: 20px; font-family: serifs;}
-.header > p {line-height: 0px;}
-.formdiv {
-    width: 30%;
-    border: 2px solid red;
-    padding: 40px;
-}
-.inputborder {
-    border: none;
-    border-bottom: 1px solid grey;
-}
-.inputborder:hover {
-    border: none;
-    border-bottom: 1px solid springgreen;
-}
+    .header {
+        padding: 20px;
+        font-size: 20px;
+        font-family: serifs;
+    }
+
+    .header>p {
+        line-height: 0px;
+    }
+
+    .formdiv {
+        width: 30%;
+        border: 2px solid red;
+        padding: 40px;
+    }
+
+    .inputborder {
+        border: none;
+        border-bottom: 1px solid grey;
+    }
+
+    .inputborder:hover {
+        border: none;
+        border-bottom: 1px solid springgreen;
+    }
 
     .fontfam {
         font-family: 'old english';
@@ -54,11 +64,13 @@
         <form action="./controller/LoginController.php" method="POST">
             <div class="form-group text-white mb-4">
                 <label for="id">Login Id:</label>
-                <input name="user" type="text" class="inputborder form-control bg-dark text-white" id="id" placeholder="Enter login id">
+                <input name="user" type="text" class="inputborder form-control bg-dark text-white" id="id"
+                    placeholder="Enter login id">
             </div>
             <div class="form-group text-white">
                 <label for="pwd">Password:</label>
-                <input name="pass" type="password" class="inputborder form-control bg-dark text-white" id="password" placeholder="Enter password">
+                <input name="pass" type="password" class="inputborder form-control bg-dark text-white" id="password"
+                    placeholder="Enter password">
             </div>
             <div class="row justify-content-center mt-5">
                 <button type="submit" class="btn btn-dark p-2 pl-5 pr-5 borderbtn">Login</button>
