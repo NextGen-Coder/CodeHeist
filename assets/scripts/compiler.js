@@ -20,7 +20,7 @@ editor.setTheme("../ace/theme/"+themeSelect.value);
 editor.session.setMode("ace/mode/"+proLanguageSelect.value);
 editor.setValue(`public class MainClass {
     public static void main(String[] Args) {
-        System.out.println('Hello World');
+        System.out.println("Hello World");
     }
 }`);
 
@@ -39,7 +39,7 @@ proLanguageSelect.addEventListener('change', () => {
     if(proLanguageSelect.value=='java')
         editor.setValue(`public class MainClass {
     public static void main(String[] Args) {
-        System.out.println('Hello World');
+        System.out.println("Hello World");
     }
 }`);
 

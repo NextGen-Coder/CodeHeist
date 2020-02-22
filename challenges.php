@@ -29,6 +29,7 @@
 </style>
 
 <body class="bg-dark text-white ">
+    <?php session_start(); ?>
     <div class="" style="height: 100vh;">
         <div>
             <h3>CODE-RELAY</h3>
@@ -95,6 +96,13 @@
                         <div class="col-sm-4 ">
                             <div class="bg-secondary compiler" style="height: 100px;">
                                 output
+                                <p> 
+                                <?php 
+                                if( isset($_SESSION['code'])) {
+                                    echo $_SESSION['code'];
+                                }
+                                ?> 
+                            </p>
                             </div>
                         </div>
                     </div>
