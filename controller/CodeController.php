@@ -6,7 +6,6 @@
         $entity = new CodeDBModel();
         $code = $_POST['code'];
         $language = $_POST['language'];
-        $mail = $_SESSION['login_user'];
-        $entity->codeRun($mail, $code, $language);
+        $entity->codeRun( $code, $language);
     } 
 ?>

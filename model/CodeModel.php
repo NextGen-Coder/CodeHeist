@@ -39,7 +39,7 @@
             $responseData = json_decode($response, TRUE);
     
             // Print the date from the response
-            $_SESSION['code'] = $responseData['output'];
+            $_SESSION['outputCode'] = $responseData['output'];
             echo "<script> window.location='../challenges.php';</script>";
         }
 
@@ -83,7 +83,7 @@
             $responseData = json_decode($response, TRUE);
     
             // Print the date from the response
-            $_SESSION['code'] = $responseData['output'];
+            $_SESSION['outputCode'] = $responseData['output'];
             echo "<script> window.location='../challenges.php';</script>";
         }
 

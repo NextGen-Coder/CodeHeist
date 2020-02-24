@@ -65,7 +65,7 @@
         <div class="row justify-content-center mb-1 mt-3">
             <h1 class="text-white fontfam">CODE-RELAY</h1>
         </div>
-        <form action="./controller/StartController.php">
+        <form action="./controller/LevelController.php" method="post">
             <div class="row justify-content-center mt-3 mb-5">
                 <button type="submit" class="btn btn-dark borderbtn">START</button>
             </div>

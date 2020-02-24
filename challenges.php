@@ -31,46 +31,48 @@
     }
 
     .levels {
-        height: 400px;
+        height: 90vh;
         border-radius: 5px;
 
     }
 
-    .list-group-item-dark {
+    .l1 {
         padding: 25px 0px;
     }
-
-    .list-group-item-dark:hover {
+    .list {
+        border: none;
+        border-bottom: 2px solid grey;
+    }
+    .list:hover {
         text-decoration: none;
     }
-
     .blocks {
         font-size: 20px;
     }
 </style>
 
-<body class="bg-dark text-white ">
+<body class=" text-white container l1" style="background-color:black;">
     <div class="" style="height: 100vh;">
         <div>
             <h3>CODE-RELAY</h3>
             <div class="row ">
 
                 <div class="col-sm-3">
-                    <div class="list-group levels bg-secondary text-center">
+                    <div class="list-group levels bg-dark text-center">
                         <h3 class="text-white text-center pb-5 pt-5">LEVELS</h3>
-                        <a href="challenges.php?level=1" class="list-group-item list-group-item-dark">level 1</a>
-                        <a href="challenges.php?level=2" class="list-group-item list-group-item-dark">level 2</a>
-                        <a href="challenges.php?level=3" class="list-group-item list-group-item-dark">level 3</a>
-                        <a href="challenges.php?level=4" class="list-group-item list-group-item-dark">level 4</a>
-                        <a href="challenges.php?level=5" class="list-group-item list-group-item-dark">level 5</a>
+                        <a href="controller/LevelController.php?level=1" class="list-group-item bg-dark list text-danger">level 1</a>
+                        <a href="controller/LevelController.php?level=2" class="list-group-item bg-dark list text-danger">level 2</a>
+                        <a href="controller/LevelController.php?level=3" class="list-group-item bg-dark list text-danger">level 3</a>
+                        <a href="controller/LevelController.php?level=4" class="list-group-item bg-dark list text-danger">level 4</a>
+                        <a href="ontroller/LevelController.php?level=5" class="list-group-item bg-dark list text-danger">level 5</a>
                     </div>
                 </div>
                 <?php 
                 session_start();
-                $level = $_GET['level'];
+                $level = $_SESSION['level'];
     
-                if($level == $_GET['level']){  
-                $level = $_GET['level']; 
+                if($level == $_SESSION['level']){  
+                $level = $_SESSION['level']; 
 
                 include("model/config.php");
                 $query = "SELECT *  FROM challenge WHERE level =$level"; 
@@ -80,12 +82,12 @@
                 ?>
                 <div class="col-sm-9 ">
                     <div class="row">
-                        <div class="col-sm-8 bg-secondary description">
+                        <div class="col-sm-8 bg-dark description">
                             <div class="row pb-5">
-                                <span class="ml-2 blocks">Description:</span> <br><?php echo $row['description']; ?>
+                                <span class="ml-2 blocks">Description :</span> <span class="ml-3 blocks"><?php echo $row['description']; ?></span>
                             </div>
-                            <div class="row" style="border-top: 1px solid white;">
-                                <span class="ml-2 blocks">Input :</span><br><?php echo $row['input']; ?>
+                            <div class="row" style="border-top: 1px solid grey;">
+                                <span class="ml-2 blocks">Test Input :</span> <span class="ml-3 blocks"><?php echo $row['input']; ?></span> 
                             </div>
                         </div>
 
@@ -133,8 +135,8 @@
                                 output
                                 <p>
                                     <?php 
-                                if( isset($_SESSION['code'])) {
-                                    echo $_SESSION['code'];
+                                if( isset($_SESSION['outputCode'])) {
+                                    echo $_SESSION['outputCode'];
                                 }
                                 ?>
                                 </p>
