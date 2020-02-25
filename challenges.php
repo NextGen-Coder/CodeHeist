@@ -22,17 +22,17 @@
     .compiler {
         margin-top: 10px;
     }
-    .description {
-        
-    }
+
+    .description {}
+
     .description {
         width: 100%;
-        height: 200px;
+        height: 215px;
         border-radius: 5px;
     }
 
     .levels {
-        height: 90vh;
+        height: 75vh;
         border-radius: 5px;
 
     }
@@ -40,16 +40,20 @@
     .l1 {
         padding: 25px 0px;
     }
+
     .list {
         border: none;
         border-bottom: 2px solid grey;
     }
+
     .list:hover {
         text-decoration: none;
     }
+
     .blocks {
         font-size: 20px;
     }
+
     .desc1 {
         padding-bottom: 150px;
     }
@@ -59,16 +63,21 @@
     <div class="" style="height: 100vh;">
         <div>
             <h3>CODE-RELAY</h3>
-            <div class="row bg"style="background-color:black;">
+            <div class="row bg" style="background-color:black;">
 
                 <div class="col-sm-3">
                     <div class="list-group levels bg-dark text-center">
                         <h3 class="text-white text-center pb-5 pt-4">LEVELS</h3>
-                        <a href="controller/LevelController.php?level=1" class="list-group-item bg-dark list text-danger">level 1</a>
-                        <a href="controller/LevelController.php?level=2" class="list-group-item bg-dark list text-danger">level 2</a>
-                        <a href="controller/LevelController.php?level=3" class="list-group-item bg-dark list text-danger">level 3</a>
-                        <a href="controller/LevelController.php?level=4" class="list-group-item bg-dark list text-danger">level 4</a>
-                        <a href="ontroller/LevelController.php?level=5" class="list-group-item bg-dark list text-danger">level 5</a>
+                        <a href="controller/LevelController.php?level=1"
+                            class="list-group-item bg-dark list text-danger">level 1</a>
+                        <a href="controller/LevelController.php?level=2"
+                            class="list-group-item bg-dark list text-danger">level 2</a>
+                        <a href="controller/LevelController.php?level=3"
+                            class="list-group-item bg-dark list text-danger">level 3</a>
+                        <a href="controller/LevelController.php?level=4"
+                            class="list-group-item bg-dark list text-danger">level 4</a>
+                        <a href="ontroller/LevelController.php?level=5"
+                            class="list-group-item bg-dark list text-danger">level 5</a>
                     </div>
                 </div>
                 <?php 
@@ -88,15 +97,17 @@
                     <div class="row">
                         <div class="col-sm-8 bg-dark description">
                             <div class="row pb-5">
-                                <span class="ml-2 blocks">Description :</span> <span class="ml-3 blocks"><?php echo $row['description']; ?></span>
+                                <span class="ml-2 blocks">Description :</span> <span
+                                    class="ml-3 blocks"><?php echo $row['description']; ?></span>
                             </div>
                             <div class="row" style="border-top: 1px solid grey; margin-top:30px;">
-                                <span class="ml-2 blocks">Test Input :</span> <span class="ml-3 blocks"><?php echo $row['input']; ?></span> 
+                                <span class="ml-2 blocks">Test Input :</span> <span
+                                    class="ml-3 blocks"><?php echo $row['input']; ?></span>
                             </div>
                         </div>
 
                         <div class="col-sm-4 ">
-                            <div class="bg-dark" style="height: 200px; border-radius: 5px;">
+                            <div class="bg-dark" style="height: 215px; border-radius: 5px;">
                                 <span class="ml-2 blocks">Expected output:</span> <br>
                                 <span class="ml-4"><?php echo $row['output']; ?></span>
                             </div>
@@ -135,7 +146,7 @@
                             </div>
                         </div>
                         <div class="col-sm-4 ">
-                            <div class="bg-dark compiler" style="height: 55vh;border-radius:5px;">
+                            <div class="bg-dark compiler" style="height: 46vh;border-radius:5px;">
                                 <span class="ml-2 blocks">output :</span>
                                 <p>
                                     <?php 
