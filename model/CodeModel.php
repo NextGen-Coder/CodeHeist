@@ -9,6 +9,10 @@
                 $code = str_replace(">",">\n",$code);
             }
     
+
+            
+
+
             // The data to send to the API
             $postData = array(
                 "script" => $code,
@@ -37,8 +41,15 @@
     
             // Decode the response
             $responseData = json_decode($response, TRUE);
-    
+
+
+
+
+
+
+
             // Print the date from the response
+            $_SESSION['code'] = $code;
             $_SESSION['outputCode'] = $responseData['output'];
             echo "<script> window.location='../challenges.php';</script>";
         }

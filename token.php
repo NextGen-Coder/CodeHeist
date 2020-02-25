@@ -47,8 +47,16 @@
         color: white;
         background: #fc0a0a;
     }
+
+    .formbtn1{
+        border-radius: 18px;
+        color: white;
+        padding: 6px 90px;
+        background: ;
+    }
+
     .height{
-        height: 90vh;
+        height: 100vh;
     }
 
     .img1{
@@ -82,26 +90,39 @@
 
     <div class="formdiv container ">
         <div class="row justify-content-center mt-5" >
-            <h1 class="text-white fontfam">CODE-RELAY</h1>
+            <h3 class="text-white fontfam">Token Generation</h3>
         </div>
         <form action="./controller/LoginController.php" method="POST">
             <div class="form-group text-white my-4">
-                <label for="id">Login Id:</label>
+                <label for="id"> Name</label>
                 <input name="user" type="text" style="background: #413e3e" class="inputborder form-control text-white" id="id"
-                    placeholder="Enter login id">
+                    placeholder="Name">
             </div>
             <div class="form-group text-white">
-                <label for="pwd">Password:</label>
-                <input name="pass" type="password" style="background: #413e3e" class="inputborder form-control text-white" id="password"
-                    placeholder="Enter password">
+                <label for="pwd">College Name</label>
+                <input name="pass" type="text" style="background: #413e3e" class="inputborder form-control text-white" id="password"
+                    placeholder="College name">
             </div>
-            <div class="row justify-content-center mt-5">
-                <button type="submit" class="btn p-2 px-5 formbtn">Login</button>
+            <div class="form-group text-white">
+                <label for="pwd">Email</label>
+                <input name="pass" type="email" style="background: #413e3e" class="inputborder form-control text-white" id="password"
+                    placeholder="Email">
+            </div>
+            <div class="form-group text-white">
+                <label for="pwd">Mobile</label>
+                <input name="pass" type="number" style="background: #413e3e" class="inputborder form-control text-white"
+                 id="password" placeholder="Mobile">
+            </div>
+            <div class="row justify-content-center mt-4">
+                <button type="submit" class="btn p-2 px-5 formbtn">Register</button>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <button type="submit" class="btn formbtn1 btn-info">Result Section</button>
             </div>
         </form>
     </div>
     </div>
-
+<br><br><br><br><br><br>
     <div class="header text-center text-white justify-content-center">
         <p>Powered By</p>
         <h4>NextGenCoder</h4>
