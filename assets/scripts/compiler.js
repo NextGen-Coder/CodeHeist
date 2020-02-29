@@ -75,7 +75,7 @@ themeSelect.addEventListener('change', () => {
         themeSelect.style.border = '1px solid rgb(141,141,141';
         runBtn.style.backgroundColor = 'rgb(230, 227, 227)';
         screenBtn.style.backgroundColor = 'rgb(230, 227, 227)';
-        screenImg.src = 'assets/images/shortdark.png';
+        
         editMenu.style.backgroundColor = 'rgb(230, 227, 227)';
         editMenu.style.border = '1px solid #DDD';
         editMenu.style.borderRadius = '10px 10px 0px 0px';
@@ -84,7 +84,7 @@ themeSelect.addEventListener('change', () => {
         proLanguageSelect.style.backgroundColor = 'black';
         proLanguageSelect.style.color = 'white';
         themeSelect.style.backgroundColor = 'black';
-        screenImg.src = 'assets/images/short.png';
+        
         themeSelect.style.color = 'white';
         editMenu.style.backgroundColor = 'rgb(40, 45, 56)';
         runBtn.style.backgroundColor = 'rgb(40, 45, 56)';

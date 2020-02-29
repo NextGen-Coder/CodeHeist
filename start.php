@@ -40,7 +40,7 @@
 <body class="bg-dark">
     <?php 
         session_start();
-        if($_SESSION['login_user']) {
+        if( $_SESSION['login_user']) {
         } else {
             echo "<script>window.location='login.php';</script>";
         }

@@ -13,6 +13,9 @@
     <script src="./assets/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <style>
+    body {
+        box-sizing: border-box !important
+    }
     .header {
         padding: 20px;
         font-size: 20px;
@@ -20,10 +23,8 @@
     }
 
     .compiler {
-        margin-top: 10px;
+        margin-top: 20px;
     }
-
-    .description {}
 
     .description {
         width: 100%;
@@ -31,10 +32,8 @@
         border-radius: 5px;
     }
 
-    .levels {
-        height: 75vh;
-        border-radius: 5px;
-
+    .levels-a {
+        height: 80vh;
     }
 
     .l1 {
@@ -59,113 +58,85 @@
     }
 </style>
 
-<body class=" text-white container l1" style="background-color:black;">
-    <div class="" style="height: 100vh;">
-        <div>
-            <h3>CODE-RELAY</h3>
-            <div class="row bg" style="background-color:black;">
-
-                <div class="col-sm-3">
-                    <div class="list-group levels bg-dark text-center">
-                        <h3 class="text-white text-center pb-5 pt-4">LEVELS</h3>
-                        <a href="controller/LevelController.php?level=1"
-                            class="list-group-item bg-dark list text-danger">level 1</a>
-                        <a href="controller/LevelController.php?level=2"
-                            class="list-group-item bg-dark list text-danger">level 2</a>
-                        <a href="controller/LevelController.php?level=3"
-                            class="list-group-item bg-dark list text-danger">level 3</a>
-                        <a href="controller/LevelController.php?level=4"
-                            class="list-group-item bg-dark list text-danger">level 4</a>
-                        <a href="ontroller/LevelController.php?level=5"
-                            class="list-group-item bg-dark list text-danger">level 5</a>
-                    </div>
+<body class="text-white w-100">
+    <div class="p-0 w-100 row">
+        <h3 class="bg-dark m-0 py-3">CODE-RELAY</h3>
+    </div>
+    <div class="row bg-dark">
+        <div class="col-3 bg-secondary">
+            <div class="list-group levels-a levels bg-dark text-center">
+                <h3 class="text-white text-center pb-5 pt-4">LEVELS</h3>
+                <a href="controller/LevelController.php?level=1" class="list-group-item bg-dark list text-danger">level
+                    1</a>
+                <a href="controller/LevelController.php?level=2" class="list-group-item bg-dark list text-danger">level
+                    2</a>
+                <a href="controller/LevelController.php?level=3" class="list-group-item bg-dark list text-danger">level
+                    3</a>
+                <a href="controller/LevelController.php?level=4" class="list-group-item bg-dark list text-danger">level
+                    4</a>
+                <a href="controller/LevelController.php?level=5" class="list-group-item bg-dark list text-danger">level
+                    5</a>
+            </div>
+        </div>
+        <?php session_start(); ?>
+        <div class="col-9 bg-secondary">
+            <div class="row pr-3 bg-secondary">
+                <div class="col-8 bg-dark w-100 levels pr-3">
+                        <p><?php echo $_SESSION['challenge_desc']; ?></p>
+                        <br>
+                        <h4>TEST INPUT &nbsp; &nbsp; <span><?php echo $_SESSION['challenge_input']; ?></span></h4>
                 </div>
-                <?php 
-                session_start();
-                $level = $_SESSION['level'];
-    
-                if($level == $_SESSION['level']){  
-                $level = $_SESSION['level']; 
+                <div class="col-4 bg-dark levels px-3 text-center" style="border-left: 2px solid saddlebrown">
+                    <h4>TEST OUTPUT <br><br> <span><?php echo $_SESSION['challenge_output']; ?></span></h4>
+                </div>
+            </div>
 
-                include("model/config.php");
-                $query = "SELECT *  FROM challenge WHERE level =$level"; 
-                $myquery=mysqli_query($db,$query);
-                while($row = mysqli_fetch_assoc($myquery)){
-                    
-                ?>
-                <div class="col-sm-9 mt-3">
-                    <div class="row">
-                        <div class="col-sm-8 bg-dark description">
-                            <div class="row pb-5">
-                                <span class="ml-2 blocks">Description :</span> <span
-                                    class="ml-3 blocks"><?php echo $row['description']; ?></span>
+            <div class="row pr-3">
+                <div class="col-8 compiler p-0">
+                    <!--Compiler-->
+                    <form class="w-100" id="editorForm" action="controller/CodeController.php" method="post">
+                        <div id="code-edit" class="row code-div mx-auto">
+                            <div id="editor-menu">
+                                <select name="language" class="options" id="prolang">
+                                    <option value="java">Java</option>
+                                    <option value="python">Python</option>
+                                    <option value="c">C</option>
+                                    <option value="cpp">Cpp</option>
+                                    <option value="javascript">Javascript</option>
+                                </select>
+                                <select class="options" id="theme">
+                                    <option value="dracula">Dark</option>
+                                    <option value="xcode">Light</option>
+                                </select>
+                                <input type="text" hidden name="code" id="hiddencode">
+                                <button id="screen">
+                                    <img width="25px" id="screen-img" src="./assets/images/save.png">
+                                </button>
+                                <button id="run" type="submit">
+                                    <img width="25px" id="run-img" src="./assets/images/run.png">
+                                </button>
                             </div>
-                            <div class="row" style="border-top: 1px solid grey; margin-top:30px;">
-                                <span class="ml-2 blocks">Test Input :</span> <span
-                                    class="ml-3 blocks"><?php echo $row['input']; ?></span>
-                            </div>
+                            <div id="editor"> </div>
                         </div>
-
-                        <div class="col-sm-4 ">
-                            <div class="bg-dark" style="height: 215px; border-radius: 5px;">
-                                <span class="ml-2 blocks">Expected output:</span> <br>
-                                <span class="ml-4"><?php echo $row['output']; ?></span>
-                            </div>
-                        </div>
-                    </div><?php }   } ?>
-                    <div class="row ">
-                        <div class="col-sm-8 compiler">
-                            <div class="row">
-                                <!--Compiler-->
-                                <form class="w-100" id="editorForm" action="controller/CodeController.php"
-                                    method="post">
-                                    <div id="code-edit" class="row code-div mx-auto">
-                                        <div id="editor-menu">
-                                            <select name="language" class="options" id="prolang">
-                                                <option value="java">Java</option>
-                                                <option value="python">Python</option>
-                                                <option value="c">C</option>
-                                                <option value="cpp">Cpp</option>
-                                                <option value="javascript">Javascript</option>
-                                            </select>
-                                            <select class="options" id="theme">
-                                                <option value="dracula">Dark</option>
-                                                <option value="xcode">Light</option>
-                                            </select>
-                                            <input type="text" hidden name="code" id="hiddencode">
-                                            <button id="screen">
-                                                <img id="screen-img" src="./assets/images/full.png">
-                                            </button>
-                                            <button id="run" type="submit">
-                                                <img id="run-img" src="./assets/images/run2.png">
-                                            </button>
-                                        </div>
-                                        <div id="editor"> </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 ">
-                            <div class="bg-dark compiler" style="height: 46vh;border-radius:5px;">
-                                <span class="ml-2 blocks">output :</span>
-                                <p>
-                                    <?php 
-                                if( isset($_SESSION['outputCode'])) {
-                                    echo $_SESSION['outputCode'];
-                                }
-                                ?>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
+                </div>
+                <div class="col-4 bg-dark levels" style="height:358px; overflow: scroll !important;">
+                    <h4 class="text-center">OUTPUT <br><br> </h4>
+                    <p>
+                    <?php 
+                    if( isset($_SESSION['outputCode'])) {
+                        echo $_SESSION['outputCode'];
+                    }
+                    ?>
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="header text-center text-white justify-content-center">
-        <p>Powered By</p>
-        <h5 style="line-height: 2px;">NextGenCoder</h5>
-    </div>
+        <div class="bg-secondary w-100 p-2"></div>
+        <div class="col-sm-12 mb-2 p-3 text-center bg-dark text-white justify-content-center">
+            <p>Powered By</p>
+            <h5 style="line-height: 2px;">NextGenCoder</h5>
+        </div>
     </div>
 </body>
 <script src="assets/scripts/compiler.js"></script>
