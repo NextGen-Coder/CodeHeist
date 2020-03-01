@@ -59,9 +59,6 @@
         position: relative;
         right: 250px;
     }
-
-    
-    
 </style>
 
 <body style="background: #413e3e">
@@ -79,7 +76,6 @@
         </div>
         <img src="./assets/images/naac_logo.png" width="130px" class="img2" alt="">
     </nav>
-
     <div class="formdiv container ">
         <div class="row justify-content-center mt-5" >
             <h1 class="text-white fontfam">CODE-RELAY</h1>
@@ -101,11 +97,9 @@
         </form>
     </div>
     </div>
-
     <div class="header text-center text-white justify-content-center">
         <p>Powered By</p>
         <h4>NextGenCoder</h4>
     </div>
 </body>
-
 </html>

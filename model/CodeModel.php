@@ -48,47 +48,45 @@
         public function saveCode( $user, $challenge, $code, $language) {
             include("config.php");
 
-            $code_check_query = "SELECT * FROM code WHERE user_id='$user' and challenge_id='$challenge' LIMIT 1";
+            $code_check_query = "SELECT * FROM code WHERE user_id='$user' and challenge_id='$challenge'";
             $result = mysqli_query($db, $code_check_query);
 
-            if(!$result) {
+            if(!mysqli_num_rows($result)>0) {
                 // prepare and bind
                 $stmt = $db->prepare("INSERT INTO code (user_id, challenge_id, language, program) VALUES (?, ?, ?, ?)");
                 $stmt->bind_param("ssss", $user, $challenge, $language, $code);
 
                 $stmt->execute();
+                echo "<script>window.alert('Code Saved Successfully'); window.location='../challenges.php';</script>";
             } else {
                 $sql = "UPDATE code SET program='$code' and language='$language' WHERE user_id='$user' and challenge_id='$challenge'";
 
-                if (mysqli_query($conn, $sql)) {
-                    echo "Record updated successfully";
+                if (mysqli_query($db, $sql)) {
+                    echo "<script>window.alert('Code Saved Successfully'); window.location='../challenges.php';</script>";
                 } else {
-                    echo "Error updating record: " . mysqli_error($conn);
+                    echo "<script>window.alert('Error updating record: " . mysqli_error($db)."');</script>";
                 }
-
-                $_SESSION['login_mail'] = $mail;
-                echo "<script>window.alert('Saved Successfull');</script>";
             }
 
 
-            $code = mysqli_fetch_assoc($result);
+            // $code = mysqli_fetch_assoc($result);
             
-            $userid = $user['uid'];
+            // $userid = $user['uid'];
             
-            // prepare and bind
-            $stmt = $db->prepare("INSERT INTO codes (uid, language, code) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $userid, $language, $code);
+            // // prepare and bind
+            // $stmt = $db->prepare("INSERT INTO codes (uid, language, code) VALUES (?, ?, ?)");
+            // $stmt->bind_param("sss", $userid, $language, $code);
             
-            $stmt->execute();
+            // $stmt->execute();
             
-            if(!$result) {
-                echo "Error:".mysqli_error($db);
-                exit();
-            } else {
-                $_SESSION['login_mail'] = $mail;
-                echo "<script>window.alert('Saved Successfull');</script>";
-            }
-                echo "<script> window.location='../challenges.php';</script>";
+            // if(!$result) {
+            //     echo "Error:".mysqli_error($db);
+            //     exit();
+            // } else {
+            //     $_SESSION['login_mail'] = $mail;
+            //     echo "<script>window.alert('Saved Successfull');</script>";
+            // }
+            //     echo "<script> window.location='../challenges.php';</script>";
         }
     }
 

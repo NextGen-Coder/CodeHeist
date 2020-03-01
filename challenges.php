@@ -16,6 +16,7 @@
     body {
         box-sizing: border-box !important
     }
+
     .header {
         padding: 20px;
         font-size: 20px;
@@ -59,6 +60,13 @@
 </style>
 
 <body class="text-white w-100">
+    <?php 
+        session_start();
+        if( $_SESSION['login_user']) {
+        } else {
+            echo "<script>window.location='login.php';</script>";
+        }
+    ?>
     <div class="p-0 w-100 row">
         <h3 class="bg-dark m-0 py-3">CODE-RELAY</h3>
     </div>
@@ -78,13 +86,12 @@
                     5</a>
             </div>
         </div>
-        <?php session_start(); ?>
         <div class="col-9 bg-secondary">
             <div class="row pr-3 bg-secondary">
                 <div class="col-8 bg-dark w-100 levels pr-3">
-                        <p><?php echo $_SESSION['challenge_desc']; ?></p>
-                        <br>
-                        <h4>TEST INPUT &nbsp; &nbsp; <span><?php echo $_SESSION['challenge_input']; ?></span></h4>
+                    <p><?php echo $_SESSION['challenge_desc']; ?></p>
+                    <br>
+                    <h4>TEST INPUT &nbsp; &nbsp; <span><?php echo $_SESSION['challenge_input']; ?></span></h4>
                 </div>
                 <div class="col-4 bg-dark levels px-3 text-center" style="border-left: 2px solid saddlebrown">
                     <h4>TEST OUTPUT <br><br> <span><?php echo $_SESSION['challenge_output']; ?></span></h4>
@@ -123,7 +130,7 @@
                 <div class="col-4 bg-dark levels" style="height:358px; overflow: scroll !important;">
                     <h4 class="text-center">OUTPUT <br><br> </h4>
                     <p>
-                    <?php 
+                        <?php 
                     if( isset($_SESSION['outputCode'])) {
                         echo $_SESSION['outputCode'];
                     }

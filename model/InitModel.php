@@ -20,6 +20,7 @@
             } else {
                 $_SESSION['level'] = $level;  
                 $row = mysqli_fetch_assoc($result);
+                $_SESSION['challenge_id'] = $row['challenge_id'];
                 $_SESSION['challenge_desc'] = $row['description'];
                 $_SESSION['challenge_points'] = $row['points'];
                 $_SESSION['challenge_test_out_1'] = $row['test_out_1'];
