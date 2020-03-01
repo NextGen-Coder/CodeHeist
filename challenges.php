@@ -14,7 +14,7 @@
 </head>
 <style>
     body {
-        box-sizing: border-box !important
+        box-sizing: border-box !important;
     }
 
     .header {
