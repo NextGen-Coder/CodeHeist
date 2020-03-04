@@ -42,20 +42,22 @@
         font-family: 'old english';
     }
 
-    .formbtn{
+    .formbtn {
         border-radius: 30px;
         color: white;
         background: #fc0a0a;
     }
-    .height{
+
+    .height {
         height: 90vh;
     }
 
-    .img1{
+    .img1 {
         position: relative;
         left: 250px;
     }
-    .img2{
+
+    .img2 {
         position: relative;
         right: 250px;
     }
@@ -63,43 +65,54 @@
 
 <body style="background: #413e3e">
     <div class="height">
-    <nav class="nb navbar navbar-expand-md">
-        <img src="./assets/images/clg_logo.png" width="120px" class="img1" alt="">
-        <div class="text-center mx-auto">
-            <ul class="navbar-nav">
-                <div class="header text-white">
-                    <p>Lokmanya Tilak Jankalyan Shikshan Sanstha</p>
-                    <h2>Priyadarshini J.L. College of Engineering</h2>
-                    <p>Department of Computer Science and Engineering</p>
-                </div>
-            </ul>
-        </div>
-        <img src="./assets/images/naac_logo.png" width="130px" class="img2" alt="">
-    </nav>
-    <div class="formdiv container ">
-        <div class="row justify-content-center mt-5" >
-            <h1 class="text-white fontfam">CODE-RELAY</h1>
-        </div>
-        <form action="./controller/LoginController.php" method="POST">
-            <div class="form-group text-white my-4">
-                <label for="id">Login Id:</label>
-                <input name="user" type="text" style="background: #413e3e" class="inputborder form-control text-white" id="id"
-                    placeholder="Enter login id">
+        <nav class="nb navbar navbar-expand-md">
+            <img src="./assets/images/clg_logo.png" width="120px" class="img1" alt="">
+            <div class="text-center mx-auto">
+                <ul class="navbar-nav">
+                    <div class="header text-white">
+                        <p>Lokmanya Tilak Jankalyan Shikshan Sanstha</p>
+                        <h2>Priyadarshini J.L. College of Engineering</h2>
+                        <p>Department of Computer Science and Engineering</p>
+                    </div>
+                </ul>
             </div>
-            <div class="form-group text-white">
-                <label for="pwd">Password:</label>
-                <input name="pass" type="password" style="background: #413e3e" class="inputborder form-control text-white" id="password"
-                    placeholder="Enter password">
-            </div>
+            <img src="./assets/images/naac_logo.png" width="130px" class="img2" alt="">
+        </nav>
+        <div class="formdiv container ">
             <div class="row justify-content-center mt-5">
-                <button type="submit" class="btn p-2 px-5 formbtn">Login</button>
+                <h1 class="text-white fontfam">CODE-RELAY</h1>
             </div>
-        </form>
-    </div>
+            <form action="./controller/LoginController.php" method="POST">
+                <div class="form-group text-white my-4">
+                    <label for="id">Login Id:</label>
+                    <input name="user" type="text" style="background: #413e3e"
+                        class="inputborder form-control text-white" id="id" placeholder="Enter login id">
+                </div>
+                <div class="form-group text-white">
+                    <label for="pwd">Password:</label>
+                    <input name="pass" type="password" style="background: #413e3e"
+                        class="inputborder form-control text-white" id="password" placeholder="Enter password">
+                </div>
+                <div class="form-group text-white">
+                    <label for="prolang">Select Language:</label>
+                    <select name="language" class="options" id="prolang">
+                        <option value="java">Java</option>
+                        <option value="python">Python</option>
+                        <option value="c">C</option>
+                        <option value="cpp">Cpp</option>
+                        <option value="javascript">Javascript</option>
+                    </select>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <button type="submit" class="btn p-2 px-5 formbtn">Login</button>
+                </div>
+            </form>
+        </div>
     </div>
     <div class="header text-center text-white justify-content-center">
         <p>Powered By</p>
         <h4>NextGenCoder</h4>
     </div>
 </body>
+
 </html>

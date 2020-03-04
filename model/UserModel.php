@@ -1,6 +1,6 @@
 <?php 
     class UserDBModel {
-        public function authenticate( $userId, $password1) {
+        public function authenticate( $userId, $password1, $language) {
             include("config.php");
             session_start();
 
@@ -12,6 +12,7 @@
             mysqli_close($db);
 
             if($count == 1) {
+                $_SESSION['user_lang'] = $language;
                 $_SESSION['login_user'] = $userId;
                 echo "<script>window.alert('Login Successfull'); window.location='../start.php';</script>";
             } else {
