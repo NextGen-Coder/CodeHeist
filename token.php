@@ -25,7 +25,9 @@
 
     .formdiv {
         width: 30%;
-        padding: 40px;
+        padding: 0px 40px 40px 40px;
+        position: relative;
+        top:-50px;
     }
 
     .inputborder {
@@ -55,8 +57,8 @@
         background: ;
     }
 
-    .height{
-        height: 100vh;
+    .container1{
+        height: 130vh;
     }
 
     .img1{
@@ -68,12 +70,16 @@
         right: 250px;
     }
 
+    .coderelay{
+        position:relative;
+    }
+
     
     
 </style>
 
 <body style="background: #413e3e">
-    <div class="height">
+<div class="container1">
     <nav class="nb navbar navbar-expand-md">
         <img src="./assets/images/clg_logo.png" width="120px" class="img1" alt="">
         <div class="text-center mx-auto">
@@ -87,8 +93,12 @@
         </div>
         <img src="./assets/images/naac_logo.png" width="130px" class="img2" alt="">
     </nav>
+    
+    <div class="p-0 m-0 w-100 row coderelay">
+        <img src="./assets/images/code relay.png" height="150px" width="500px" alt="" class="mx-auto">
+    </div>
 
-    <div class="formdiv container ">
+    <div class="formdiv container height">
         <div class="row justify-content-center mt-5" >
             <h3 class="text-white fontfam">Token Generation</h3>
         </div>
@@ -122,10 +132,11 @@
         </form>
     </div>
     </div>
-<br><br><br><br><br><br>
+<br>
     <div class="header text-center text-white justify-content-center">
         <p>Powered By</p>
         <h4>NextGenCoder</h4>
+    </div>
     </div>
 </body>
 
