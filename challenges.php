@@ -13,10 +13,20 @@
     <script src="./assets/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <style>
+
+*{
+    padding:0;
+    margin:0;
+
+}
     body {
-        box-sizing: border-box !important
+        box-sizing: border-box !important;
+        font-family:"helvetica";
     }
 
+.code{
+    font-family:octapost NBP;
+}
     .header {
         padding: 20px;
         font-size: 20px;
@@ -35,6 +45,10 @@
 
     .levels-a {
         height: 80vh;
+    }
+
+    .input{
+        border-radius:50%;
     }
 
     .l1 {
@@ -57,7 +71,12 @@
     .desc1 {
         padding-bottom: 150px;
     }
-</style>
+
+    .row{
+        margin-right:0 !important;
+        padding-top:0 !important;
+    }
+</style> 
 
 <body class="text-white w-100">
     <?php 
@@ -67,27 +86,27 @@
             echo "<script>window.location='login.php';</script>";
         }
     ?>
-    <div class="p-0 w-100 row">
-        <h3 class="bg-dark m-0 py-3">CODE-RELAY</h3>
+    <div class="p-0 m-0 w-100 row bg-secondary">
+        <img src="./assets/images/code relay.png" height="auto" width="250px" alt="" class="mx-auto">
     </div>
     <div class="row bg-dark">
         <div class="col-3 bg-secondary">
             <div class="list-group levels-a levels bg-dark text-center">
-                <h3 class="text-white text-center pb-5 pt-4">LEVELS</h3>
-                <a href="controller/LevelController.php?level=1" class="list-group-item bg-dark list text-danger">level
+                <h3 class="text-white text-center pb-5 pt-4 code">PROGRAMS</h3>
+                <a href="controller/LevelController.php?level=1" class="list-group-item bg-dark list text-danger">CODE
                     1</a>
-                <a href="controller/LevelController.php?level=2" class="list-group-item bg-dark list text-danger">level
+                <a href="controller/LevelController.php?level=2" class="list-group-item bg-dark list text-danger">CODE
                     2</a>
-                <a href="controller/LevelController.php?level=3" class="list-group-item bg-dark list text-danger">level
+                <a href="controller/LevelController.php?level=3" class="list-group-item bg-dark list text-danger">CODE
                     3</a>
-                <a href="controller/LevelController.php?level=4" class="list-group-item bg-dark list text-danger">level
+                <a href="controller/LevelController.php?level=4" class="list-group-item bg-dark list text-danger">CODE
                     4</a>
-                <a href="controller/LevelController.php?level=5" class="list-group-item bg-dark list text-danger">level
+                <a href="controller/LevelController.php?level=5" class="list-group-item bg-dark list text-danger">CODE
                     5</a>
             </div>
         </div>
         <div class="col-9 bg-secondary">
-            <div class="row pr-3 bg-secondary">
+            <div class="row pr-3 bg-secondary input">
                 <div class="col-8 bg-dark w-100 levels pr-3">
                     <p><?php echo $_SESSION['challenge_desc']; ?></p>
                     <br>
@@ -140,7 +159,7 @@
             </div>
         </div>
         <div class="bg-secondary w-100 p-2"></div>
-        <div class="col-sm-12 mb-2 p-3 text-center bg-dark text-white justify-content-center">
+        <div class="col-sm-12 mb-2 p-3 text-center bg-secondary text-white justify-content-center">
             <p>Powered By</p>
             <h5 style="line-height: 2px;">NextGenCoder</h5>
         </div>
