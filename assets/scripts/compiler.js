@@ -15,12 +15,6 @@ editor.setOptions({
 
 //default values for editor
 editor.setTheme("../ace/theme/dracula");
-editor.session.setMode("ace/mode/"+proLanguageSelect.value);
-editor.setValue(`public class MainClass {
-    public static void main(String[] Args) {
-        System.out.println("Hello World");
-    }
-}`);
 
 // language changer for editor
 if(proLanguageSelect.value=='c'||proLanguageSelect.value=='cpp') {
