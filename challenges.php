@@ -123,21 +123,15 @@
                     <form class="w-100" id="editorForm" action="controller/CodeController.php" method="post">
                         <div id="code-edit" class="row code-div mx-auto">
                             <div id="editor-menu">
-                                <select name="language" class="options" id="prolang">
+                                <input type="hidden" id="language" name="language" value="<?php echo $_SESSION["user_lang"] ?>" />
+                                <!-- <select name="language" class="options" id="prolang">
                                     <option value="java">Java</option>
                                     <option value="python">Python</option>
                                     <option value="c">C</option>
                                     <option value="cpp">Cpp</option>
                                     <option value="javascript">Javascript</option>
-                                </select>
-                                <select class="options" id="theme">
-                                    <option value="dracula">Dark</option>
-                                    <option value="xcode">Light</option>
-                                </select>
+                                </select> -->
                                 <input type="text" hidden name="code" id="hiddencode">
-                                <button id="screen">
-                                    <img width="25px" id="screen-img" src="./assets/images/save.png">
-                                </button>
                                 <button id="run" type="submit">
                                     <img width="25px" id="run-img" src="./assets/images/run.png">
                                 </button>
