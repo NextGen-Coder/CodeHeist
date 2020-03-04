@@ -19,23 +19,35 @@
     line-height: 0px;
 }
 .formdiv {
-    width: 30%;
-    border: 2px solid red;
+    width: 27%;
+    border: 7px solid red;
     padding: 40px;
+    height: 28em;
 }
 
 .borderbtn {
-    padding: 55px 40px;
+    padding: 45px 30px;
     border-radius: 100px;
-    border: 5px solid red;
+    border: 11px solid red;
     font-size: 30px;
 }
 .borderbtn:hover {
-    border: 5px solid springgreen;
+    border: 11px solid springgreen;
 }
 .fontfam {
     font-family: 'old english';
 }
+
+.img1{
+        position: relative;
+        left: 250px;
+    }
+    .img2{
+        position: relative;
+        right: 250px;
+    }
+
+
 </style>
 <body class="bg-dark">
     <?php 
@@ -46,10 +58,10 @@
         }
     ?>
 
-    <nav class="nb navbar navbar-expand-md bg-dark">
-        <img class="navbar-brand text-white" href="#">
+<nav class="nb navbar navbar-expand-md">
+        <img src="./assets/images/clg_logo.png" width="120px" class="img1" alt="">
         <div class="text-center mx-auto">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav">
                 <div class="header text-white">
                     <p>Lokmanya Tilak Jankalyan Shikshan Sanstha</p>
                     <h2>Priyadarshini J.L. College of Engineering</h2>
@@ -57,17 +69,15 @@
                 </div>
             </ul>
         </div>
-        <div class="text-white">
-            <img class="navbar-brand text-white" href="#">
-        </div>
+        <img src="./assets/images/naac_logo.png" width="130px" class="img2" alt="">
     </nav>
     <div class="formdiv container ">
         <div class="row justify-content-center mb-1 mt-3">
             <h1 class="text-white fontfam">CODE-RELAY</h1>
         </div>
         <form action="./controller/LevelController.php" method="post">
-            <div class="row justify-content-center mt-3 mb-5">
-                <button type="submit" class="btn btn-dark borderbtn">START</button>
+            <div class="row justify-content-center mt-5 mb-5">
+                <button type="submit" class="btn btn-dark borderbtn ">START</button>
             </div>
         </form>
     </div>
