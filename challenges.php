@@ -132,8 +132,8 @@
                                     <option value="javascript">Javascript</option>
                                 </select> -->
                                 <input type="text" hidden name="code" id="hiddencode">
-                                <button id="run" type="submit">
-                                    <img width="25px" id="run-img" src="./assets/images/run.png">
+                                <button id="run" type="submit" class="btn text-white bg-success w-25"> RUN
+                                    <!-- <img width="25px" id="run-img" src="./assets/images/run.png"> -->
                                 </button>
                             </div>
                             <div id="editor"> </div>

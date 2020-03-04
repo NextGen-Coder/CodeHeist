@@ -7,7 +7,7 @@
         $challenge = $_SESSION['challenge_id'];
         $user = $_SESSION['login_user'];
         $code = $_POST['code'];
-        $language = $_POST['language'];
+        $language = $_SESSION['user_lang'];
         $entity->saveCode( $user, $challenge, $code, $language);
     } 
 ?>

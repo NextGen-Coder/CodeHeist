@@ -55,17 +55,3 @@ form.addEventListener("submit", () => {
     var code1 = editor.getValue();
     hiddenCode.value = code1;
 });
-
-screenBtn.addEventListener('click', () => {
-    codeDiv.style.left = '0px !important';
-    codeDiv.style.width = '100vh'; 
-    if (codeDiv.requestFullscreen) {
-        codeDiv.requestFullscreen();
-      } else if (codeDiv.mozRequestFullScreen) { /* Firefox */
-        codeDiv.mozRequestFullScreen();
-      } else if (codeDiv.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-        codeDiv.webkitRequestFullscreen();
-      } else if (codeDiv.msRequestFullscreen) { /* IE/Edge */
-        codeDiv.msRequestFullscreen();
-      }
-});
