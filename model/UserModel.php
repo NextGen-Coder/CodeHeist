@@ -9,16 +9,27 @@
             
             // Number of rows fetched
             $count = mysqli_num_rows($result);
-            mysqli_close($db);
 
             if($count == 1) {
                 $_SESSION['user_lang'] = $language;
                 $_SESSION['login_user'] = $userId;
-                echo "<script>window.alert('Login Successfull'); window.location='../start.php';</script>";
+
+                echo "<script>window.alert('$userId');</script>";
+
+                $sql = "UPDATE user SET languageUsed='$language' WHERE user_id=$userId";
+                if (mysqli_query($db, $sql)) {
+                    echo "<script>window.alert('Login Successfull'); window.location='../start.php';</script>";
+                    mysqli_close($db);
+                } else {
+                    echo "<script>window.alert('Error updating record: " . mysqli_error($db)."');</script>";
+                }
             } else {
                 $error = "Your Login Id or Password is invalid";
                 echo "<script>window.alert('$error'); window.location='../login.php';</script>";
+                mysqli_close($db);
             }
+
+
         }
     }
 

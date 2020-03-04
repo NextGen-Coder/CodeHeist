@@ -95,7 +95,7 @@
                 </div>
                 <div class="form-group text-white">
                     <label for="prolang">Select Language:</label>
-                    <select name="language" class="options" id="prolang">
+                    <select name="languageUsed" class="options" id="prolang">
                         <option value="java">Java</option>
                         <option value="python">Python</option>
                         <option value="c">C</option>
