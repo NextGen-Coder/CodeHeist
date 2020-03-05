@@ -21,9 +21,6 @@
 .header > p {
     line-height: 0px;
 }
-.formdiv {
-    
-}
 
 .borderbtn {
     padding: 110px 15px;
@@ -75,7 +72,7 @@
         <div class="row justify-content-center mb-1 mt-3">
             <h1 class="text-white fontfam">CODE-RELAY</h1>
         </div>
-        <form action="./controller/LevelController.php" method="post">
+        <form action="./controller/CalculateController.php" method="get">
             <div class="row justify-content-center mt-5 mb-5">
                 <button type="submit" class="btn btn-dark borderbtn ">GENERATE RESULT</button>
             </div>

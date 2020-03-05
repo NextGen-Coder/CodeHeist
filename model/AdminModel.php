@@ -46,7 +46,6 @@
             include("config.php");
 
             $deleteRecords = "DELETE FROM code_exe";
-
             mysqli_query($db, $deleteRecords);
 
             $allCodes = "SELECT * FROM code";
@@ -58,6 +57,8 @@
             while($row = mysqli_fetch_array($result)){
                 $admin = new AdminDBModel();
                 $response = $admin->codeRun( $row['program'], $row['language']);
+
+                $
 
                 $userID = 1;
                 $codeID = 1;
