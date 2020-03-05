@@ -56,7 +56,7 @@
     ?>
 
 <nav class="nb navbar navbar-expand-md">
-        <img src="./assets/images/clg_logo.png" width="120px" class="img1" alt="">
+        <img src="../assets/images/clg_logo.png" width="120px" class="img1" alt="">
         <div class="text-center mx-auto">
             <ul class="navbar-nav">
                 <div class="header text-white">
@@ -66,7 +66,7 @@
                 </div>
             </ul>
         </div>
-        <img src="./assets/images/naac_logo.png" width="130px" class="img2" alt="">
+        <img src="../assets/images/naac_logo.png" width="130px" class="img2" alt="">
     </nav>
     <div class="formdiv container ">
         <div class="row justify-content-center mb-1 mt-3">
