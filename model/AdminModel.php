@@ -75,8 +75,9 @@
             session_start();
 
             $query = "SELECT * FROM admin WHERE admin_id = '$adminId' and password = '$password1'";
-            $result = mysqli_query($db, $query);
+            
             if(mysqli_query($db, $query)){
+                $_SESSION['login_user'] = $adminId;
                 echo "<script>window.alert('Login Successfull'); window.location='../admin/adminDash.php';</script>";
                 mysqli_close($db);
             }else{
@@ -84,28 +85,9 @@
                 echo "<script>window.alert('$error'); window.location='../admin/adminlogin.php';</script>";
                 mysqli_close($db);
             }
-            
-            // Number of rows fetched
-            // $count = mysqli_num_rows($result);
-
-            // if($count == 1) {
-            //     $_SESSION['login_user'] = $adminId;
-
-            //     if (mysqli_query($db, $sql)) {
-            //         echo "<script>window.alert('Login Successfull'); window.location='../admin/adminDash.php';</script>";
-            //         mysqli_close($db);
-            //     } else {
-            //         echo "<script>window.alert('Error updating record: " . mysqli_error($db)."');</script>";
-            //     }
-            // } else {
-            //     $error = "Your Login Id or Password is invalid";
-            //     echo "<script>window.alert('$error'); window.location='../admin/adminlogin.php';</script>";
-            //     mysqli_close($db);
-            // }
-
+        }
 
         
-        }
     }
 
 ?>
