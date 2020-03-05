@@ -1,6 +1,6 @@
 <?php 
     class CodeDBModel {
-        private function codeRun( $code, $language) {
+        private function codeRun( $code, $language, $inputCase) {
             $language = $language=='python'?'python3':$language;
             $language = $language=='javascript'?'nodejs':$language;
     
@@ -13,6 +13,7 @@
             $postData = array(
                 "script" => $code,
                 "language" => $language,
+                "stdin" => $inputCase,
                 "versionIndex" => "2",
                 "clientId" => "ed3d8b92ac70bc1c3ad2382d334afc1d",
                 "clientSecret" => "ad03c152017d7fccc90dcfd4ac6bd6bde753f53438061dd1cecc46e56b57d85b"
@@ -43,8 +44,10 @@
         public function saveCode( $user, $challenge, $code, $language) {
             include("config.php");
 
+            $_SESSION['code'] = $code;
+
             $runModel = new CodeDBModel();
-            $responseData = $runModel->codeRun( $code, $language);
+            $responseData = $runModel->codeRun( $code, $language, $_SESSION['challenge_input']);
 
             $code_check_query = "SELECT * FROM code WHERE user_id='$user' and challenge_id='$challenge'";
             $result = mysqli_query($db, $code_check_query);
@@ -65,28 +68,8 @@
             }
 
             // Print the date from the response
-            $_SESSION['code'] = $code;
             $_SESSION['outputCode'] = "<h4> ".$responseData['output']."</h4>";
             echo "<script> window.location='../challenges.php';</script>";
-
-            // $code = mysqli_fetch_assoc($result);
-            
-            // $userid = $user['uid'];
-            
-            // // prepare and bind
-            // $stmt = $db->prepare("INSERT INTO codes (uid, language, code) VALUES (?, ?, ?)");
-            // $stmt->bind_param("sss", $userid, $language, $code);
-            
-            // $stmt->execute();
-            
-            // if(!$result) {
-            //     echo "Error:".mysqli_error($db);
-            //     exit();
-            // } else {
-            //     $_SESSION['login_mail'] = $mail;
-            //     echo "<script>window.alert('Saved Successfull');</script>";
-            // }
-            //     echo "<script> window.location='../challenges.php';</script>";
         }
     }
 

@@ -1,7 +1,7 @@
 <?php 
     class AdminDBModel {
 
-        private function codeRun( $code, $language) {
+        private function codeRun( $code, $language, $inputCase) {
             $language = $language=='python'?'python3':$language;
             $language = $language=='javascript'?'nodejs':$language;
     
@@ -15,6 +15,7 @@
                 "script" => $code,
                 "language" => $language,
                 "versionIndex" => "2",
+                "stdin" => $inputCase,
                 "clientId" => "ed3d8b92ac70bc1c3ad2382d334afc1d",
                 "clientSecret" => "ad03c152017d7fccc90dcfd4ac6bd6bde753f53438061dd1cecc46e56b57d85b"
             );
@@ -51,19 +52,28 @@
             $allCodes = "SELECT * FROM code";
             $result = mysqli_query($db, $allCodes);
             
-            $stmt = $db->prepare("INSERT INTO code_exe (user_id, code_id, challenge_id, output) VALUES ( ?, ?, ?, ?)");
-            $stmt->bind_param( "ssss", $userID, $codeID, $challengeID, $outputGiven);
+            $stmt = $db->prepare("INSERT INTO code_exe (user_id, code_id, challenge_id, output, test_case) VALUES ( ?, ?, ?, ?, ?)");
+            $stmt->bind_param( "sssss", $userID, $codeID, $challengeID, $outputGiven, $testCase);
             
             while($row = mysqli_fetch_array($result)){
                 $admin = new AdminDBModel();
-                $response = $admin->codeRun( $row['program'], $row['language']);
 
-                $
+                $allChallenges = "SELECT * FROM challenge where challenge_id='".$row['challenge_id']."'";
+                $resultChallenges = mysqli_query( $db, $allChallenges);
 
-                $userID = 1;
-                $codeID = 1;
+                $challengeRow = mysqli_fetch_array($resultChallenges);
+                $inputCase = $challengeRow['test_in_1'];
+
+                echo "<script> window.alert('".$inputCase."'); </script>";
+
+                $response = $admin->codeRun( $row['program'], $row['language'], $inputCase);
+                echo "<script> window.alert('".$response["output"]."'); </script>";
+
+                $userID = $row['user_id'];
+                $codeID = $row['code_id'];
                 $challengeID = 1;
                 $outputGiven = $response['output'];
+                $testCase = 1;
 
                 if(!$stmt->execute()){
                     trigger_error("there was an error....".$db->error, E_USER_WARNING);

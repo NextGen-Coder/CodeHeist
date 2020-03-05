@@ -77,15 +77,15 @@
         padding-top:0 !important;
     }
 </style> 
-
-<body class="text-white w-100">
-    <?php 
+<?php 
         session_start();
         if( $_SESSION['login_user']) {
         } else {
             echo "<script>window.location='login.php';</script>";
         }
     ?>
+<body class="text-white w-100">
+   
     <div class="p-0 m-0 w-100 row bg-secondary">
         <img src="./assets/images/code relay.png" height="auto" width="250px" alt="" class="mx-auto">
     </div>
@@ -159,6 +159,13 @@
         </div>
     </div>
 </body>
+<script src="assets/src-noconflict/ext-language_tools.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.6.8/beautify.js"></script>
 <script src="assets/scripts/compiler.js"></script>
+<script>
+    editor.setValue(  `<?php echo $_SESSION["code"] ?>`);
+</script>
 
 </html>
