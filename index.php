@@ -7,8 +7,6 @@
     <title>Document</title>
     <script src="assets/bootstrap/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="login.css">
 </head>
@@ -98,10 +96,10 @@
     </div>
 <div class="button1">
     <div class="row justify-content-center">    
-     <button class="btn button ">Log In As Admin</button>
+     <a href="./admin/adminlogin.php"><button class="btn button ">Log In As Admin</button></a>
     </div><br>
     <div class="row mx-auto justify-content-center">
-     <button class="btn button ">Log In As User</button>
+     <a href="./login.php"><button class="btn button ">Log In As User</button></a>
     </div>
 </div>
     <div class="header text-center text-white justify-content-center footerr">

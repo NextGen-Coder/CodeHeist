@@ -7,8 +7,6 @@
     <title>Document</title>
     <script src="assets/bootstrap/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="login.css">
 </head>
@@ -54,7 +52,7 @@
         border-radius: 18px;
         color: white;
         padding: 6px 90px;
-        background: ;
+
     }
 
     .container1{
@@ -127,7 +125,7 @@
                 <button type="submit" class="btn p-2 px-5 formbtn">Register</button>
             </div>
             <div class="row justify-content-center mt-3">
-                <button type="submit" class="btn formbtn1 btn-info">Result Section</button>
+                <a type="submit" class="btn formbtn1 btn-info">Result Section</a>
             </div>
         </form>
     </div>
