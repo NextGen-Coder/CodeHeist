@@ -31,6 +31,21 @@
 
 
         }
+        public function registerUser( $user, $college, $mobile, $mail, $pass){
+            include("config.php");
+            session_start();
+                $query = "INSERT INTO user (user_name, user_college, user_phone, user_mail, user_pass) 
+                          VALUES('$user', '$college', '$mobile', '$mail', '$pass')";
+                $result = mysqli_query($db, $query);
+                if(!$result) {
+                    echo "Error:".mysqli_error($db);
+                    exit();
+                } else {
+                    echo "<script>window.alert('Register Successfull'); window.location='../admin/adminDash.php';</script>";
+                }
+               
+            
+        }
     }
 
 ?>

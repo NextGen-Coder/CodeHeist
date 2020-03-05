@@ -20,7 +20,6 @@
 }
 .formdiv {
     width: 27%;
-    border: 7px solid red;
     padding: 40px;
     height: 28em;
 }

@@ -62,7 +62,7 @@
                 <td> <?php echo " $rank" ?> </td>
                 <td> <?php echo $row['user_id'] ?> </td>
                 <td> <?php echo $row['user_name'] ?> </td>
-                <td> <?php echo "PJLCE" ?> </td>
+                <td> <?php echo $row['user_college'] ?> </td>
                 <td> <?php echo $row['user_phone'] ?> </td>
                 <td> <?php echo $row['points'] ?> </td>
             </tr>
