@@ -13,20 +13,21 @@
     <script src="./assets/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <style>
-
-*{
-    padding:0;
-    margin:0;
-    box-sizing:border-box;
-}
-    body {
-        box-sizing: border-box !important;
-        font-family:"helvetica";
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
     }
 
-.code{
-    font-family:octapost NBP;
-}
+    body {
+        box-sizing: border-box !important;
+        font-family: "helvetica";
+    }
+
+    .code {
+        font-family: octapost NBP;
+    }
+
     .header {
         padding: 20px;
         font-size: 20px;
@@ -47,8 +48,8 @@
         height: 80vh;
     }
 
-    .input{
-        border-radius:50%;
+    .input {
+        border-radius: 50%;
     }
 
     .l1 {
@@ -72,11 +73,11 @@
         padding-bottom: 150px;
     }
 
-    .row{
-        margin-right:0 !important;
-        padding-top:0 !important;
+    .row {
+        margin-right: 0 !important;
+        padding-top: 0 !important;
     }
-</style> 
+</style>
 <?php 
         session_start();
         if( $_SESSION['login_user']) {
@@ -84,8 +85,9 @@
             echo "<script>window.location='login.php';</script>";
         }
     ?>
+
 <body class="text-white w-100">
-   
+
     <div class="p-0 m-0 w-100 row bg-secondary">
         <img src="./assets/images/code relay.png" height="auto" width="250px" alt="" class="mx-auto">
     </div>
@@ -123,7 +125,8 @@
                     <form class="w-100" id="editorForm" action="controller/CodeController.php" method="post">
                         <div id="code-edit" class="row code-div mx-auto">
                             <div id="editor-menu">
-                                <input type="hidden" id="language" name="language" value="<?php echo $_SESSION["user_lang"] ?>" />
+                                <input type="hidden" id="language" name="language"
+                                    value="<?php echo $_SESSION["user_lang"] ?>" />
                                 <!-- <select name="language" class="options" id="prolang">
                                     <option value="java">Java</option>
                                     <option value="python">Python</option>
@@ -165,6 +168,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.6.8/beautify.js"></script>
 <script src="assets/scripts/compiler.js"></script>
 <script>
-    editor.setValue(  `<?php echo $_SESSION["code"] ?>`);
+    var codeIn = `<?php echo $_SESSION["code"] ?>`;
+    if (!("python"=="<?php echo $_SESSION["user_lang"] ?>")) {
+        var codeOut = codeIn.split('{').join("{\n");
+        codeOut = codeOut.split('}').join("\n}");
+        codeOut = codeOut.split(';').join("\n");
+        editor.setValue(codeOut);
+    } else {
+        var codeOut = codeIn.split('\n').join("\n");
+        codeOut = codeIn.split('\ \ \ \ ').join("\n\t");
+        codeOut = codeIn.split('\t').join("\n\t");
+        editor.setValue(codeOut);
+    }
 </script>
+<script>
+
+</script>
+
 </html>
