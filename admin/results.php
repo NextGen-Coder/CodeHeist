@@ -34,7 +34,7 @@
     <?php
 
     include("../model/config.php");
-    $sql = "SELECT * FROM user ORDER BY points DESC";
+    $sql = "SELECT * FROM user, code";
     
     if($result = mysqli_query($db, $sql)){
         if(mysqli_num_rows($result) > 0){
@@ -45,9 +45,10 @@
     <table class="table text-white bg-secondary" style="border-radius: 8px;">
         <thead>
             <tr class="bg-dark">
-                <th>Rank</th>
+                
                 <th>Id</th>
                 <th>Name</th>
+                <th>Codes</th>
                 <th>College</th>
                 <th>Mobile</th>
                 <th>Points</th>
@@ -56,17 +57,16 @@
         <tbody>
         
             <?php
-             $rank=1;
             while($row = mysqli_fetch_array($result)){ ?>
             <tr>
-                <td> <?php echo " $rank" ?> </td>
                 <td> <?php echo $row['user_id'] ?> </td>
                 <td> <?php echo $row['user_name'] ?> </td>
+                <td> <?php echo $row['program'] ?> </td>
                 <td> <?php echo $row['user_college'] ?> </td>
                 <td> <?php echo $row['user_phone'] ?> </td>
                 <td> <?php echo $row['points'] ?> </td>
             </tr>
-            <?php $rank++; } ?> 
+            <?php  } ?> 
          
             
         </tbody>
