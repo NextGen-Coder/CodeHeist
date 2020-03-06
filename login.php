@@ -61,6 +61,10 @@
         position: relative;
         right: 250px;
     }
+
+    .options{
+        
+    }
 </style>
 
 <body style="background: #413e3e">
@@ -93,9 +97,10 @@
                     <input name="pass" type="password" style="background: #413e3e"
                         class="inputborder form-control text-white" id="password" placeholder="Enter password">
                 </div>
+                
                 <div class="form-group text-white">
                     <label for="prolang">Select Language:</label>
-                    <select name="languageUsed" class="options" id="prolang">
+                    <select name="languageUsed" class="options bg-dark text-white form-control mx-auto" id="prolang">
                         <option value="java">Java</option>
                         <option value="python">Python</option>
                         <option value="c">C</option>
@@ -103,6 +108,8 @@
                         <option value="javascript">Javascript</option>
                     </select>
                 </div>
+
+                
                 <div class="row justify-content-center mt-5">
                     <button type="submit" class="btn p-2 px-5 formbtn">Login</button>
                 </div>
