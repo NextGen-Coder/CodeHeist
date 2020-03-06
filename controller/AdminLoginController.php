@@ -5,6 +5,6 @@
         $entity = new AdminDBModel();
         $adminId = $_POST['admin'];
         $password1 = $_POST['pass'];
-        $entity->adminAuthenticate( $adminId, $password1,);
+        $entity->adminAuthenticate( $adminId, $password1);
     } 
 ?>
