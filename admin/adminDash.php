@@ -73,11 +73,11 @@
             <h1 class="text-white fontfam">CODE-RELAY</h1>
         </div>
         <!-- /*token generation */ -->
-        <!-- <form action="token.php">
+        <form action="token.php">
         <div class="row justify-content-center ">
                 <button type="submit" class="btn btn-dark ">GENERATE Token</button>
             </div>
-        </form> -->
+        </form>
         <form action="./results.php" method="post">
             <div class="row justify-content-center mt-5 mb-5">
                 <button type="submit" class="btn btn-dark borderbtn ">GENERATE RESULT</button>
