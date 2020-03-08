@@ -34,7 +34,7 @@
     <?php
 
     include("../model/config.php");
-    $sql = "SELECT * FROM user, code";
+    $sql = "SELECT * FROM user ORDER BY points DESC";
     
     if($result = mysqli_query($db, $sql)){
         if(mysqli_num_rows($result) > 0){
@@ -46,9 +46,8 @@
         <thead>
             <tr class="bg-dark">
                 
-                <th>Id</th>
+                <th>Rank</th>
                 <th>Name</th>
-                <th>Codes</th>
                 <th>College</th>
                 <th>Mobile</th>
                 <th>Points</th>
@@ -57,20 +56,23 @@
         <tbody>
         
             <?php
+            $rank = 1;
             while($row = mysqli_fetch_array($result)){ ?>
             <tr>
-                <td> <?php echo $row['user_id'] ?> </td>
+                <td> <?php echo $rank; ?> </td>
                 <td> <?php echo $row['user_name'] ?> </td>
-                <td> <?php echo $row['program'] ?> </td>
                 <td> <?php echo $row['user_college'] ?> </td>
                 <td> <?php echo $row['user_phone'] ?> </td>
                 <td> <?php echo $row['points'] ?> </td>
             </tr>
-            <?php  } ?> 
+            <?php  $rank++; } ?> 
          
             
         </tbody>
     </table> <?php } }?>
+    <div class="row justify-content-center mt-3">
+                <a type="submit" class="btn formbtn1 btn-info" href="./token.php">Register Token</a>
+            </div>
     </div>
     </div>
 

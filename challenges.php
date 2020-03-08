@@ -89,35 +89,44 @@
 <body class="text-white w-100">
 
     <div class="p-0 m-0 w-100 row bg-secondary">
-        <img src="./assets/images/code relay.png" height="auto" width="250px" alt="" class="mx-auto">
+        <img src="./assets/images/code-relay.png" height="auto" width="250px" alt="" class="mx-auto">
     </div>
     <div class="row bg-dark">
         <div class="col-3 bg-secondary">
             <div class="list-group levels-a levels bg-dark text-center">
                 <h3 class="text-white text-center pb-5 pt-4 code">PROGRAMS</h3>
-                <a href="controller/LevelController.php?level=1" class="list-group-item bg-dark list text-danger">CODE
+                <a href="challenges.php?level=1" class="list-group-item bg-dark list text-danger">CODE
                     1</a>
-                <a href="controller/LevelController.php?level=2" class="list-group-item bg-dark list text-danger">CODE
+                <a href="challenges.php?level=2" class="list-group-item bg-dark list text-danger">CODE
                     2</a>
-                <a href="controller/LevelController.php?level=3" class="list-group-item bg-dark list text-danger">CODE
+                <a href="challenges.php?level=3" class="list-group-item bg-dark list text-danger">CODE
                     3</a>
-                <a href="controller/LevelController.php?level=4" class="list-group-item bg-dark list text-danger">CODE
+                <a href="challenges.php?level=4" class="list-group-item bg-dark list text-danger">CODE
                     4</a>
-                <a href="controller/LevelController.php?level=5" class="list-group-item bg-dark list text-danger">CODE
+                <a href="challenges.php?level=5" class="list-group-item bg-dark list text-danger">CODE
                     5</a>
             </div>
         </div>
+        <?php 
+                $level = $_GET['level'];  
+                if($level = $_GET['level']){  
+                  
+                include("./model/config.php");
+                $query = "SELECT * FROM challenge WHERE level =$level"; 
+                $myquery=mysqli_query($db,$query);
+                while($row = mysqli_fetch_assoc($myquery)){ 
+        ?>
         <div class="col-9 bg-secondary">
             <div class="row pr-3 bg-secondary input">
                 <div class="col-8 bg-dark w-100 levels pr-3">
-                    <p><?php echo $_SESSION['challenge_desc']; ?></p>
+                    <p><?php echo $row['description']; ?></p>
                     <br>
-                    <h4>TEST INPUT &nbsp; &nbsp; <span><?php echo $_SESSION['challenge_input']; ?></span></h4>
+                    <h4>TEST INPUT &nbsp; &nbsp; <span><?php echo $row['input']; ?></span></h4>
                 </div>
                 <div class="col-4 bg-dark levels px-3 text-center" style="border-left: 2px solid saddlebrown">
-                    <h4>TEST OUTPUT <br><br> <span><?php echo $_SESSION['challenge_output']; ?></span></h4>
+                    <h4>TEST OUTPUT <br><br> <span><?php echo $row['output']; ?></span></h4>
                 </div>
-            </div>
+                </div><?php } } ?>
 
             <div class="row pr-3">
                 <div class="col-8 compiler p-0">
