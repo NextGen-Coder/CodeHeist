@@ -79,12 +79,12 @@
     }
 </style>
 <?php 
-        session_start();
-        if( $_SESSION['login_user']) {
-        } else {
-            echo "<script>window.location='login.php';</script>";
-        }
-    ?>
+    session_start();
+    if( $_SESSION['login_user']) {
+    } else {
+        echo "<script>window.location='login.php';</script>";
+    }
+?>
 
 <body class="text-white w-100">
 
@@ -172,7 +172,7 @@
     if (!("python"=="<?php echo $_SESSION["user_lang"] ?>")) {
         var codeOut = codeIn.split('{').join("{\n");
         codeOut = codeOut.split('}').join("\n}");
-        codeOut = codeOut.split(';').join("\n");
+        codeOut = codeOut.split(';').join(";\n");
         editor.setValue(codeOut);
     } else {
         var codeOut = codeIn.split('\n').join("\n");

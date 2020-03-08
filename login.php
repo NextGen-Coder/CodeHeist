@@ -105,7 +105,6 @@
                         <option value="python">Python</option>
                         <option value="c">C</option>
                         <option value="cpp">Cpp</option>
-                        <option value="javascript">Javascript</option>
                     </select>
                 </div>
 
