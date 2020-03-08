@@ -14,8 +14,8 @@
             $postData = array(
                 "script" => $code,
                 "language" => $language,
-                "versionIndex" => "2",
-                "stdin" => $inputCase,
+                    "versionIndex" => "2",
+                    "stdin" => $inputCase,
                 "clientId" => "ed3d8b92ac70bc1c3ad2382d334afc1d",
                 "clientSecret" => "ad03c152017d7fccc90dcfd4ac6bd6bde753f53438061dd1cecc46e56b57d85b"
             );
@@ -64,10 +64,7 @@
                 $challengeRow = mysqli_fetch_array($resultChallenges);
                 $inputCase = $challengeRow['test_in_1'];
 
-                echo "<script> window.alert('".$inputCase."'); </script>";
-
                 $response = $admin->codeRun( $row['program'], $row['language'], $inputCase);
-                echo "<script> window.alert('".$response["output"]."'); </script>";
 
                 $userID = $row['user_id'];
                 $codeID = $row['code_id'];
@@ -75,8 +72,11 @@
                 $outputGiven = $response['output'];
                 $testCase = 1;
 
+
                 if(!$stmt->execute()){
                     trigger_error("there was an error....".$db->error, E_USER_WARNING);
+                } else {
+
                 }
             }
    
