@@ -59,8 +59,8 @@
                         <th>Name</th>
                         <th>College</th>
                         <th>Mobile</th>
-                        <th>challenges</th>
-                        <th>codes</th>
+                        <th>Level</th>
+                        <th>Codes</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,69 +70,45 @@
             while($row = mysqli_fetch_array($result)){ 
                 $code_sql = "SELECT * FROM code WHERE user_id=".$row['user_id']."";
                             if($coderesult = mysqli_query($db, $code_sql)){
-                                if(mysqli_num_rows($coderesult) > 0){
-                                    
-                                }
-                
-                ?>
-                    
-                            
-                        ?>
-                            
+                                if(mysqli_num_rows($coderesult) > 0){ ?>
+                    <tr>
+                        <td> <?php echo $row['user_id'] ?> </td>
+                        <td> <?php echo $row['user_name'] ?> </td>
+                        <td> <?php echo $row['user_college'] ?> </td>
+                        <td> <?php echo $row['user_phone'] ?> </td>
+                        <td>
+                        <?php 
+                            $u = $row['user_id'];
+
+                            for( $i=0; $i<10; $i++) {
+                                $code1 = "SELECT * FROM code,user WHERE code.level = $i AND user.user_id= '$u' ";
+                                if($result1 = mysqli_query($db, $code1)){ 
+                                    $row1 = mysqli_fetch_assoc($result1);
+                                    if(mysqli_num_rows($result1)==1) { ?> 
+                                    <button type="button" class="btn btn-info" data-toggle="collapse"
+                                        data-target="#demo<?php echo $row1['level'].$u ?>">Level
+                                        <?php echo $row1['level']."</br>" ?></button>
+
+                                <!-- <td>
+                                    <div id="demo<?php echo $row1['level'].$u ?>" class="collapse">
+                                        <?php echo $row1['program'] ?>
+                                    </div>
+                                </td> -->
+                                
+                                <?php } } } ?>
+                            </td>
+                            <td> 
+                            </td>
+                    </tr>
+                    <?php  } ?>
 
 
 
-
-
-
-
-
-
-                        <td><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">code
-                                1</button>
-                            <div id="demo" class="collapse">
-                                <?php 
-                                $u = $row['user_id'];
-                                $code1 = "SELECT * FROM code,user WHERE code.level = 1 AND user.user_id= '$u' ";
-                                        if($result1 = mysqli_query($db, $code1)){ 
-                                            $row1 = mysqli_fetch_assoc($result1);
-                                            echo $row1['program'];   
-                                         }
-                                ?>
-                            </div>
-                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1">code
-                                2</button>
-                            <div id="demo1" class="collapse">
-                                <?php $code1 = "SELECT * FROM code,user WHERE code.level = 2 AND user.user_id= '$u' ";
-                                        if($result1 = mysqli_query($db, $code1)){ 
-                                            $row1 = mysqli_fetch_assoc($result1);
-                                            echo $row1['program'];   
-                                         }
-                                        ?>
-                            </div>
-
-
-                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2">code
-                                3</button>
-                            <div id="demo2" class="collapse">
-                                <?php $code1 = "SELECT * FROM code WHERE code,user WHERE code.level = 3 AND user.user_id= '$u' ";
-                                        if($result1 = mysqli_query($db, $code1)){ 
-                                            $row1 = mysqli_fetch_assoc($result1);
-                                            echo $row1['program'];   
-                                         }
-                                        ?>
-                            </div>
-                            <!--                                 
-                                <td>code 4</td>
-                                <td>code 5</td> -->
-
-                        </td>
-
-                        <?php }  ?>
+                    <?php }  } }}?>
 
 
                 </tbody>
-            </table> <?php } }?>
+            </table>
             <div class="row justify-content-center mt-3">
                 <a type="submit" class="btn formbtn1 btn-info" href="./token.php">Register Token</a>
             </div>
@@ -142,3 +118,48 @@
 </body>
 
 </html>
+
+
+
+
+
+
+<!-- <td><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">code
+                                1</button>
+                            <div id="demo" class="collapse">
+                                <?php 
+                                // $u = $row['user_id'];
+                                // $code1 = "SELECT * FROM code,user WHERE code.level = 1 AND user.user_id= '$u' ";
+                                //         if($result1 = mysqli_query($db, $code1)){ 
+                                //             $row1 = mysqli_fetch_assoc($result1);
+                                //             echo $row1['program'];   
+                                //          }
+                                ?>
+                            </div>
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1">code
+                                2</button>
+                            <div id="demo1" class="collapse">
+                                <?php 
+                                // $code1 = "SELECT * FROM code,user WHERE code.level = 2 AND user.user_id= '$u' ";
+                                //         if($result1 = mysqli_query($db, $code1)){ 
+                                //             $row1 = mysqli_fetch_assoc($result1);
+                                //             echo $row1['program'];   
+                                //          }
+                                        ?>
+                            </div>
+
+
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2">code
+                                3</button>
+                            <div id="demo2" class="collapse">
+                                <?php
+                                //  $code1 = "SELECT * FROM code WHERE code,user WHERE code.level = 3 AND user.user_id= '$u' ";
+                                //         if($result1 = mysqli_query($db, $code1)){ 
+                                //             $row1 = mysqli_fetch_assoc($result1);
+                                //             echo $row1['program'];   
+                                //          }
+                                        ?>
+                            </div>
+                            
+
+                        </td> -->
