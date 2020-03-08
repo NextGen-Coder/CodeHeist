@@ -86,42 +86,42 @@
     }
 ?>
 
-<body class="text-white w-100">
+<body class="text-white w-100" style="background:#413e3e">
 
-    <div class="p-0 m-0 w-100 row bg-secondary">
+    <div class="p-0 m-0 w-100 row" style="background:#413e3e">
         <img src="./assets/images/code relay.png" height="auto" width="250px" alt="" class="mx-auto">
     </div>
-    <div class="row bg-dark">
-        <div class="col-3 bg-secondary">
-            <div class="list-group levels-a levels bg-dark text-center">
+    <div class="row mx-auto container5">
+        <div class="col-3" style="background:#413e3e">
+            <div class="list-group levels-a levels challenge-color text-center">
                 <h3 class="text-white text-center pb-5 pt-4 code">PROGRAMS</h3>
-                <a href="controller/LevelController.php?level=1" class="list-group-item bg-dark list text-danger">CODE
+                <a href="controller/LevelController.php?level=1" class="list-group-item challenge-color list text-danger">CODE
                     1</a>
-                <a href="controller/LevelController.php?level=2" class="list-group-item bg-dark list text-danger">CODE
+                <a href="controller/LevelController.php?level=2" class="list-group-item challenge-color list text-danger">CODE
                     2</a>
-                <a href="controller/LevelController.php?level=3" class="list-group-item bg-dark list text-danger">CODE
+                <a href="controller/LevelController.php?level=3" class="list-group-item challenge-color list text-danger">CODE
                     3</a>
-                <a href="controller/LevelController.php?level=4" class="list-group-item bg-dark list text-danger">CODE
+                <a href="controller/LevelController.php?level=4" class="list-group-item challenge-color list text-danger">CODE
                     4</a>
-                <a href="controller/LevelController.php?level=5" class="list-group-item bg-dark list text-danger">CODE
+                <a href="controller/LevelController.php?level=5" class="list-group-item challenge-color list text-danger">CODE
                     5</a>
             </div>
         </div>
        
-        <div class="col-9 bg-secondary">
-            <div class="row pr-3 bg-secondary input">
-                <div class="col-8 bg-dark w-100 levels pr-3">
+        <div class="col-9 " style="background:#413e3e">
+            <div class="row pr-3 input mx-auto"style="background:#413e3e">
+                <div class="col-7 mr-2 challenge-color w-100 levels pr-3">
                     <p><?php echo $_SESSION['challenge_desc']; ?></p>
                     <br>
                     <h4>TEST INPUT &nbsp; &nbsp; <span><?php echo $_SESSION['challenge_input']; ?></span></h4>
                 </div>
-                <div class="col-4 bg-dark levels px-3 text-center" style="border-left: 2px solid saddlebrown">
+                <div class="col-4 challenge-color levels px-3 text-center" >
                     <h4>TEST OUTPUT <br><br> <span><?php echo $_SESSION['challenge_output']; ?></span></h4>
                 </div>
             </div>
 
-            <div class="row pr-3">
-                <div class="col-8 compiler p-0">
+            <div class="row pr-3 mx-auto">
+                <div class="col-7 mr-2 compiler p-0 ">
                     <!--Compiler-->
                     <form class="w-100" id="editorForm" action="controller/CodeController.php" method="post">
                         <div id="code-edit" class="row code-div mx-auto">
@@ -144,7 +144,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-4 bg-dark levels" style="height:358px; overflow: scroll !important;">
+                <div class="col-4 challenge-color levels" style="height:358px; overflow: scroll !important;">
                     <h4 class="text-center">OUTPUT <br><br> </h4>
                     <p>
                         <?php 
@@ -156,8 +156,8 @@
                 </div>
             </div>
         </div>
-        <div class="bg-secondary w-100 p-2"></div>
-        <div class="col-sm-12 mb-2 p-3 text-center bg-secondary text-white justify-content-center">
+        <div class="w-100 p-2" style="background:#413e3e"></div>
+        <div class="col-sm-12 p-3 text-center text-white justify-content-center"style="background:#413e3e">
             <p>Powered By</p>
             <h5 style="line-height: 2px;">NextGenCoder</h5>
         </div>

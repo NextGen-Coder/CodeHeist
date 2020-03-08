@@ -1,3 +1,13 @@
+
+.challenge-color{
+    background: rgb(40, 45, 56) !important ;
+}
+
+.container5{
+    position: relative;
+    left: 40px;
+}
+
 .left-div {
     padding: 0px 20px;
 }
@@ -81,9 +91,8 @@
     height: 300px;
     box-sizing: border-box;
     border: 1px solid #DDD;
-    border-right: 0px solid #DDD;
-    border-top: none;
-    border-radius: 0px 0px 0px 10px;
+    border-top: none !important;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .ace_gutter {
@@ -100,9 +109,9 @@
     width: 100%;
     box-sizing: border-box;
     background-color: rgb(40, 45, 56);
-    border: 1px solid #DDD;
-    border-radius: 10px 0px 0px 0px;
-    border-bottom: none;
+    border: 1px solid #DDD !important;
+    border-radius: 10px 10px 0 0;
+    border-bottom: none !important;
 }
 #editor-menu select {
     background-color: rgb(16, 31, 63);
