@@ -41,7 +41,7 @@
         }
 
 
-        public function saveCode( $user, $challenge, $code, $language) {
+        public function saveCode( $user, $code, $language, $level) {
             include("config.php");
 
             $_SESSION['code'] = $code;
@@ -49,17 +49,17 @@
             $runModel = new CodeDBModel();
             $responseData = $runModel->codeRun( $code, $language, $_SESSION['challenge_input']);
 
-            $code_check_query = "SELECT * FROM code WHERE user_id='$user' and challenge_id='$challenge'";
+            $code_check_query = "SELECT * FROM code WHERE user_id='$user' and level='$level'";
             $result = mysqli_query($db, $code_check_query);
 
-            if(!mysqli_num_rows($result)>0) {
+            if(mysqli_num_rows($result)==0) {
                 // prepare and bind
-                $stmt = $db->prepare("INSERT INTO code (user_id, challenge_id, language, program) VALUES (?, ?, ?, ?)");
-                $stmt->bind_param("ssss", $user, $challenge, $_SESSION["user_lang"], $code);
-
+                $stmt = $db->prepare("INSERT INTO code (user_id, language, program, level) VALUES ( ?, ?, ?, ?)");
+                $stmt->bind_param("ssss", $user, $language, $code, $level);
                 $stmt->execute();
+                
             } else {
-                $sql = "UPDATE code SET program='$code' WHERE user_id='$user' and challenge_id='$challenge'";
+                $sql = "UPDATE code SET program='$code' WHERE user_id='$user' and level='$level'";
 
                 if (mysqli_query($db, $sql)) {
                 } else {
@@ -69,7 +69,7 @@
 
             // Print the date from the response
             $_SESSION['outputCode'] = "<h4> ".$responseData['output']."</h4>";
-            echo "<script> window.location='../challenges.php';</script>";
+            // echo "<script> window.location='../challenges.php';</script>";
         }
     }
 

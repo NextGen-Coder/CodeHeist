@@ -5,10 +5,10 @@
             session_start();
         
             $query = "SELECT * FROM challenge WHERE level ='$level'";
-
             $result = mysqli_query($db,$query);
 
             if (!$result) {
+                $_SESSION['level'] = ''; 
                 $_SESSION['challenge_desc'] = '';
                 $_SESSION['challenge_points'] = '';
                 $_SESSION['challenge_test_out_1'] = '';
