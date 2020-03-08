@@ -93,7 +93,7 @@
     </nav>
     
     <div class="p-0 m-0 w-100 row coderelay">
-        <img src="../assets/images/code relay.png" height="150px" width="500px" alt="" class="mx-auto">
+        <img src="../assets/images/code_relay.png" height="150px" width="500px" alt="" class="mx-auto">
     </div>
 
     <div class="formdiv container height">
@@ -130,7 +130,10 @@
                 <button type="submit" class="btn p-2 px-5 formbtn">Register</button>
             </div>
             <div class="row justify-content-center mt-3">
-                <a type="submit" class="btn formbtn1 btn-info">Result Section</a>
+                <a type="submit" class="btn formbtn1 btn-info" href="./results.php">Result Section</a>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <a type="submit" class="btn formbtn1 btn-info" href="./viewcodes.php">Result Section</a>
             </div>
         </form>
     </div>
