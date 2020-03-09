@@ -122,18 +122,12 @@
                  id="mob" placeholder="Mobile">
             </div>
             <div class="form-group text-white">
-                <label for="pwd">Set Password</label>
+                <label for="pwd"> Password</label>
                 <input name="pass" type="text" style="background: #413e3e" class="inputborder form-control text-white" id="pwd"
-                    placeholder="*">
+                    placeholder="Enter password">
             </div>
             <div class="row justify-content-center mt-4">
                 <button type="submit" class="btn p-2 px-5 formbtn">Register</button>
-            </div>
-            <div class="row justify-content-center mt-3">
-                <a type="submit" class="btn formbtn1 btn-info" href="./results.php">Result Section</a>
-            </div>
-            <div class="row justify-content-center mt-3">
-                <a type="submit" class="btn formbtn1 btn-info" href="./viewcodes.php">Result Section</a>
             </div>
         </form>
     </div>

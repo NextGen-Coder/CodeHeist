@@ -78,11 +78,15 @@
                 <button type="submit" class="btn btn-dark ">GENERATE Token</button>
             </div>
         </form>
-        <form action="./results.php" method="post">
+        <!-- <form action="./results.php" method="post">
             <div class="row justify-content-center mt-5 mb-5">
                 <button type="submit" class="btn btn-dark borderbtn ">GENERATE RESULT</button>
             </div>
-        </form>
+        </form> -->
+
+        <div class="row justify-content-center mt-3">
+                <a type="submit" class="btn formbtn1 btn-info" href="./viewcodes.php">View Codes</a>
+            </div>
     </div><?php
 
 include("../model/config.php");

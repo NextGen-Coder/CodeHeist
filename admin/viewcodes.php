@@ -35,7 +35,7 @@
         <img src="../assets/images/naac_logo.png" width="130px" class="img-fluid" alt="">
     </nav>
 
-    <div class="container text-center">
+    <div class="text-center">
 
         <h2>USER CODES</h2>
     </div>
@@ -49,22 +49,21 @@
         if(mysqli_num_rows($result) > 0){
     
     ?>
-    <div class=" container">
+    <div class="">
         <div class="justify-content-center">
-            <table class="table text-white bg-secondary" style="border-radius: 8px;">
+            <table class="table text-white bg-secondary text-center" style="border-radius: 8px;">
                 <thead>
                     <tr class="bg-dark">
 
-                        <th>USER-ID</th>
+                        <th>UserID</th>
                         <th>Name</th>
-                        <th>College</th>
                         <th>Mobile</th>
                         <th>Level</th>
                         <th>Codes</th>
                     </tr>
                 </thead>
                 <tbody>
-
+                <div id="accordion">
                     <?php
             
             while($row = mysqli_fetch_array($result)){ 
@@ -74,7 +73,6 @@
                     <tr>
                         <td> <?php echo $row['user_id'] ?> </td>
                         <td> <?php echo $row['user_name'] ?> </td>
-                        <td> <?php echo $row['user_college'] ?> </td>
                         <td> <?php echo $row['user_phone'] ?> </td>
                         <td>
                         <?php 
@@ -84,20 +82,27 @@
                                 $code1 = "SELECT * FROM code,user WHERE code.level = $i AND user.user_id= '$u' ";
                                 if($result1 = mysqli_query($db, $code1)){ 
                                     $row1 = mysqli_fetch_assoc($result1);
-                                    if(mysqli_num_rows($result1)==1) { ?> 
-                                    <button type="button" class="btn btn-info" data-toggle="collapse"
+                                    if(mysqli_num_rows($result1)>0) { ?> 
+                                    <button type="button" class="btn btn-light mb-2" data-toggle="collapse" 
                                         data-target="#demo<?php echo $row1['level'].$u ?>">Level
-                                        <?php echo $row1['level']."</br>" ?></button>
-
-                                <!-- <td>
-                                    <div id="demo<?php echo $row1['level'].$u ?>" class="collapse">
-                                        <?php echo $row1['program'] ?>
-                                    </div>
-                                </td> -->
-                                
-                                <?php } } } ?>
+                                        <?php echo $row1['level'] ?></button>
+                                <?php echo "<br>";}  } } ?>
                             </td>
                             <td> 
+
+                            <?php 
+                            $u = $row['user_id'];
+
+                            for( $i=0; $i<10; $i++) {
+                                $code1 = "SELECT * FROM code,user WHERE code.level = $i AND user.user_id= '$u' ";
+                                if($result1 = mysqli_query($db, $code1)){ 
+                                    $row1 = mysqli_fetch_assoc($result1);
+                                    if(mysqli_num_rows($result1)>0) { ?> 
+                                    
+                                    <div id="demo<?php echo $row1['level'].$u ?>" class="collapse" data-parent="#accordion">
+                                        <?php echo $row1['program'] ?>
+                                    </div>
+                                <?php } } } ?>
                             </td>
                     </tr>
                     <?php  } ?>
@@ -107,6 +112,7 @@
                     <?php }  } }}?>
 
 
+                    </div>
                 </tbody>
             </table>
             <div class="row justify-content-center mt-3">
