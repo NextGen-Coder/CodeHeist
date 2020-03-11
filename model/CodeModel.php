@@ -69,7 +69,7 @@
 
             // Print the date from the response
             $_SESSION['outputCode'] = "<h4> ".$responseData['output']."</h4>";
-            // echo "<script> window.location='../challenges.php';</script>";
+            echo "<script> window.location='../challenges.php';</script>";
         }
     }
 

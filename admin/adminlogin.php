@@ -49,31 +49,22 @@
         height: 90vh;
     }
 
-    .img1 {
-        position: relative;
-        left: 250px;
-    }
-
-    .img2 {
-        position: relative;
-        right: 250px;
-    }
 </style>
 
 <body style="background: #413e3e">
     <div class="height">
         <nav class="nb navbar navbar-expand-md">
-            <img src="../assets/images/clg_logo.png" width="120px" class="img1" alt="">
             <div class="text-center mx-auto">
                 <ul class="navbar-nav">
+                <img src="../assets/images/clg_logo.png" width="120px" class="img1" alt="">
                     <div class="header text-white">
                         <p>Lokmanya Tilak Jankalyan Shikshan Sanstha</p>
                         <h2>Priyadarshini J.L. College of Engineering</h2>
                         <p>Department of Computer Science and Engineering</p>
                     </div>
+                    <img src="../assets/images/naac_logo.png" width="140px" class="img2" alt="">
                 </ul>
             </div>
-            <img src="../assets/images/naac_logo.png" width="130px" class="img2" alt="">
         </nav>
         <div class="formdiv container ">
             <div class="row justify-content-center mt-5">

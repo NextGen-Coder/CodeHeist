@@ -169,16 +169,23 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.6.8/beautify.js"></script>
 <script src="assets/scripts/compiler.js"></script>
 <script>
+    var a = false;
+    <?php if ($_SESSION["code"]) { ?>
+        a = true;
+    <?php } ?>
+    if( a ) {
     var codeIn = `<?php echo $_SESSION["code"] ?>`;
-    if (!("python"=="<?php echo $_SESSION["user_lang"] ?>")) {
-        var codeOut = codeIn.split('{').join("{\n");
-        codeOut = codeOut.split('}').join("\n}");
-        codeOut = codeOut.split(';').join(";\n");
-        editor.setValue(codeOut);
-    } else {
-        var codeOut = codeIn.split('\n').join("\n");
-        codeOut = codeIn.split('\ \ \ \ ').join("\n\t");
-        codeOut = codeIn.split('\t').join("\n\t");
+        if (!("python"=="<?php echo $_SESSION["user_lang"] ?>")) {
+            var codeOut = codeIn.split('{').join("{\n");
+            codeOut = codeOut.split('}').join("\n}");
+            codeOut = codeOut.split(';').join(";\n");
+            codeOut = codeOut.split('>').join(">\n");
+        } else {
+            var codeOut = codeIn.split('\n').join("\n");
+            codeOut = codeOut.split('\t').join("\n\t");
+            codeOut = codeOut.split(':').join(":\n");
+            codeOut = codeOut.split(':\t').join(":\n\t");
+        }
         editor.setValue(codeOut);
     }
 </script>

@@ -22,17 +22,17 @@
 
 <body>
     <nav class="nb navbar navbar-expand-md bg-dark">
-        <img src="../assets/images/clg_logo.png" width="120px" class="img-fluid" alt="">
         <div class="text-center mx-auto">
             <ul class="navbar-nav mr-auto">
+            <img src="../assets/images/clg_logo.png" width="120px" class="img-fluid" alt="">
                 <div class="header text-white">
                     <p>Lokmanya Tilak Jankalyan Shikshan Sanstha</p>
                     <h2>Priyadarshini J.L. College of Engineering</h2>
                     <p>Department of Computer Science and Engineering</p>
                 </div>
+                <img src="../assets/images/naac_logo.png" width="150px" class="img-fluid" alt="">
             </ul>
         </div>
-        <img src="../assets/images/naac_logo.png" width="130px" class="img-fluid" alt="">
     </nav>
 
     <div class="text-center">
