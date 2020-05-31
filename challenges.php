@@ -90,6 +90,11 @@
 
     <div class="p-0 m-0 w-100 row" style="background:#413e3e">
         <img src="./assets/images/code relay.png" height="auto" width="250px" alt="" class="mx-auto">
+        <?php if(isset($_SESSION['login_user'])) { ?>
+            <form action="./controller/LogoutController.php" method="post">
+                <input class="lr-btn btn text-white bg-danger my-3 mr-5" type="submit" value="LOGOUT" id="logout">
+            </form>
+            <?php } ?>
     </div>
     <div class="row mx-auto container5">
         <div class="col-3" style="background:#413e3e">
