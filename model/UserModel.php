@@ -10,7 +10,7 @@
             // Number of rows fetched
             $count = mysqli_num_rows($result);
 
-            if($count == 1) {
+            if($count >= 1) {
                 $_SESSION['user_lang'] = $language;
                 $_SESSION['login_user'] = $userId;
 
@@ -23,6 +23,7 @@
                 }
             } else {
                 $error = "Your Login Id or Password is invalid";
+                $error = mysqli_error($db);
                 echo "<script>window.alert('$error'); window.location='../login.php';</script>";
                 mysqli_close($db);
             }

@@ -100,16 +100,30 @@
         <div class="col-3" style="background:#413e3e">
             <div class="list-group levels-a levels challenge-color text-center">
                 <h3 class="text-white text-center pb-5 pt-4 code">PROGRAMS</h3>
-                <a href="controller/LevelController.php?level=1" class="list-group-item challenge-color list text-danger">CODE
-                    1</a>
-                <a href="controller/LevelController.php?level=2" class="list-group-item challenge-color list text-danger">CODE
-                    2</a>
-                <a href="controller/LevelController.php?level=3" class="list-group-item challenge-color list text-danger">CODE
-                    3</a>
-                <a href="controller/LevelController.php?level=4" class="list-group-item challenge-color list text-danger">CODE
-                    4</a>
-                <a href="controller/LevelController.php?level=5" class="list-group-item challenge-color list text-danger">CODE
-                    5</a>
+                <div class="row p-0">
+                    <div class="col-sm-6 pl-0">
+                        <?php
+                            for( $i=0; $i<10; $i++) {
+                                if( $i%2==0) {
+                                    echo "<a href='controller/LevelController.php?level=".($i+1)."'
+                                        class='list-group-item challenge-color list text-danger'>CODE
+                                        ".($i+1)."</a>";
+                                }
+                            }
+                        ?>
+                    </div>
+                    <div class="col-sm-6 pr-0">
+                        <?php
+                            for( $i=0; $i<10; $i++) {
+                                if( $i%2!=0) {
+                                    echo "<a href='controller/LevelController.php?level=".($i+1)."'
+                                        class='list-group-item challenge-color list text-danger'>CODE
+                                        ".($i+1)."</a>";
+                                }
+                            }
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
        

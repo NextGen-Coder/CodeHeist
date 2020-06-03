@@ -49,14 +49,6 @@
 
 </style>
 <body class="bg-dark">
-    <?php 
-        session_start();
-        if( $_SESSION['login_user']) {
-        } else {
-            echo "<script>window.location='login.php';</script>";
-        }
-    ?>
-
 <nav class="nb navbar navbar-expand-md">
         <img src="./assets/images/clg_logo.png" width="120px" class="img1" alt="">
         <div class="text-center mx-auto">
