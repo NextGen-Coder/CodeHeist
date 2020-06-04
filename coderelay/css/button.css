@@ -1,11 +1,18 @@
+@font-face {
+  font-family: "Space Age";
+  src: url(/fonts/spaceage.ttf);
+}
+
 .button1{
-  display: flex;
+ background: url("/images/bg.png") no-repeat center;
+ display: flex;
  align-items: center;
  justify-content: center;
  flex-direction: column;
+ font-family: "Space Age";
 }  
  .button1 a {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     padding: 1rem 3rem;
     color: #f4f4f4;
     text-transform: uppercase;
@@ -13,28 +20,7 @@
   
   .button1 .btn1 {
     text-decoration: none;
-    border: 1px solid rgb(146, 148, 248);
+    border: 1px solid rgb(97, 98, 165);
     box-shadow: 1px 1px 25px 5px rgba(146, 148, 248, 0.4);
-  
   }
-/*   
-  .button .btn1:hover {
-    box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
-    text-decoration: none;
-  }
-  
-  .button .btn1:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg,transparent, rgba(146, 148, 248, 0.4),transparent);
-    transition: all 650ms;
-  }
-    
-  .button .btn1:hover:before {
-    left: 100%;
-  } */
-  
+
