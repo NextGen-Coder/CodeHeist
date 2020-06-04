@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="bootstrap/jquery/dist/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background: #00071d;
+        }
+
+        .name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        @font-face {
+            font-family: "Space Age";
+            src: url(/fonts/spaceage.ttf);
+        }
+
+        @font-face {
+            font-family: "hacked";
+            src: url(/fonts/hacked.ttf);
+        }
+
+        .hack {
+            font-family: "hacked";
+            color: #ECF7EC;
+            letter-spacing: 5px;
+        }
+
+        table {
+            font-family: "Space Age";
+            font-size: 1.2rem;
+            max-width: 90%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="name">
+        <img src="images/name.png" alt="">
+        <p class="h1 hack">view codes</p>
+    </div>
+    <div class="">
+        <table class="table text-white  table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 10% !important;">user id</th>
+                    <th scope="col" style="width: 10% !important;">name</th>
+                    <th scope="col" style="width: 80% !important;">submission</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th scope="row">1</th>
+                <td>jacob</td>
+                <td>
+                    <div class="accordion row px-2" id="accordionExample" style="background: #00071d">
+                    <div class="card col-4 border" style="background: #00071d">
+                      <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Code1
+                          </button>
+                        </h2>
+                      </div>
+                  
+                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            1
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card col-4 border" style="background: #00071d">
+                      <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Code2
+                          </button>
+                        </h2>
+                      </div>
+                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            2
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card col-4 border" style="background: #00071d">
+                      <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Code3
+                          </button>
+                        </h2>
+                      </div>
+                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            3
+                        </div>
+                      </div>
+                    </div>
+                  </div></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                </tr>
+                <tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="name text-white mt-5">
+        <p class="text-center">
+            In association with <br>
+            <b>Priyadarshani J.L. College of Engineering</b>
+        </p>
+    </div>
+
+   
+</body>
+
+</html>
