@@ -1,10 +1,10 @@
 @font-face {
   font-family: "Space Age";
-  src: url(/fonts/spaceage.ttf);
+  src: url(..//fonts/spaceage.ttf);
 }
 
 .button1{
- background: url("/images/bg.png") no-repeat center;
+ background: url("../images/bg.png") no-repeat center;
  display: flex;
  align-items: center;
  justify-content: center;
