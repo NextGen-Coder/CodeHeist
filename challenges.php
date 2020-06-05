@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/styles/phase.css">
     <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/fonts.css">
     <style>
         body {
             min-height: 100vh;
@@ -60,7 +61,7 @@
 
 <body>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 px-4">
             <img src="assets/images/code_heist.png" alt="">
         </div>
 
@@ -73,10 +74,10 @@
 
         <div class="col-md-3 border rounded">
             <div class="text-center">
-                <h3 class="text-white text-center pt-4">PROGRAMS</h3>
+                <h1 class="text-white text-center pt-4 hacked">PROGRAMS</h3>
                 <?php
                     for( $i=1; $i<=5; $i++) {
-                        echo "<li class='p-2'>";
+                        echo "<li class='p-2 space h4'>";
 
                         echo ($i==$level) ? "<a href='#'" : "<a href='challenges.php?season=$season&level=".($i)."'";
 
@@ -90,18 +91,20 @@
             <div class="col test">
             <div class="row-4 row border rounded">
                 <div class="col-md-8">
-                    <p class="p-3">
+                    <p class="p-3 helvetica">
                     <?php echo $challengeData['description']; ?>
                     </p>
                 </div>
-                <div class="col-md-4 col text-center border-left rounded">
+                <div class="col-md-4 col text-center py-3">
+                    <div class="border-left py-3">
                     <div class="row-md-6">
-                        <h4 class="pt-3">TEST INPUT</h4>
-                        <p> <?php echo $challengeData['input_0']; ?> </p>
+                        <h4 class="pt-3 hacked">TEST INPUT</h4>
+                        <p class="helvetica"> <?php echo $challengeData['input_0']; ?> </p>
                     </div>
                     <div class="row-md-6">
-                        <h4 class="pt-3">TEST OUTPUT</h4>
-                        <p> <?php echo $challengeData['output_0']; ?> </p>
+                        <h4 class="pt-3 hacked">TEST OUTPUT</h4>
+                        <p class="helvetica"> <?php echo $challengeData['output_0']; ?> </p>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -128,7 +131,7 @@
                 </div>
                 <div class="col-md-4 border-left rounded">
                     <div class="output-division">
-                        <h3 class="pt-3">OUTPUT</h3>
+                        <h3 class="pt-3 hacked">OUTPUT</h3>
                         <p id="outputPrint"> </p>
                     </div>
                     <div class="submit-division">
