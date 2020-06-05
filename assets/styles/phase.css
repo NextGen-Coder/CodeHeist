@@ -1,160 +1,48 @@
-
-.challenge-color{
-    background: rgb(40, 45, 56) !important ;
-}
-
-.container5{
-    position: relative;
-    left: 40px;
-}
-
-.left-div {
-    padding: 0px 20px;
-}
-
-.levels {
-    margin-top: 20px;
-    background-color: rgb(230, 227, 227);
-    padding: 30px 40px;
-}
-
 .test-cases {
     margin-top: 20px;
     border-radius: 15px;
     background-color: white;
     border: 10px solid rgb(230, 227, 227);
     padding: 20px 20px;
-}
-
-.lvl {
-    padding: 10px;
-    color: rgb(141, 141, 141);
-    font-size: 19px;
-    font-weight: bold;
-    font-family: 'Helvetica Neue';
-    border-bottom: 2px rgb(141, 141, 141) solid;
-}
-
-.desc {
-    padding: 20px !important;
-    margin-top: 20px;
-    border-radius: 15px;
-    background-color: rgb(230, 227, 227);
-}
-
-.col-md-4 {
-    border-radius: 10px;
-    padding: 0px 20px;
-}
-
-.col-md-4 > p {
-    color: rgb(68, 68, 68);
-    font-weight: bold;
-    font-family: 'Helvetica Neue';
-    padding-top: 7px;
-}
-
-.col-md-8 > p {
-    font-size: 19px;
-    color: rgb(87, 87, 87);
-}
-
-.input-div {
-    margin: 10px 0px;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.output-div {
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.input-div > p, .output-div > p {
-    color: rgb(68, 68, 68);
-    font-weight: bold;
-    font-family: 'Helvetica Neue';
-    margin: 0px !important;
-}
-
+}x
 .code-div {
     width: 100%;
-    border-radius: 10px !important;
     padding: 0px !important;
-    border: 1px rgb(141, 141, 141) solid;
     background-color: rgb(230, 227, 227);
 }
-
 #editor { 
     float: left;
     width: 100%;
     height: 300px;
     box-sizing: border-box;
-    border: 1px solid #DDD;
-    border-top: none !important;
-    border-radius: 0px 0px 10px 10px;
 }
-
-.ace_gutter {
-    border-radius: 0px 0px 0px 10px;
-}
-
 #run {
     border: none;
-    background-color: rgb(40, 45, 56);
+    background: #00071d;
 }
-
 #editor-menu {
-    float: left;
     width: 100%;
     box-sizing: border-box;
-    background-color: rgb(40, 45, 56);
-    border: 1px solid #DDD !important;
-    border-radius: 10px 10px 0 0;
-    border-bottom: none !important;
+    background: #00071d;
 }
 #editor-menu select {
     background-color: rgb(16, 31, 63);
     color: rgb(255, 255, 255);
     margin: 13px;
-    margin-left: 70px;
+    margin-right: 55%;
+    margin-left: 0px;
+}
+#prolang {
+    margin-left: 0px !important;
 }
 #editor-menu #run {
     float: right;
     margin: 10px;
     margin-right: 40px;
 }
-
-#editor-menu #screen {
-    float: right;
-    margin: 10px;
-    margin-right: 40px;
-    background-color: rgb(40, 45, 56);
-    border: none;
-}
-#screen img {
+#run img {
     width: 30px;
     height: auto;
-}
-
-/* Chrome, Safari and Opera syntax */
-:-webkit-full-screen {
-    background-color: yellow;
-}
-
-/* Firefox syntax */
-:-moz-full-screen {
-    background-color: yellow;
-}
-
-/* IE/Edge syntax */
-:-ms-fullscreen {
-    background-color: yellow;
-}
-
-/* Standard syntax */
-:fullscreen {
-    background-color: yellow;
 }
 
 @media(max-width: 767px) {

@@ -5,211 +5,257 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="assets/bootstrap/jquery/dist/jquery.min.js"></script>
-    <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
-    <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="assets/styles/phase.css">
-    <script src="./assets/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            background: #00071d;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        li{
+            list-style-type: none;
+        }
+
+        li a{
+            border-bottom: 1px solid white;
+        }
+        
+        .test-span {
+            color: gray;
+        }
+
+        #submit-btn {
+            bottom: 0px;
+        }
+
+        .output-division {
+            height: 80%;
+        }
+    </style>
 </head>
-<style>
-    * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
 
-    body {
-        box-sizing: border-box !important;
-        font-family: "helvetica";
-    }
-
-    .code {
-        font-family: octapost NBP;
-    }
-
-    .header {
-        padding: 20px;
-        font-size: 20px;
-        font-family: serifs;
-    }
-
-    .compiler {
-        margin-top: 20px;
-    }
-
-    .description {
-        width: 100%;
-        height: 215px;
-        border-radius: 5px;
-    }
-
-    .levels-a {
-        height: 80vh;
-    }
-
-    .input {
-        border-radius: 50%;
-    }
-
-    .l1 {
-        padding: 25px 0px;
-    }
-
-    .list {
-        border: none;
-        border-bottom: 2px solid grey;
-    }
-
-    .list:hover {
-        text-decoration: none;
-    }
-
-    .blocks {
-        font-size: 20px;
-    }
-
-    .desc1 {
-        padding-bottom: 150px;
-    }
-
-    .row {
-        margin-right: 0 !important;
-        padding-top: 0 !important;
-    }
-</style>
 <?php 
+    include("model/config.php");
     session_start();
-    if( $_SESSION['login_user']) {
-    } else {
+
+    $season = $_GET['season'];
+    $level = $_GET['level'];
+
+    $challengeQuery = "SELECT * FROM challenge WHERE season='".$season."' AND level='".$level."'"; 
+    $challengeData = mysqli_fetch_assoc( mysqli_query($db, $challengeQuery));
+    
+    $userQuery = "SELECT * FROM user WHERE user_id='".$_SESSION['login_user']."'";
+    $userRow = mysqli_fetch_assoc( mysqli_query($db,$userQuery));
+
+    $codeQuery = "SELECT * FROM code WHERE challenge_id=".$challengeData["challenge_id"]." AND user_id=".$userRow["user_id"]; 
+    $codeRow = mysqli_fetch_assoc( mysqli_query($db,$codeQuery));
+
+    if( $_SESSION['login_user']) { } else {
         echo "<script>window.location='login.php';</script>";
     }
 ?>
 
-<body class="text-white w-100" style="background:#413e3e">
+<body>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="assets/images/code_heist.png" alt="">
+        </div>
 
-    <div class="p-0 m-0 w-100 row" style="background:#413e3e">
-        <img src="./assets/images/code relay.png" height="auto" width="250px" alt="" class="mx-auto">
-        <?php if(isset($_SESSION['login_user'])) { ?>
-            <form action="./controller/LogoutController.php" method="post">
-                <input class="lr-btn btn text-white bg-danger my-3 mr-5" type="submit" value="LOGOUT" id="logout">
-            </form>
-            <?php } ?>
+        <div class="col-md-8 pl-5">
+            <img src="assets/images/pow_by_ngc.png" alt="">
+        </div>
     </div>
-    <div class="row mx-auto container5">
-        <div class="col-3" style="background:#413e3e">
-            <div class="list-group levels-a levels challenge-color text-center">
-                <h3 class="text-white text-center pb-5 pt-4 code">PROGRAMS</h3>
-                <div class="row p-0">
-                    <div class="col-sm-6 pl-0">
-                        <?php
-                            for( $i=0; $i<10; $i++) {
-                                if( $i%2==0) {
-                                    echo "<a href='controller/LevelController.php?level=".($i+1)."'
-                                        class='list-group-item challenge-color list text-danger'>CODE
-                                        ".($i+1)."</a>";
-                                }
-                            }
-                        ?>
-                    </div>
-                    <div class="col-sm-6 pr-0">
-                        <?php
-                            for( $i=0; $i<10; $i++) {
-                                if( $i%2!=0) {
-                                    echo "<a href='controller/LevelController.php?level=".($i+1)."'
-                                        class='list-group-item challenge-color list text-danger'>CODE
-                                        ".($i+1)."</a>";
-                                }
-                            }
-                        ?>
-                    </div>
-                </div>
+
+    <div class="row container-fluid mx-auto mb-3">
+
+        <div class="col-md-3 border rounded">
+            <div class="text-center">
+                <h3 class="text-white text-center pt-4">PROGRAMS</h3>
+                <?php
+                    for( $i=1; $i<=5; $i++) {
+                        echo "<li class='p-2'>";
+
+                        echo ($i==$level) ? "<a href='#'" : "<a href='challenges.php?season=$season&level=".($i)."'";
+
+                        echo "class='list text-danger py-2 px-4'>CODE
+                                ".($i)."</a> </li>";
+                    }
+                ?>
             </div>
         </div>
-       
-        <div class="col-9 " style="background:#413e3e">
-            <div class="row pr-3 input mx-auto"style="background:#413e3e">
-                <div class="col-7 mr-2 challenge-color w-100 levels pr-3">
-                    <p><?php echo $_SESSION['challenge_desc']; ?></p>
-                    <br>
-                    <h4>TEST INPUT &nbsp; &nbsp; <span><?php echo $_SESSION['challenge_input']; ?></span></h4>
-                </div>
-                <div class="col-4 challenge-color levels px-3 text-center" >
-                    <h4>TEST OUTPUT <br><br> <span><?php echo $_SESSION['challenge_output']; ?></span></h4>
-                </div>
-            </div>
-
-            <div class="row pr-3 mx-auto">
-                <div class="col-7 mr-2 compiler p-0 ">
-                    <!--Compiler-->
-                    <form class="w-100" id="editorForm" action="controller/CodeController.php" method="post">
-                        <div id="code-edit" class="row code-div mx-auto">
-                            <div id="editor-menu">
-                                <input type="hidden" id="language" name="language"
-                                    value="<?php echo $_SESSION["user_lang"] ?>" />
-                                <!-- <select name="language" class="options" id="prolang">
-                                    <option value="java">Java</option>
-                                    <option value="python">Python</option>
-                                    <option value="c">C</option>
-                                    <option value="cpp">Cpp</option>
-                                    <option value="javascript">Javascript</option>
-                                </select> -->
-                                <input type="text" hidden name="code" id="hiddencode">
-                                <button id="run" type="submit" class="btn text-white bg-success w-25"> RUN
-                                    <!-- <img width="25px" id="run-img" src="./assets/images/run.png"> -->
-                                </button>
-                            </div>
-                            <div id="editor"> </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-4 challenge-color levels" style="height:358px; overflow: scroll !important;">
-                    <h4 class="text-center">OUTPUT <br><br> </h4>
-                    <p>
-                        <?php 
-                    if( isset($_SESSION['outputCode'])) {
-                        echo $_SESSION['outputCode'];
-                    }
-                    ?>
+        <div class="col-md-9 ">
+            <div class="col test">
+            <div class="row-4 row border rounded">
+                <div class="col-md-8">
+                    <p class="p-3">
+                    <?php echo $challengeData['description']; ?>
                     </p>
                 </div>
+                <div class="col-md-4 col text-center border-left rounded">
+                    <div class="row-md-6">
+                        <h4 class="pt-3">TEST INPUT</h4>
+                        <p> <?php echo $challengeData['input_0']; ?> </p>
+                    </div>
+                    <div class="row-md-6">
+                        <h4 class="pt-3">TEST OUTPUT</h4>
+                        <p> <?php echo $challengeData['output_0']; ?> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 row text-center border rounded mt-2">
+                <div class="col-md-8 compiler p-0 ">
+                    <!--Compiler-->
+                    <div id="code-edit" class="row code-div container mx-auto">
+                        <div id="editor-menu">
+                            <select name="language" class="options" id="prolang">
+                                <option value="java">Java</option>
+                                <option value="python">Python</option>
+                                <option value="c">C</option>
+                                <option value="cpp">Cpp</option>
+                                <option value="javascript">Javascript</option>
+                            </select>
+                            <input type="hidden" id="chId" value="<?php echo $challengeData['challenge_id'] ?>">
+                            <input type="text" hidden name="code" id="hiddencode">
+                            <button id="run" onclick="saveCode( true)" type="button">
+                                <img id="run-img" src="assets/images/run.png">
+                            </button>
+                        </div>
+                        <div id="editor"> </div>
+                    </div>
+                </div>
+                <div class="col-md-4 border-left rounded">
+                    <div class="output-division">
+                        <h3 class="pt-3">OUTPUT</h3>
+                        <p id="outputPrint"> </p>
+                    </div>
+                    <div class="submit-division">
+                        <button id="submit-btn" class="btn btn-danger w-100" onclick="saveCode( false)">SUBMIT</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="w-100 p-2" style="background:#413e3e"></div>
-        <div class="col-sm-12 p-3 text-center text-white justify-content-center"style="background:#413e3e">
-            <p>Powered By</p>
-            <h5 style="line-height: 2px;">NextGenCoder</h5>
+            <div class="row-md-4 row mt-3">
+                <div class="col-md-6" id="test-cases-div"> </div>
+                <div class="col-md-6"></div>
+            </div>
         </div>
     </div>
 </body>
-<script src="assets/src-noconflict/ext-language_tools.js"></script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.6.8/beautify.js"></script>
+<script src="assets/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="assets/scripts/compiler.js"></script>
-<script>
-    var a = false;
-    <?php if ($_SESSION["code"]) { ?>
-        a = true;
-    <?php } ?>
-    if( a ) {
-    var codeIn = `<?php echo $_SESSION["code"] ?>`;
-        if (!("python"=="<?php echo $_SESSION["user_lang"] ?>")) {
-            var codeOut = codeIn.split('{').join("{\n");
-            codeOut = codeOut.split('}').join("\n}");
-            codeOut = codeOut.split(';').join(";\n");
-            codeOut = codeOut.split('>').join(">\n");
-        } else {
-            var codeOut = codeIn.split('\n').join("\n");
-            codeOut = codeOut.split('\t').join("\n\t");
-            codeOut = codeOut.split(':').join(":\n");
-            codeOut = codeOut.split(':\t').join(":\n\t");
+<script type="text/javascript">
+    <?php 
+    if($codeRow) { 
+    ?>
+        let dbLanguage = '<?php echo $codeRow["language"] ?>';
+        document.getElementById('prolang').value = dbLanguage.toLowerCase();
+
+        var codeInput = `<?php echo $codeRow["program"] ?>`;
+        while(codeInput.indexOf("<><><>")!=-1) {
+            codeInput = codeInput.replace( "<><><>", "+");
         }
-        editor.setValue(codeOut);
+        editor.setValue(codeInput);
+        if(dbLanguage.toLowerCase()=='c'||dbLanguage.toLowerCase()=='cpp') {
+            editor.session.setMode("ace/mode/c_cpp");
+        } else {
+            editor.session.setMode("ace/mode/"+dbLanguage.toLowerCase());
+        }
+    <?php 
+    } 
+    ?> </script>
+<script src="assets/src-noconflict/ext-language_tools.js"></script>
+<script src="assets/jquery/dist/jquery.min.js"></script>   
+<script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Script for Running Output -->
+<script type="text/javascript">
+    function checkTestCase( testNo) {
+        var code = editor.session.getValue();
+        
+        while(code.indexOf("+")!=-1) {
+            code = code.replace( "+", "<><><>");
+        }
+
+        var checkingData = {
+            "case" : testNo,
+            "code" : code,
+            "language" : document.getElementById("prolang").value,
+            "challengeId" : document.getElementById("chId").value
+        }
+        $.ajax({
+            type: "POST",
+            url: "model/TestCase.php",
+            data: checkingData,
+            beforeSend: function () {
+                document.getElementById("test"+(testNo+1)+"-span").innerHTML = "Testing"
+                document.getElementById("test"+(testNo+1)+"-span").style.color = "#ffff33";
+                document.getElementById("test"+(testNo+1)+"-img").src = "assets/images/case-running.png";
+            },
+            success: function (msg) {
+                var response = JSON.parse(msg);
+                
+                if(response["success"]){
+                    document.getElementById("test"+(testNo+1)+"-span").innerText = "Successful";
+                    document.getElementById("test"+(testNo+1)+"-span").style.color = "#33ff33";
+                    document.getElementById("test"+(testNo+1)+"-img").src = "assets/images/case-success.png";
+                } else {
+                    document.getElementById("test"+(testNo+1)+"-span").innerText = "Failed";
+                    document.getElementById("test"+(testNo+1)+"-span").style.color = "#ff3333";
+                    document.getElementById("test"+(testNo+1)+"-img").src = "assets/images/case-failed.png";
+                }
+                
+                if( testNo<3) checkTestCase( testNo+1);
+            }
+        });    
     }
-</script>
-<script>
 
-</script>
+    function saveCode( isOnlyRun) {
+        var code = editor.session.getValue();
+        while(code.indexOf("+")!=-1) {
+            code = code.replace( "+", "<><><>");
+        }
 
+        var checkingData = {
+            "code" : code,
+            "language" : document.getElementById("prolang").value,
+            "challengeId" : document.getElementById("chId").value
+        }
+        
+        $.ajax({
+            type: "POST",
+            url: "model/CodeModel.php",
+            data: checkingData,
+            beforeSend: function () {
+                if(isOnlyRun) {
+                    document.getElementById("outputPrint").innerText = "Please wait for the response"
+                } else {
+                    document.getElementById("test-cases-div").innerHTML = "<li class='mb-2'> Test Case 1 &nbsp;&nbsp;<span id='test1-span' class='test-span'>Testing</span> &nbsp;&nbsp;<img id='test1-img' src='assets/images/case-running.png'></li>"+
+                    "<li class='mb-2'> Test Case 2 &nbsp;&nbsp;<span id='test2-span' class='test-span'>Waiting</span> &nbsp;&nbsp;<img id='test2-img' src='assets/images/case-waiting.png'></li>"+
+                    "<li class='mb-2'> Test Case 3 &nbsp;&nbsp;<span id='test3-span' class='test-span'>Waiting</span> &nbsp;&nbsp;<img id='test3-img' src='assets/images/case-waiting.png'></li>"+
+                    "<li> Test Case 4 &nbsp;&nbsp;<span id='test4-span' class='test-span'>Waiting</span> &nbsp;&nbsp;<img id='test4-img' src='assets/images/case-waiting.png'></li>";
+                }
+            },
+            success: function (msg) {
+                response = JSON.parse(msg);
+                
+                if(isOnlyRun) {
+                    document.getElementById("outputPrint").innerText = response["output"];
+                } else {
+                    if(response["success"]){
+                        document.getElementById("test1-span").innerText = "Successful";
+                        document.getElementById("test1-span").style.color = "#33ff33";
+                        document.getElementById("test1-img").src = "assets/images/case-success.png";
+                    } else {
+                        document.getElementById("test1-span").innerText = "Failed";
+                        document.getElementById("test1-span").style.color = "#ff3333";
+                        document.getElementById("test1-img").src = "assets/images/case-failed.png";
+                    }
+                    checkTestCase( 1);
+                }                
+            }
+        });    
+    }
+    </script>
 </html>

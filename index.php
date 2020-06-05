@@ -1,103 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="assets/bootstrap/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
-    <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="login.css">
-</head>
+    <link rel="stylesheet" href="assets/styles/button.css">
+    <link rel="stylesheet" href="assets/styles/hover.css">
 <style>
-    .header {
-        padding: 20px;
-        font-size: 20px;
-        font-family: serifs;
+    
+    body{
+        background: #00071d;
     }
-
-    .header>p {
-        line-height: 0px;
+    .name{
+        display: flex;
+       align-items: center;
+       justify-content: center; 
     }
-
-    .formdiv {
-        width: 30%;
-        padding: 40px;
-    }
-
-    .inputborder {
-        border: none;
-        border-bottom: 1px solid grey;
-    }
-
-    .inputborder:hover {
-        border: none;
-        border-bottom: 1px solid springgreen;
-    }
-
-    .fontfam {
-        font-family: 'old english';
-    }
-
-    .formbtn{
-        border-radius: 30px;
-        color: white;
-        background: #fc0a0a;
-    }
-    .height{
-        height: 50vh;
-    }
-
-
-    .button{
-        padding: 6px 40px;
-        border-radius:30px;
-        background:#e4e4e4;
-        color:#413e3e;
-        font-weight:bolder;
-    }
-
-    .button1{
-        margin-top:30px;
-    }
-
-    .footerr{
-        margin-top:80px;
+    .bg{
+        position: relative;
     }
 </style>
+</head>
+<body>
+    <div class="name">
+        <img src="assets/images/name.png" alt="">
+    </div>
 
-<body style="background: #413e3e">
-    <div class="height"><br>
-  
-<nav class="nb navbar navbar-expand-md">
-            <div class="text-center mx-auto">
-                <ul class="navbar-nav">
-                <img src="assets/images/clg_logo.png" width="120px" class="img1" alt="">
-                    <div class="header text-white">
-                        <p>Lokmanya Tilak Jankalyan Shikshan Sanstha</p>
-                        <h2>Priyadarshini J.L. College of Engineering</h2>
-                        <p>Department of Computer Science and Engineering</p>
-                    </div>
-                    <img src="assets/images/naac_logo.png" width="140px" class="img2" alt="">
-                </ul>
-            </div>
-        </nav>
- 
-    <div class="p-0 m-0 w-100 row coderelay">
-        <img src="./assets/images/code relay.png" height="auto" width="300px" alt="" class="mx-auto mt-3">
-    </div>
-<div class="button1">
-    <div class="row justify-content-center">    
-     <a href="./admin/adminlogin.php"><button class="btn button ">Log In As Admin</button></a>
-    </div><br>
-    <div class="row mx-auto justify-content-center">
-     <a href="./login.php"><button class="btn button ">Log In As User</button></a>
-    </div>
+    
+        <!-- <img src="images/bg.png" alt=""> -->
+        <div class="button1 mt-5">
+           <li><a href="#" class="btn1 hvr-ripple-out">login as admin</a></li> 
+            <br><br>
+            <li><a href="start.php" class="btn1 hvr-ripple-out">login as user</a></li>
+          </div>
+
+<div class="name text-white mt-5">
+    <p class="text-center">
+         In association with <br>
+        <b>Priyadarshani J.L. College of Engineering</b>
+    </p>
 </div>
-    <div class="header text-center text-white justify-content-center footerr">
-        <p>Powered By</p>
-        <h4>NextGenCoder</h4>
-    </div>
+ 
+
 </body>
+<script src="bootstrap/jquery/dist/jquery.min.js"></script>
+<script src="bootstrap/dist/js/bootstrap.min.js"></script>
 </html>
