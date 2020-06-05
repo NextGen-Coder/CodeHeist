@@ -1,10 +1,10 @@
 @font-face {
   font-family: "Space Age";
-  src: url(/fonts/spaceage.ttf);
+  src: url(../fonts/spaceage.ttf);
 }
 
 .button1{
- background: url("/images/bg.png") no-repeat center;
+ background: url("assets/images/bg.png") no-repeat center;
  display: flex;
  align-items: center;
  justify-content: center;
@@ -24,3 +24,4 @@
     box-shadow: 1px 1px 25px 5px rgba(146, 148, 248, 0.4);
   }
 
+  manuplulation
