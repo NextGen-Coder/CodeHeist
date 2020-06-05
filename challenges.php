@@ -145,6 +145,7 @@
     </div>
 </body>
 <script src="assets/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/src-noconflict/ext-language_tools.js"></script>
 <script src="assets/scripts/compiler.js"></script>
 <script type="text/javascript">
     <?php 
@@ -166,7 +167,6 @@
     <?php 
     } 
     ?> </script>
-<script src="assets/src-noconflict/ext-language_tools.js"></script>
 <script src="assets/jquery/dist/jquery.min.js"></script>   
 <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Script for Running Output -->

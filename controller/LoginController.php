@@ -5,7 +5,6 @@
         $entity = new UserDBModel();
         $userId = $_POST['user'];
         $password1 = $_POST['pass'];
-        $language = $_POST['languageUsed'];
-        $entity->authenticate( $userId, $password1,$language);
+        $entity->authenticate( $userId, $password1);
     } 
 ?>
