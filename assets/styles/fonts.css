@@ -1,9 +1,27 @@
 @font-face {
     font-family: "Space Age";
-    src: url(../styles/);
+    src: url(../fonts/spaceage.ttf);
   }
 
-@font-face {
-    font-family: "Space Age";
-    src: url(/fonts/spaceage.ttf);
+  @font-face {
+    font-family: "hacked";
+    src: url(../fonts/hacked.ttf);
   }
+  
+  @font-face {
+    font-family: "HelveticaNeue";
+    src: url(../fonts/HelveticaNeue.ttf);
+  }
+
+  .space{
+      font-family: "Space Age";
+  }
+
+  .hacked{
+    font-family: "hacked";
+  }
+
+  .helvetica{
+    font-family: "HelveticaNeue";
+  }
+  
