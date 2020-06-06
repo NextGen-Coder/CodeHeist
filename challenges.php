@@ -76,7 +76,7 @@
 
         <div class="col-md-8 pl-5">
             <img src="assets/images/pow_by_ngc.png" alt="">
-        <div id="response" class="space h3 d-inline pr-5"></div>
+        <div id="response" class="space bg-danger h3 d-inline mr-5 mt-5 text-white border px-4 py-1 rounded"></div>
         </div>
     </div>
 
