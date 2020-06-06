@@ -38,6 +38,11 @@
         .round{
             border-radius:10px;
         }
+        #response{
+            position:absolute;
+            top:0;
+            right:0;
+        }
     </style>
 </head>
 
@@ -71,7 +76,7 @@
 
         <div class="col-md-8 pl-5">
             <img src="assets/images/pow_by_ngc.png" alt="">
-        <div id="response"></div>
+        <div id="response" class="space h3 d-inline pr-5"></div>
         </div>
     </div>
 

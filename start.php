@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/fonts.css">    
     <style>
         body {
             background: #00071d;
@@ -93,7 +94,7 @@
     <div class="name">
         <img src="assets/images/name.png" alt="">
     </div>
-    <p id="timer" class="text-white text-center"></p>
+    <p id="timer" class="text-white text-center space h3"></p>
     <div class="btnn">
         <a class="btnn" href="challenges.php?season=1&level=1">
             <div class="start">
