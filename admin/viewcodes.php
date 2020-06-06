@@ -4,36 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
-
+    <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-
-
-    <!-- <script src="../assets/bootstrap/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="../assets/bootstrap/dist/css/bootstrap.min.css">
-    <script src="../assets/bootstrap/dist/js/bootstrap.min.js"></script> -->
+    <style>
+        body {
+            background: #00071d;
+        }
 
+        .name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
+        .btnn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .btnn .text {
+            background: #00071d;
+            border: 0.5px solid grey;
+            padding: 3px;
+            width: 300px;
+            color: white;
+        }
+
+        input::placeholder {
+            padding: 2px 5px;
+            opacity: 0.5;
+        }
+
+        .submit {
+            border-radius: 18px;
+        }
+
+        @font-face {
+            font-family: "Space Age";
+            src: url(assets/fonts/spaceage.ttf);
+        }
+
+        .btnn {
+            font-family: "Space Age";
+            font-size: 1.1em;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="nb navbar navbar-expand-md bg-dark">
-        <div class="text-center mx-auto">
-            <ul class="navbar-nav mr-auto">
-            <img src="../assets/images/clg_logo.png" width="120px" class="img-fluid" alt="">
-                <div class="header text-white">
-                    <p>Lokmanya Tilak Jankalyan Shikshan Sanstha</p>
-                    <h2>Priyadarshini J.L. College of Engineering</h2>
-                    <p>Department of Computer Science and Engineering</p>
-                </div>
-                <img src="../assets/images/naac_logo.png" width="150px" class="img-fluid" alt="">
-            </ul>
-        </div>
-    </nav>
+<?php 
+        session_start();
+        if( $_SESSION['login_user']) {
+        } else {
+            echo "<script>window.location='viewcodes.php';</script>";
+        }
+    ?>
+    <div class="name">
+        <img src="../assets/images/name.png" alt="">
+    </div>
 
     <div class="text-center">
 
@@ -42,13 +77,13 @@
 
     <?php
 
-    include("../model/config.php");
-    $sql = "SELECT * FROM user ";
-    
-    if($result = mysqli_query($db, $sql)){
-        if(mysqli_num_rows($result) > 0){
-    
-    ?>
+include("../model/config.php");
+$sql = "SELECT * FROM user ";
+
+if($result = mysqli_query($db, $sql)){
+if(mysqli_num_rows($result) > 0){
+
+?>
     <div class="">
         <div class="justify-content-center">
             <table class="table text-white bg-secondary text-center" style="border-radius: 8px;">
@@ -63,53 +98,55 @@
                     </tr>
                 </thead>
                 <tbody>
-                <div id="accordion">
-                    <?php
-            
-            while($row = mysqli_fetch_array($result)){ 
-                $code_sql = "SELECT * FROM code WHERE user_id=".$row['user_id']."";
-                            if($coderesult = mysqli_query($db, $code_sql)){
-                                if(mysqli_num_rows($coderesult) > 0){ ?>
-                    <tr>
-                        <td> <?php echo $row['user_id'] ?> </td>
-                        <td> <?php echo $row['user_name'] ?> </td>
-                        <td> <?php echo $row['user_phone'] ?> </td>
-                        <td>
-                        <?php 
-                            $u = $row['user_id'];
+                    <div id="accordion">
+                        <?php
+    
+    while($row = mysqli_fetch_array($result)){ 
+        $code_sql = "SELECT * FROM code WHERE user_id=".$row['user_id']."";
+                    if($coderesult = mysqli_query($db, $code_sql)){
+                        if(mysqli_num_rows($coderesult) > 0){ ?>
+                        <tr>
+                            <td> <?php echo $row['user_id'] ?> </td>
+                            <td> <?php echo $row['user_name'] ?> </td>
+                            <td> <?php echo $row['user_phone'] ?> </td>
+                            <td>
+                                <?php 
+                    $u = $row['user_id'];
 
-                            for( $i=0; $i<10; $i++) {
-                                $code1 = "SELECT * FROM code,user WHERE code.level = $i AND user.user_id= '$u' ";
-                                if($result1 = mysqli_query($db, $code1)){ 
-                                    $row1 = mysqli_fetch_assoc($result1);
-                                    if(mysqli_num_rows($result1)>0) { ?> 
-                                    <button type="button" class="btn btn-light mb-2" data-toggle="collapse" 
-                                        data-target="#demo<?php echo $row1['level'].$u ?>">Level
-                                        <?php echo $row1['level'] ?></button>
+                    for( $i=0; $i<10; $i++) {
+                        $code1 = "SELECT * FROM code,user WHERE code.challenge_id = $i AND user.user_id= '$u' ";
+                        if($result1 = mysqli_query($db, $code1)){ 
+                            $row1 = mysqli_fetch_assoc($result1);
+                            if(mysqli_num_rows($result1)>0) { ?>
+                                <button type="button" class="btn btn-light mb-2" data-toggle="collapse"
+                                    data-target="#demo<?php echo $row1['challenge_id'].$u ?>">Level
+                                    <?php echo $row1['challenge_id'] ?></button>
                                 <?php echo "<br>";}  } } ?>
                             </td>
-                            <td> 
+                            <td>
 
-                            <?php 
-                            $u = $row['user_id'];
+                                <?php 
+                    $u = $row['user_id'];
 
-                            for( $i=0; $i<10; $i++) {
-                                $code1 = "SELECT * FROM code,user WHERE code.level = $i AND user.user_id= '$u' ";
-                                if($result1 = mysqli_query($db, $code1)){ 
-                                    $row1 = mysqli_fetch_assoc($result1);
-                                    if(mysqli_num_rows($result1)>0) { ?> 
-                                    
-                                    <div id="demo<?php echo $row1['level'].$u ?>" class="collapse" data-parent="#accordion">
-                                        <?php echo $row1['program'] ?>
-                                    </div>
+                    for( $i=0; $i<10; $i++) {
+                        $code1 = "SELECT * FROM code,user WHERE code.challenge_id = $i AND user.user_id= '$u' ";
+                        if($result1 = mysqli_query($db, $code1)){ 
+                            $row1 = mysqli_fetch_assoc($result1);
+                            if(mysqli_num_rows($result1)>0) { ?>
+
+                                <div id="demo<?php echo $row1['challenge_id'].$u ?>" class="collapse"
+                                    data-parent="#accordion">
+                                    Language = <?php echo $row1['language'] ; ?><br>
+                                    <?php echo $row1['program'] ?>
+                                </div>
                                 <?php } } } ?>
                             </td>
-                    </tr>
-                    <?php  } ?>
+                        </tr>
+                        <?php  } ?>
 
 
 
-                    <?php }  } }}?>
+                        <?php }  } }}?>
 
 
                     </div>
@@ -121,51 +158,14 @@
         </div>
     </div>
 
+    <div class="name text-white">
+        <p class="text-center">
+            In association with <br>
+            <b>Priyadarshani J.L. College of Engineering</b>
+        </p>
+    </div>
 </body>
+<script src="../assets/bootstrap/jquery/dist/jquery.min.js"></script>
+<script src="../assets/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </html>
-
-
-
-
-
-
-<!-- <td><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">code
-                                1</button>
-                            <div id="demo" class="collapse">
-                                <?php 
-                                // $u = $row['user_id'];
-                                // $code1 = "SELECT * FROM code,user WHERE code.level = 1 AND user.user_id= '$u' ";
-                                //         if($result1 = mysqli_query($db, $code1)){ 
-                                //             $row1 = mysqli_fetch_assoc($result1);
-                                //             echo $row1['program'];   
-                                //          }
-                                ?>
-                            </div>
-                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1">code
-                                2</button>
-                            <div id="demo1" class="collapse">
-                                <?php 
-                                // $code1 = "SELECT * FROM code,user WHERE code.level = 2 AND user.user_id= '$u' ";
-                                //         if($result1 = mysqli_query($db, $code1)){ 
-                                //             $row1 = mysqli_fetch_assoc($result1);
-                                //             echo $row1['program'];   
-                                //          }
-                                        ?>
-                            </div>
-
-
-                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2">code
-                                3</button>
-                            <div id="demo2" class="collapse">
-                                <?php
-                                //  $code1 = "SELECT * FROM code WHERE code,user WHERE code.level = 3 AND user.user_id= '$u' ";
-                                //         if($result1 = mysqli_query($db, $code1)){ 
-                                //             $row1 = mysqli_fetch_assoc($result1);
-                                //             echo $row1['program'];   
-                                //          }
-                                        ?>
-                            </div>
-                            
-
-                        </td> -->

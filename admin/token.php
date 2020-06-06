@@ -50,12 +50,18 @@
 </head>
 <body>    
     <div class="name">
-        <img src="assets/images/name.png" alt="">
+        <img src="../assets/images/name.png" alt="">
     </div>
     <div class="btnn text-white my-5">
-        <form action="controller/RegisterController.php" method="POST" class="">
-            LOGIN ID <br>
-            <input type="text" name="user" class="text" placeholder="LOGIN ID"> <br><br>
+        <form action="../controller/RegisterController.php" method="POST" class="">
+            USER NAME <br>
+            <input type="text" name="user" class="text" placeholder="USER NAME"> <br><br>
+            COLLEGE NAME <br>
+            <input type="text" name="clg_name" class="text" placeholder="COLLEGE NAME"> <br><br>
+            EMAIL ID <br>
+            <input type="email" name="mail" class="text" placeholder="LOGIN ID"> <br><br>
+            MOBILE NO. <br>
+            <input type="number" name="mobile" class="text" placeholder="LOGIN ID"> <br><br>
             PASSWORD <br>
             <input type="text" name="pass" class="text" placeholder="PASSWORD"><br>
 
