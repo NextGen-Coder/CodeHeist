@@ -44,22 +44,21 @@
 <?php 
     include("model/config.php");
     session_start();
+    date_default_timezone_set("Asia/Kolkata");
 
     $season = $_GET['season'];
     $level = $_GET['level'];
 
     $challengeQuery = "SELECT * FROM challenge WHERE season='".$season."' AND level='".$level."'"; 
     $challengeData = mysqli_fetch_assoc( mysqli_query($db, $challengeQuery));
-    
+
     $userQuery = "SELECT * FROM user WHERE user_id='".$_SESSION['login_user']."'";
     $userRow = mysqli_fetch_assoc( mysqli_query($db,$userQuery));
 
     $codeQuery = "SELECT * FROM code WHERE challenge_id=".$challengeData["challenge_id"]." AND user_id=".$userRow["user_id"]; 
     $codeRow = mysqli_fetch_assoc( mysqli_query($db,$codeQuery));
 
-    if( $_SESSION['login_user']) { } else {
-        echo "<script>window.location='login.php';</script>";
-    }
+    if( $_SESSION['login_user']) { 
 ?>
 
 <body>
@@ -72,6 +71,7 @@
 
         <div class="col-md-8 pl-5">
             <img src="assets/images/pow_by_ngc.png" alt="">
+        <div id="response"></div>
         </div>
     </div>
 
@@ -153,6 +153,7 @@
     </div>
 </body>
 <script src="assets/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/src-noconflict/ext-language_tools.js"></script>
 <script src="assets/scripts/compiler.js"></script>
 <script type="text/javascript">
     <?php 
@@ -174,7 +175,6 @@
     <?php 
     } 
     ?> </script>
-<script src="assets/src-noconflict/ext-language_tools.js"></script>
 <script src="assets/jquery/dist/jquery.min.js"></script>   
 <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Script for Running Output -->
@@ -266,4 +266,19 @@
         });    
     }
     </script>
+
+    <script>
+        setInterval(function(){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET","response.php",false);
+            xmlhttp.send(null);
+            var response = JSON.parse(xmlhttp.responseText);
+            console.log(response)
+            document.getElementById("response").innerHTML=response["countdown"];
+        },1000);
+    </script>
+    <?php
+    } else {
+        echo "<script>window.location='login.php';</script>";
+    } ?>
 </html>

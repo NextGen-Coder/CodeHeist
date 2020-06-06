@@ -11,9 +11,13 @@ let hiddenCode = document.getElementById('hiddencode');
 let form = document.getElementById('editorForm');
 
 editor.setOptions({
-    autoScrollEditorIntoView: false,
+    autoScrollEditorIntoView: true,
     copyWithEmptySelection: true,
+    enableBasicAutocompletion: true,
+    enableSnippets: true,
+    enableLiveAutocompletion: true
 });
+
 
 //default values for editor
 editor.setTheme("../ace/theme/cobalt");
