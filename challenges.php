@@ -35,6 +35,9 @@
         .output-division {
             height: 80%;
         }
+        .round{
+            border-radius:10px;
+        }
     </style>
 </head>
 
@@ -61,8 +64,10 @@
 
 <body>
     <div class="row">
-        <div class="col-md-4 px-4">
+        <div class="col-md-4">
+            <div class="pl-5">
             <img src="assets/images/code_heist.png" alt="">
+            </div>
         </div>
 
         <div class="col-md-8 pl-5">
@@ -72,7 +77,7 @@
 
     <div class="row container-fluid mx-auto mb-3">
 
-        <div class="col-md-3 border rounded">
+        <div class="col-md-3 border round">
             <div class="text-center">
                 <h1 class="text-white text-center pt-4 hacked">PROGRAMS</h3>
                 <?php
@@ -89,7 +94,7 @@
         </div>
         <div class="col-md-9 ">
             <div class="col test">
-            <div class="row-4 row border rounded">
+            <div class="row-4 row border round">
                 <div class="col-md-8">
                     <p class="p-3 helvetica">
                     <?php echo $challengeData['description']; ?>
@@ -98,17 +103,17 @@
                 <div class="col-md-4 col text-center py-3">
                     <div class="border-left py-3">
                     <div class="row-md-6">
-                        <h4 class="pt-3 hacked">TEST INPUT</h4>
+                        <h3 class="pt-3 hacked">TEST INPUT</h3>
                         <p class="helvetica"> <?php echo $challengeData['input_0']; ?> </p>
                     </div>
                     <div class="row-md-6">
-                        <h4 class="pt-3 hacked">TEST OUTPUT</h4>
+                        <h3 class="pt-3 hacked">TEST OUTPUT</h3>
                         <p class="helvetica"> <?php echo $challengeData['output_0']; ?> </p>
                     </div>
                     </div>
                 </div>
             </div>
-            <div class="row-md-4 row text-center border rounded mt-2">
+            <div class="row-md-4 row text-center border round mt-2">
                 <div class="col-md-8 compiler p-0 ">
                     <!--Compiler-->
                     <div id="code-edit" class="row code-div container mx-auto">
