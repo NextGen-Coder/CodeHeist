@@ -69,6 +69,8 @@
         <img src="../assets/images/name.png" alt="">
     </div>
     <div class="btnn text-white my-5">
+    <form action="../controller/LogoutController.php" method="post"></form>
+    <a class="btn-danger" href="../controller/LogoutController.php">Log out</a>
     <form action="token.php">
         <div>
             <button type="submit" class="btn btn-dark ">GENERATE Token</button>
