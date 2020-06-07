@@ -129,7 +129,6 @@
                                 <option value="python">Python</option>
                                 <option value="c">C</option>
                                 <option value="cpp">Cpp</option>
-                                <option value="javascript">Javascript</option>
                             </select>
                             <input type="hidden" id="chId" value="<?php echo $challengeData['challenge_id'] ?>">
                             <input type="text" hidden name="code" id="hiddencode">
