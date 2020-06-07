@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if( isset($_SESSION['login_user']) && isset($_SESSION['admin'])) {
+        echo "<script>window.location='adminDash.php';</script>";
+    }
+    else {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,3 +82,4 @@
 <script src="../assets/bootstrap/jquery/dist/jquery.min.js"></script>
 <script src="../assets/bootstrap/dist/js/bootstrap.min.js"></script>
 </html>
+ <?php } ?>

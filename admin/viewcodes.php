@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if( !isset($_SESSION['login_user'])) {
+        echo "<script>window.location='adminlogin.php';</script>";
+    }
+    else if(isset($_SESSION['admin'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -167,5 +174,7 @@ if(mysqli_num_rows($result) > 0){
 </body>
 <script src="../assets/bootstrap/jquery/dist/jquery.min.js"></script>
 <script src="../assets/bootstrap/dist/js/bootstrap.min.js"></script>
-
 </html>
+<?php } else {
+    echo "<script>window.location='adminlogin.php';</script>";
+} ?>

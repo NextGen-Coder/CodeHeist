@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,6 +41,13 @@
             position:absolute;
             top:0;
             right:0;
+        }
+        .round{
+            border-radius: 20px;
+        }
+        .round img{
+            height: 38px;
+            width: auto;
         }
     </style>
 </head>
@@ -150,9 +156,7 @@
                 </div>
             </div>
         </div>
-            <div class="row-md-4 row mt-3">
-                <div class="col-md-6" id="test-cases-div"> </div>
-                <div class="col-md-6"></div>
+            <div id='test-cases-div' class='row-md-4 row mt-3'>
             </div>
         </div>
     </div>
@@ -210,7 +214,7 @@
                 var response = JSON.parse(msg);
                 
                 if(response["success"]){
-                    document.getElementById("test"+(testNo+1)+"-span").innerText = "Successful";
+                    document.getElementById("test"+(testNo+1)+"-span").innerText = "Success";
                     document.getElementById("test"+(testNo+1)+"-span").style.color = "#33ff33";
                     document.getElementById("test"+(testNo+1)+"-img").src = "assets/images/case-success.png";
                 } else {
@@ -244,10 +248,18 @@
                 if(isOnlyRun) {
                     document.getElementById("outputPrint").innerText = "Please wait for the response"
                 } else {
-                    document.getElementById("test-cases-div").innerHTML = "<li class='mb-2'> Test Case 1 &nbsp;&nbsp;<span id='test1-span' class='test-span'>Testing</span> &nbsp;&nbsp;<img id='test1-img' src='assets/images/case-running.png'></li>"+
-                    "<li class='mb-2'> Test Case 2 &nbsp;&nbsp;<span id='test2-span' class='test-span'>Waiting</span> &nbsp;&nbsp;<img id='test2-img' src='assets/images/case-waiting.png'></li>"+
-                    "<li class='mb-2'> Test Case 3 &nbsp;&nbsp;<span id='test3-span' class='test-span'>Waiting</span> &nbsp;&nbsp;<img id='test3-img' src='assets/images/case-waiting.png'></li>"+
-                    "<li> Test Case 4 &nbsp;&nbsp;<span id='test4-span' class='test-span'>Waiting</span> &nbsp;&nbsp;<img id='test4-img' src='assets/images/case-waiting.png'></li>";
+                    let caseHtml = "";
+
+                    for(let i=1; i<=4; i++) {
+                        caseHtml += "<div class='col-md-3 text-white'>"+
+                            "<span class='round border py-2 pr-4'>"+
+                            "<img id='test"+i+"-img' class='pb-1 pr-5' src='assets/images/case-waiting.png' alt=''>"+
+                            "<span id='test"+i+"-span' class='h5 text-right test1-span'>waiting</span>"+
+                            "</span>"+
+                            "</div>";
+                    }
+
+                    document.getElementById("test-cases-div").innerHTML = caseHtml;
                 }
             },
             success: function (msg) {
@@ -257,7 +269,7 @@
                     document.getElementById("outputPrint").innerText = response["output"];
                 } else {
                     if(response["success"]){
-                        document.getElementById("test1-span").innerText = "Successful";
+                        document.getElementById("test1-span").innerText = "Success";
                         document.getElementById("test1-span").style.color = "#33ff33";
                         document.getElementById("test1-img").src = "assets/images/case-success.png";
                     } else {
@@ -277,6 +289,7 @@
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("GET","response.php",false);
             xmlhttp.send(null);
+            console.log(xmlhttp.responseText)
             var response = JSON.parse(xmlhttp.responseText);
             console.log(response)
             document.getElementById("response").innerHTML=response["countdown"];

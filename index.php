@@ -49,15 +49,6 @@ session_start();
         </p>
     </div>
 </body>
-<script>
-    setInterval(function(){
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET","response.php",false);
-        xmlhttp.send(null);
-        document.getElementById("response").innerHTML=xmlhttp.responseText;
-
-    },1000);
-</script>
 <script src="bootstrap/jquery/dist/jquery.min.js"></script>
 <script src="bootstrap/dist/js/bootstrap.min.js"></script>
 </html>

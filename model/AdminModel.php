@@ -89,11 +89,14 @@
             
             if(mysqli_query($db, $query)){
                 $_SESSION['login_user'] = $adminId;
-                echo "<script>window.alert('Login Successfull'); window.location='../admin/adminDash.php';</script>";
+                $_SESSION['admin'] = true;
+                echo "<script>window.alert('Login Successfull'); 
+                    window.location='../admin/adminDash.php';</script>";
                 mysqli_close($db);
             }else{
                 $error = "Your Login Id or Password is invalid";
-                echo "<script>window.alert('$error'); window.location='../admin/adminlogin.php';</script>";
+                echo "<script>window.alert('$error'); 
+                    window.location='../admin/adminlogin.php';</script>";
                 mysqli_close($db);
             }
         }
