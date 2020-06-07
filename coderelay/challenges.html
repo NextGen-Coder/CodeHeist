@@ -23,10 +23,13 @@
         li a{
             border-bottom: 1px solid white;
         }
-        span{
-            color:blueviolet;
+        .round{
+            border-radius: 20px;
         }
-   
+        .round img{
+            height: 38px;
+            width: auto;
+        }
     </style>
 </head>
 
@@ -109,14 +112,32 @@
                 </div>
             </div>
         </div>
-            <div class="row-md-4 row mt-3">
-                <div class="col-md-6">
-                    <li class="mb-2">1. TEST CASES &nbsp;&nbsp;<span>Unsuccessful</span> &nbsp;&nbsp;<img src="images/remove.png" alt=""></li>
-                    <li class="mb-2">2. TEST CASES &nbsp;&nbsp;<span>Successful</span> &nbsp;&nbsp;<img src="images/check.png" alt=""></li>
-                    <li class="mb-2">3. TEST CASES &nbsp;&nbsp;<span>Tested</span> &nbsp;&nbsp;<img src="images/hourglass.png" alt=""></li>
-                    <li>4. TEST CASES &nbsp;&nbsp;<span>Not tested</span> &nbsp;&nbsp;<i class="far fa-times-circle"></i></li>
+            <div class="row-md-4 row mt-3 mx-auto">
+
+                   <div class="col-md-3 text-white ">
+                       <span class="round border py-2 pr-4">
+                        <img class="pb-1 pr-5" src="/coderelay/images/case-success.png" alt="">
+                           <span class="h5 text-right">success</span>
+                       </span>
+                   </div>
+                   <div class="col-md-3 text-white ">
+                    <span class="round border py-2 pr-4">
+                     <img class="pb-1 pr-5" src="/coderelay/images/case-failed.png" alt="">
+                        <span class="h5 text-right">unsuccess</span>
+                    </span>
                 </div>
-                <div class="col-md-6"></div>
+                <div class="col-md-3 text-white ">
+                    <span class="round border py-2 pr-4">
+                     <img class="pb-1 pr-5 pl-1" src="/coderelay/images/case-running.png" alt="">
+                        <span class="h5 text-right">running</span>
+                    </span>
+                </div>
+                <div class="col-md-3 text-white ">
+                    <span class="round border py-2 pr-4">
+                     <img class="pb-1 pr-5" src="/coderelay/images/case-waiting.png" alt="">
+                        <span class="h5 text-right">waiting</span>
+                    </span>
+                </div>
             </div>
         </div>
 

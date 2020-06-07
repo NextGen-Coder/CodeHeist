@@ -37,7 +37,7 @@ session_start();
     </div>
     
     <div class="button1 mt-5">
-        <li><a href="#" class="btn1 hvr-ripple-out">login as admin</a></li>
+        <li><a href="./admin/adminlogin.php" class="btn1 hvr-ripple-out">login as admin</a></li>
         <br><br>
         <li><a href="login.php" class="btn1 hvr-ripple-out">login as user</a></li>
     </div>

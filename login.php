@@ -57,7 +57,7 @@
             LOGIN ID <br>
             <input type="text" name="user" class="text" placeholder="LOGIN ID"> <br><br>
             PASSWORD <br>
-            <input type="text" name="pass" class="text" placeholder="PASSWORD"><br>
+            <input type="password" name="pass" class="text" placeholder="PASSWORD"><br>
 
             <div class="row justify-content-center">
                 <input type="submit" class="mt-4  btn bg-danger text-white submit px-5" value="LOGIN">
