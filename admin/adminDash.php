@@ -1,6 +1,12 @@
+<?php 
+    session_start();
+    if( !isset($_SESSION['login_user'])) {
+        echo "<script>window.location='adminlogin.php';</script>";
+    }
+    else if( isset($_SESSION['admin'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,13 +64,6 @@
 </head>
 
 <body>
-<?php 
-        session_start();
-        if( $_SESSION['login_user']) {
-        } else {
-            echo "<script>window.location='adminDash.php';</script>";
-        }
-    ?>
     <div class="name">
         <img src="../assets/images/name.png" alt="">
     </div>
@@ -115,7 +114,6 @@ if($result = mysqli_query($db, $sql)){
          
         while($row = mysqli_fetch_array($result)){ ?>
                     <tr>
-
                         <td> <?php echo $row['user_id'] ?> </td>
                         <td> <?php echo $row['user_name'] ?> </td>
                         <td> <?php echo $row['user_college'] ?> </td>
@@ -126,15 +124,10 @@ if($result = mysqli_query($db, $sql)){
 
 
                 </tbody>
-            </table> <?php } }?>
+            </table> <?php } }
+            ?>
         </div>
     </div>
-
-
-
-
-
-
     <div class="name text-white">
         <p class="text-center">
             In association with <br>
@@ -146,3 +139,6 @@ if($result = mysqli_query($db, $sql)){
 <script src="../assets/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </html>
+<?php } else {
+    echo "<script>window.location='adminlogin.php';</script>";
+} ?>

@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if( !isset($_SESSION['login_user'])) {
+        echo "<script>window.location='adminlogin.php';</script>";
+    }
+    else if(isset($_SESSION['admin']))  {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,16 +62,17 @@
     <div class="btnn text-white my-5">
         <form action="../controller/RegisterController.php" method="POST" class="">
             USER NAME <br>
-            <input type="text" name="user" class="text" placeholder="USER NAME"> <br><br>
+            <input type="text" name="user" required class="text" placeholder="USER NAME"> <br><br>
             COLLEGE NAME <br>
             <input type="text" name="clg_name" class="text" placeholder="COLLEGE NAME"> <br><br>
+            BRANCH <br>
+            <input type="text" name="branch" class="text" placeholder="BRANCH"> <br><br>
+            YEAR <br>
+            <input type="text" name="year" class="text" placeholder="YEAR"> <br><br>
             EMAIL ID <br>
-            <input type="email" name="mail" class="text" placeholder="LOGIN ID"> <br><br>
-            MOBILE NO. <br>
-            <input type="number" name="mobile" class="text" placeholder="LOGIN ID"> <br><br>
-            PASSWORD <br>
-            <input type="text" name="pass" class="text" placeholder="PASSWORD"><br>
-
+            <input type="email" name="mail" required class="text" placeholder="EMAIL ID"> <br><br>
+            PHONE NO <br>
+            <input type="number" name="mobile" required class="text" placeholder="MOBILE NO"> <br><br>
             <div class="row justify-content-center">
                 <input type="submit" class="mt-4  btn bg-danger text-white submit px-5" value="LOGIN">
             </div>
@@ -80,3 +88,6 @@
 <script src="../assets/bootstrap/jquery/dist/jquery.min.js"></script>
 <script src="../assets/bootstrap/dist/js/bootstrap.min.js"></script>
 </html>
+<?php } else {
+    echo "<script>window.location='adminlogin.php';</script>";
+} ?>

@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if( !isset($_SESSION['login_user'])) {
+        echo "<script>window.location='adminlogin.php';</script>";
+    }
+    else if(isset($_SESSION['admin'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,3 +86,7 @@
 </body>
 
 </html>
+
+<?php } else {
+    echo "<script>window.location='adminlogin.php';</script>";
+} ?>
