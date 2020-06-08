@@ -77,7 +77,7 @@
         <div class="col-md-8 pl-5">
             <img src="assets/images/pow_by_ngc.png" alt="">
             
-        <div id="response" class="space bg-danger h3 d-inline mr-5 mt-5 text-white border px-4 py-1 rounded"></div>
+        <div id="response" class="digital bg-danger h3 d-inline mr-5 mt-5 text-white border px-4 py-1 rounded">18820</div>
         </div>
     </div>
 
@@ -110,7 +110,7 @@
                     <div class="border-left py-3">
                     <div class="row-md-6">
                         <h3 class="pt-3 hacked">TEST INPUT</h3>
-                        <p class="helvetica"> <?php echo $challengeData['input_0']; ?> </p>
+                        <p class="digital"> <?php echo $challengeData['input_0']; ?> </p>
                     </div>
                     <div class="row-md-6">
                         <h3 class="pt-3 hacked">TEST OUTPUT</h3>

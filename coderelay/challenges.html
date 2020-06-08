@@ -30,6 +30,26 @@
             height: 38px;
             width: auto;
         }
+        
+        .pop-up{
+            height: 80vh;
+            width: 80%;
+            margin: auto;
+            position: fixed;
+            background: whitesmoke;
+            border: 1px solid black;
+            border-radius: 5px;
+            color: black;
+            z-index:2;
+            display: none;
+            left: 150px;
+            opacity: 0.8;
+        }
+        .log{
+            position:absolute;
+            right: 0;
+            top: 0;
+        }
     </style>
 </head>
 
@@ -41,11 +61,13 @@
 
         <div class="col-md-8 pl-5">
             <img src="images/ngc.png" alt="">
+            <button class="btn bg-danger log mr-5 mt-3" id="log" onclick="on()">
+                LOG OUT
+            </button>
         </div>
     </div>
 
-
-    <div class="row container-fluid mx-auto">
+    <div class="row container-fluid mx-auto" onclick="off()">
 
         <div class="col-md-3 border rounded">
             <div class="text-center">
@@ -71,7 +93,11 @@
                 <li class="p-2 pb-5"><a href="#" class="list text-danger py-2 px-4">CODE2</a></li>
             </div>
         </div>
+        <div class="pop-up" id="display">
+            <h1>hmm......</h1>
+        </div>
         <div class="col-md-9 ">
+            
             <div class="col test">
 
             
@@ -144,5 +170,13 @@
     </div>
 
 </body>
-
+<script>
+    function on(){
+       document.getElementById('display').style.display = "block";
+       document.getElementById('display').style.transitionDuration = "2s";
+    }
+    function off(){
+       document.getElementById('display').style.display = "none";
+    }
+</script>
 </html>
