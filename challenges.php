@@ -49,6 +49,25 @@
             height: 38px;
             width: auto;
         }
+        
+        .pop-up{
+            height: 80vh;
+            width: 80%;
+            margin: auto;
+            position: fixed;
+            background: whitesmoke;
+            border: 1px solid black;
+            border-radius: 5px;
+            color: black;
+            z-index:2;
+            display: none;
+            left: 150px;
+        }
+        .log{
+            position:absolute;
+            right: 0;
+            top: 0;
+        }
     </style>
 </head>
 
@@ -82,8 +101,10 @@
 
         <div class="col-md-8 pl-5">
             <img src="assets/images/pow_by_ngc.png" alt="">
-            
-        <div id="response" class="digital bg-danger h3 d-inline mr-5 mt-5 text-white border px-4 py-1 rounded">18820</div>
+            <button class="btn bg-danger log mr-5 mt-3" id="log" onclick="on()">
+                LOG OUT
+            </button>
+            <div id="response" class="digital bg-danger h3 d-inline mr-5 mt-5 text-white border px-4 py-1 rounded"></div>
         </div>
     </div>
 
