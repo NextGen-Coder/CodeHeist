@@ -295,6 +295,14 @@
             document.getElementById("response").innerHTML=response["countdown"];
         },1000);
     </script>
+    <script>
+// Warning before leaving the page (back button, or outgoinglink)
+window.onbeforeunload = function() {
+   return "You may lost your code, Are you sure you want to leave this page?";
+   //if we return nothing here (just calling return;) then there will be no pop-up question at all
+   //return;
+};
+</script>
     <?php
     } else {
         echo "<script>window.location='login.php';</script>";
