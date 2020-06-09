@@ -49,25 +49,6 @@
             height: 38px;
             width: auto;
         }
-        
-        .pop-up{
-            height: 80vh;
-            width: 80%;
-            margin: auto;
-            position: fixed;
-            background: whitesmoke;
-            border: 1px solid black;
-            border-radius: 5px;
-            color: black;
-            z-index:2;
-            display: none;
-            left: 150px;
-        }
-        .log{
-            position:absolute;
-            right: 0;
-            top: 0;
-        }
     </style>
 </head>
 
@@ -101,7 +82,7 @@
 
         <div class="col-md-8 pl-5">
             <img src="assets/images/pow_by_ngc.png" alt="">
-            <button class="btn bg-danger log mr-5 mt-3" id="log" onclick="on()">
+            <button id="log" class="helvetica btn bg-danger text-white log mr-5 mt-1 px-4 py-1 border" onclick="endTimer()">
                 LOG OUT
             </button>
             <div id="response" class="digital bg-danger h3 d-inline mr-5 mt-5 text-white border px-4 py-1 rounded"></div>
@@ -207,7 +188,7 @@
     ?> </script>
 <script src="assets/jquery/dist/jquery.min.js"></script>   
 <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- Script for Running Output -->
+<!-- Script for Testing Cases -->
 <script type="text/javascript">
     function checkTestCase( testNo) {
         var code = editor.session.getValue();
@@ -248,7 +229,9 @@
             }
         });    
     }
-
+</script>
+<!-- Script for Running Code -->
+<script>
     function saveCode( isOnlyRun) {
         var code = editor.session.getValue();
         while(code.indexOf("+")!=-1) {
@@ -303,29 +286,38 @@
             }
         });    
     }
-    </script>
-
-    <script>
-        setInterval(function(){
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET","response.php",false);
-            xmlhttp.send(null);
-            console.log(xmlhttp.responseText)
-            var response = JSON.parse(xmlhttp.responseText);
-            console.log(response)
-            document.getElementById("response").innerHTML=response["countdown"];
-        },1000);
-    </script>
-    <script>
-// Warning before leaving the page (back button, or outgoinglink)
-window.onbeforeunload = function() {
-   return "You may lost your code, Are you sure you want to leave this page?";
-   //if we return nothing here (just calling return;) then there will be no pop-up question at all
-   //return;
-};
 </script>
-    <?php
-    } else {
-        echo "<script>window.location='login.php';</script>";
-    } ?>
+<!-- Timer Interval -->
+<script>
+    var intervalVar = setInterval(function(){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET","response.php",false);
+        xmlhttp.send(null);
+        var response = JSON.parse(xmlhttp.responseText);
+        if(response["end"]==true) endTimer();
+        document.getElementById("response").innerHTML=response["countdown"];
+    },1000);
+</script>
+<!-- End Of Interval -->
+<script>
+    function endTimer(){
+        clearInterval(intervalVar);
+        window.onbeforeunload = true;
+        window.location =  "index.php?competition=ended";
+    }
+</script>
+<!-- No allowing unload -->
+<script>
+    // Warning before leaving the page (back button, or outgoinglink)
+    window.onbeforeunload = function() {
+        return "You may lost your code, Are you sure you want to leave this page?";
+        //if we return nothing here (just calling return;) then there will be no pop-up question at all
+        //return;
+    };
+</script>
+
+<?php
+} else {
+    echo "<script>window.location='login.php';</script>";
+} ?>
 </html>

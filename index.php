@@ -22,15 +22,33 @@
         .bg {
             position: relative;
         }
+        .pop-up{
+            height: 80vh;
+            width: 80%;
+            margin: auto;
+            position: fixed;
+            background: whitesmoke;
+            border: 1px solid black;
+            border-radius: 5px;
+            color: black;
+            z-index:2;
+            display: none;
+            left: 150px;
+        }
+        .log{
+            position:absolute;
+            right: 0;
+            top: 0;
+        }
     </style>
 </head>
 <body>
-<?php  
-session_start();
-
-?>
 <div id="response"></div>
 
+    <div class="pop-up text-center" id="display">
+        <h1>hmm......</h1>
+        <button class="btn btn-info" onclick="off()">ok</button>
+    </div>
 
     <div class="name">
         <img src="assets/images/name.png" alt="">
@@ -51,4 +69,21 @@ session_start();
 </body>
 <script src="bootstrap/jquery/dist/jquery.min.js"></script>
 <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+    function on(){
+       document.getElementById('display').style.display = "block";
+       document.getElementById('display').style.transitionDuration = "2s";
+    }
+    function off(){
+       document.getElementById('display').style.display = "none";
+       window.location = "controller/LogoutController.php";
+    }
+</script>
+<?php  
+    session_start();
+
+    if(isset($_GET["competition"]) && $_GET["competition"]=="ended") {
+        echo "<script> on() </script>";
+    }
+?>
 </html>
