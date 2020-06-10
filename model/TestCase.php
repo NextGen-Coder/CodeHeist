@@ -38,8 +38,11 @@
             "language" => $language,
             "stdin" => $inputs."",
             "versionIndex" => "2",
-            "clientId" => "ed3d8b92ac70bc1c3ad2382d334afc1d",
-            "clientSecret" => "ad03c152017d7fccc90dcfd4ac6bd6bde753f53438061dd1cecc46e56b57d85b"
+            "clientId" => "be9a209b50977cbd22c436977ab648d0",
+            "clientSecret" => "55794f230a6a52e27542d1f034747eb869b7ceef03b5c8f9cb0ae726c4ee14cc", 
+            "verify_peer"=> true,
+            "verify_peer_name"=> true,
+            "cafile" => "/path/to/bundle/cacert.pem"
         );
 
         // Create the context for the request

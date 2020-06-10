@@ -213,6 +213,7 @@
                 document.getElementById("test"+(testNo+1)+"-img").src = "assets/images/case-running.png";
             },
             success: function (msg) {
+                console.log(msg)
                 var response = JSON.parse(msg);
                 
                 if(response["success"]){
@@ -267,6 +268,7 @@
                 }
             },
             success: function (msg) {
+                console.log(msg)
                 response = JSON.parse(msg);
                 
                 if(isOnlyRun) {

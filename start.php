@@ -124,6 +124,7 @@ else {
 <div class="name text-white mt-4">
     <pre class="text-white">
 <span class="h3">Instructions:-</span>
+
 1. Browser Support - Google Chrome, Mozilla Firefox, Microsoft EDGE & Apple Safari.
 2. Language Support - Java, C, C++ & Python. 
 3. You need stable internet connectivity of at least 1.5 MBPS speed.
