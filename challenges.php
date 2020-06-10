@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
     <link rel="stylesheet" href="assets/styles/phase.css">
     <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/styles/fonts.css">
+    <link rel="stylesheet" href="/assets/styles/mediaquery.css">
     <style>
         body {
             min-height: 100vh;
@@ -80,7 +81,7 @@
             </div>
         </div>
 
-        <div class="col-md-8 pl-5">
+        <div class="col-md-8 pl-5 ngc-logo">
             <img src="assets/images/pow_by_ngc.png" alt="">
             <button id="log" class="helvetica btn bg-danger text-white log mt-1 mr-5 px-4 py-1 border" onclick="endTimer()">
                 LOG OUT

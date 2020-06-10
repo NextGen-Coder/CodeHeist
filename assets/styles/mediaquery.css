@@ -1,0 +1,14 @@
+@media screen and (max-width: 768px) {
+    .ngc-logo{
+        padding: 0 !important;
+
+    }
+    #log,#response{
+        position: fixed;
+        background-color: blueviolet;
+    }
+    body{
+        background-color: blueviolet !important;
+    }
+
+  }

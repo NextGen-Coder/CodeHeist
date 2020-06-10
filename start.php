@@ -127,7 +127,7 @@ else {
 
 1. Browser Support - Google Chrome, Mozilla Firefox, Microsoft EDGE & Apple Safari.
 2. Language Support - Java, C, C++ & Python. 
-3. You need stable internet connectivity of at least 1.5 MBPS speed.
+3. You need stable internet connection.
 4. This will be an individual web proctored online challenge of 1 hours.
 5. The test will have 5 problem statements each of which will have a pre-determined score. 
 6. A participant’s final score will depend on -
@@ -135,7 +135,7 @@ else {
    - Marks are assigned to the questions basis the difficulty level.
 7. Submission of the code is required or points may not get allocated for the challenge.
 
-<p class="text-center ">In association with <h6 class="text-center">Priyadarshini J.L. College of Engineering</h6></p>
+<p class="text-center ">In association with <h6 class="text-center">Priyadarshini J.L College of Engineering</h6></p>
     </pre><br>
     
 </div>
