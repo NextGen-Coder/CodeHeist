@@ -37,7 +37,7 @@
         .round{
             border-radius:10px;
         }
-        #response{
+        #response,#log{
             position:absolute;
             top:0;
             right:0;
@@ -82,7 +82,7 @@
 
         <div class="col-md-8 pl-5">
             <img src="assets/images/pow_by_ngc.png" alt="">
-            <button id="log" class="helvetica btn bg-danger text-white log mr-5 mt-1 px-4 py-1 border" onclick="endTimer()">
+            <button id="log" class="helvetica btn bg-danger text-white log mt-1 mr-5 px-4 py-1 border" onclick="endTimer()">
                 LOG OUT
             </button>
             <div id="response" class="digital bg-danger h3 d-inline mr-5 mt-5 text-white border px-4 py-1 rounded"></div>

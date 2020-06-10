@@ -1,28 +1,27 @@
 @font-face {
     font-family: "Space Age";
-    src: url(../fonts/spaceage.ttf);
+    src: url(/coderelay/fonts/spaceage.ttf);
   }
 
   @font-face {
     font-family: "hacked";
-    src: url(../fonts/hacked.ttf);
+    src: url(/coderelay/fonts/hacked.ttf);
   }
   
   @font-face {
     font-family: "HelveticaNeue";
-    src: url(../fonts/HelveticaNeue.ttf);
+    src: url(/coderelay/fonts/HelveticaNeue.ttf);
   }
 
   @font-face {
     font-family: "digital";
-    src: url(../fonts/digital.ttf);
+    src: url(/coderelay/fonts/digital.ttf);
   }
 
   @font-face {
     font-family: "aquire";
-    src: url(../fonts/Aquire-BW0ox.otf);
+    src: url(/coderelay/fonts/Aquire-BW0ox.otf);
   }
-
   .space{
       font-family: "Space Age";
   }
