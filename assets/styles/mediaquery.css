@@ -1,14 +1,43 @@
 @media screen and (max-width: 768px) {
     .ngc-logo{
         padding: 0 !important;
+        text-align: center;
 
     }
     #log,#response{
-        position: fixed;
-        background-color: blueviolet;
-    }
-    body{
-        background-color: blueviolet !important;
+        position: static !important;
+        margin: 0 !important;
+        margin-bottom: 10px !important;
     }
 
   }
+
+  @media screen and (min-width : 768px) and (max-width : 900px) {
+
+    .round li{
+        font-size: 1.1em;
+    }
+
+}
+@media screen and (max-width: 767px) {
+    #log{
+        display: flex;
+        flex-direction: column;
+        margin-left: 6em !important; 
+    }
+
+    #response{
+        margin-left: 3em !important;
+    }
+    .border-media{
+        border-left: 0 !important;
+        border-top: 1px solid white;
+    }
+    .output-division {
+        height: 100vh !important;
+    }
+    .submit-division{
+        margin-bottom: 5px !important;
+    }
+}
+

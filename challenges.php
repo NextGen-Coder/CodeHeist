@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/styles/phase.css">
     <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/styles/fonts.css">
-    <link rel="stylesheet" href="/assets/styles/mediaquery.css">
+    <link rel="stylesheet" href="assets/styles/mediaquery.css">
     <style>
         body {
             min-height: 100vh;
@@ -75,14 +75,16 @@
 
 <body>
     <div class="row">
-        <div class="col-md-4">
-            <div class="pl-5">
+        <div class="col-md-3">
+            <div class="pl-5 ngc-logo">
             <img src="assets/images/code_heist.png" alt="">
             </div>
         </div>
 
-        <div class="col-md-8 pl-5 ngc-logo">
+        <div class="col-md-6 text-center ngc-logo">
             <img src="assets/images/pow_by_ngc.png" alt="">
+        </div>
+        <div class="col-md-3 mb-2">
             <button id="log" class="helvetica btn bg-danger text-white log mt-1 mr-5 px-4 py-1 border" onclick="endTimer()">
                 LOG OUT
             </button>
@@ -92,7 +94,7 @@
 
     <div class="row container-fluid mx-auto mb-3">
 
-        <div class="col-md-3 border round">
+        <div class="col-md-3 border round mb-2">
             <div class="text-center">
                 <h1 class="text-white text-center pt-4 hacked">PROGRAMS</h3>
                 <?php
@@ -116,7 +118,7 @@
                     </p>
                 </div>
                 <div class="col-md-4 col text-center py-3">
-                    <div class="border-left py-3">
+                    <div class="border-left py-3 border-media">
                     <div class="row-md-6">
                         <h3 class="pt-3 hacked">TEST INPUT</h3>
                         <p class="digital"> <?php echo $challengeData['input_0']; ?> </p>
@@ -148,7 +150,7 @@
                         <div id="editor"> </div>
                     </div>
                 </div>
-                <div class="col-md-4 border-left rounded">
+                <div class="col-md-4 border-left rounded border-media">
                     <div class="output-division">
                         <h3 class="pt-3 hacked">OUTPUT</h3>
                         <p id="outputPrint"> </p>
@@ -159,7 +161,7 @@
                 </div>
             </div>
         </div>
-            <div id='test-cases-div' class='row-md-4 row mt-3'>
+            <div id='test-cases-div' class='row-md-4 row mt-3 mb-2'>
             </div>
         </div>
     </div>
