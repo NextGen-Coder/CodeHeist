@@ -59,7 +59,9 @@
     <p class="aquire">thank you for submiting the code</br>
     we appreciate your presence and efforts to solve</br>
     the code heist competition</p>
-
+    
+    <textarea name="" id="" cols="50" rows="4" placeholder="PLEASE ENTER FEEDDBACK"></textarea>
+    
     <h4 class="hacked text-danger">OUR TEAM</h4>
     <p class="aquire">rajat patil - lead developer</br>
     mohit ugemuge - frontend developer</br>
@@ -81,9 +83,9 @@
     </div>
 
     <h4 class="hacked text-danger">ALSO FOLLOW US ON</h4>
-    <a href="https://github.com/NextGen-Coder"><img src="assets/images/github.png" alt=""></a>
-    <a href="https://instagram.com/nextgencoder?igshid=17phrlns9bck3"><img class="mx-5 my-2" src="assets/images/instagram.png" alt=""></a>
-    <a href="https://codepen.io/nextgencoders"><img src="assets/images/codepen.png" alt=""></a>
+    <a href="https://github.com/NextGen-Coder" target="_blank"><img src="assets/images/github.png" alt=""></a>
+    <a href="https://instagram.com/nextgencoder?igshid=17phrlns9bck3" target="_blank"><img class="mx-5 my-2" src="assets/images/instagram.png" alt=""></a>
+    <a href="https://codepen.io/nextgencoders" target="_blank"><img src="assets/images/codepen.png" alt=""></a>
     <br>
     <br>
     <button class="btn btn-info aquire" onclick="off()">exit</button>
