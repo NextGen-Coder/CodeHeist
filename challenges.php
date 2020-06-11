@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+    if( !isset($_SESSION['login_user'])) {
+        echo "<script>window.location='login.php';</script>";
+    } else {
+        if( !isset($_SESSION['end_time'])) {
+            echo "<script>window.location='start.php';</script>";
+        } else {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +64,6 @@
 
 <?php 
     include("model/config.php");
-    session_start();
     date_default_timezone_set("Asia/Kolkata");
 
     $season = $_GET['season'];
@@ -69,8 +77,6 @@
 
     $codeQuery = "SELECT * FROM code WHERE challenge_id=".$challengeData["challenge_id"]." AND user_id=".$userRow["user_id"]; 
     $codeRow = mysqli_fetch_assoc( mysqli_query($db,$codeQuery));
-
-    if( $_SESSION['login_user']) { 
 ?>
 
 <body>
@@ -143,8 +149,8 @@
                             </select>
                             <input type="hidden" id="chId" value="<?php echo $challengeData['challenge_id'] ?>">
                             <input type="text" hidden name="code" id="hiddencode">
-                            <button id="run" onclick="saveCode( true)" type="button">
-                                <img id="run-img" src="assets/images/run.png">
+                            <button id="run" class="bg-dark rounded border" onclick="saveCode( true)" type="button">
+                                <img id="run-img" src="assets/images/run.png"> <p class="text-white d-inline">Run</p> 
                             </button>
                         </div>
                         <div id="editor"> </div>
@@ -156,7 +162,7 @@
                         <p id="outputPrint"> </p>
                     </div>
                     <div class="submit-division">
-                        <button id="submit-btn" class="btn btn-danger w-100" onclick="saveCode( false)">SUBMIT</button>
+                        <button id="submit-btn" class="btn btn-danger w-100" onclick="saveCode( false)">SUBMIT CODE <?php echo $level ?> </button>
                     </div>
                 </div>
             </div>
@@ -216,6 +222,7 @@
                 document.getElementById("test"+(testNo+1)+"-img").src = "assets/images/case-running.png";
             },
             success: function (msg) {
+                console.log(msg)
                 var response = JSON.parse(msg);
                 
                 if(response["success"]){
@@ -270,6 +277,7 @@
                 }
             },
             success: function (msg) {
+                console.log(msg)
                 response = JSON.parse(msg);
                 
                 if(isOnlyRun) {
@@ -318,9 +326,5 @@
         //return;
     };
 </script>
-
-<?php
-} else {
-    echo "<script>window.location='login.php';</script>";
-} ?>
 </html>
+<?php } } ?>
