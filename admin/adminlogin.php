@@ -63,9 +63,9 @@
     
         <form action="../controller/AdminLoginController.php" method="POST" class="">
             ADMIN ID <br>
-            <input type="text" name="admin" class="text" placeholder="ADMIN ID"> <br><br>
+            <input type="text" name="admin" class="text" placeholder="ADMIN ID" required> <br><br>
             PASSWORD <br>
-            <input type="text" name="pass" class="text" placeholder="PASSWORD"><br>
+            <input type="text" name="pass" class="text" placeholder="PASSWORD" required><br>
 
             <div class="row justify-content-center">
                 <input type="submit" class="mt-4  btn bg-danger text-white submit px-5" value="LOGIN">
