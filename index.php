@@ -32,7 +32,7 @@
             border: 1px solid black;
             border-radius: 5px;
             color: black;
-            z-index:2;
+            z-index:1000;
             display: none;
             left: 150px;
         }
@@ -49,26 +49,44 @@
         .pop-up a img:hover{
             opacity: 0.5;
         }
+
+        .pop-up textarea{
+            background: #00071d;
+        }
+        .pop-up textarea::placeholder{
+            color: whitesmoke;
+            opacity: 0.8;
+        }
+        .code-heist-logo{
+            width: 100% !important;
+            height: auto;
+        }
+        .code-heist-logo img{
+            height: 150px;
+            width: auto;
+        }
     </style>
 </head>
 <body>
 <div id="response"></div>
 
-<div class="pop-up text-center text-white" id="display" style="background: #00071d;">
-    <img src="assets/images/code_heist_end.png" alt="">
+<div class="pop-up text-center text-white mb-2" id="display" style="background: #00071d;">
+    <div class="code-heist-logo">
+        <img  src="assets/images/code_heist_end.png" alt="">
+    </div>
     <p class="aquire">thank you for submiting the code</br>
     we appreciate your presence and efforts to solve</br>
     the code heist competition</p>
     
-    <textarea name="" id="" cols="50" rows="4" placeholder="PLEASE ENTER FEEDDBACK"></textarea>
+    <textarea class="text-white" name="" id="" cols="50" rows="4" placeholder="PLEASE ENTER YOUR FEEDDBACK"></textarea>
     
     <h4 class="hacked text-danger">OUR TEAM</h4>
-    <p class="aquire">rajat patil - lead developer</br>
-    mohit ugemuge - frontend developer</br>
-    akram shaha - backend developer</br>
-    nikhil kawadkar - coding challenges</br>
-    praful nimje - promotional video</br>
-    nirbhay bangare - ui/ux & graphic designing</p>
+    <p class="aquire"><a href="https://instagram.com/rajatpatil7?igshid=vsazl5mj2o7v" target="_blank">rajat patil</a> - lead developer</br>
+    <a href="https://instagram.com/mohitugemuge" target="_blank">mohit ugemuge</a> - frontend developer</br>
+    <a href="https://instagram.com/akramshaha75?igshid=x1ovcdgjqm87" target="_blank">akram shaha</a> - backend developer</br>
+    <a href="https://instagram.com/kawadkar_nikhil?igshid=yetjzqvoo1qb" target="_blank">nikhil kawadkar</a> - coding challenges</br>
+    <a href="https://instagram.com/praful.nimje?igshid=i8q6sc6e0yl5" target="_blank">praful nimje</a> - promotional video</br>
+    <a href="https://instagram.com/nirbhay_bangare?igshid=c2uopv1m62d3" target="_blank">nirbhay bangare</a> - ui/ux & graphic designing</p>
     
     <h4 class="hacked text-danger">SPECIAL THANKS</h4>
     <h4 class="hacked">priyadarshini J.L college of Engineering</br>
@@ -104,7 +122,7 @@
     <div class="name text-white mt-5">
         <p class="text-center">
             In association with <br>
-            <b>Priyadarshani J.L. College of Engineering</b>
+            <b>Priyadarshini J.L. College of Engineering</b>
         </p>
     </div>
 </body>

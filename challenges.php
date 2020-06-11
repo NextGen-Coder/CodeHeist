@@ -91,7 +91,7 @@
             <img src="assets/images/pow_by_ngc.png" alt="">
         </div>
         <div class="col-md-3 mb-2">
-            <button id="log" class="helvetica btn bg-danger text-white log mt-1 mr-5 px-4 py-1 border" onclick="endTimer()">
+            <button id="log" class="aquire btn bg-danger text-white log mt-1 mr-5 px-4 py-1 border" onclick="endTimer()">
                 LOG OUT
             </button>
             <div id="response" class="digital bg-danger h3 d-inline mr-5 mt-5 text-white border px-4 py-1 rounded"></div>
@@ -127,7 +127,7 @@
                     <div class="border-left py-3 border-media">
                     <div class="row-md-6">
                         <h3 class="pt-3 hacked">TEST INPUT</h3>
-                        <p class="digital"> <?php echo $challengeData['input_0']; ?> </p>
+                        <p class="helvetica"> <?php echo $challengeData['input_0']; ?> </p>
                     </div>
                     <div class="row-md-6">
                         <h3 class="pt-3 hacked">TEST OUTPUT</h3>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/assets/styles/fonts.css">
+    <link rel="stylesheet" href="assets/styles/fonts.css">
     <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
     <style>
         body {
@@ -50,9 +50,9 @@
     <div class="btnn space text-white mt-5">
         <form action="controller/LoginController.php" method="POST" class="">
             LOGIN ID <br>
-            <input type="text" name="user" class="text" placeholder="LOGIN ID"> <br><br>
+            <input type="text" name="user" class="text" placeholder="LOGIN ID" required> <br><br>
             PASSWORD <br>
-            <input type="password" id="pass" name="pass" class="text" placeholder="PASSWORD"><br>
+            <input type="password" id="pass" name="pass" class="text" placeholder="PASSWORD" required><br>
             <input type="checkbox" id="checkbox" onclick="toggle()"><code class="px-2 text-white">Show password</code>
             <div class="row justify-content-center">
                 <input type="submit" class="mt-3  btn bg-danger text-white submit px-5" value="LOGIN">
@@ -62,7 +62,7 @@
     <div class="name text-white mt-3">
         <p class="text-center">
             In association with <br>
-            <b>Priyadarshani J.L. College of Engineering</b>
+            <b>Priyadarshini J.L. College of Engineering</b>
         </p>
     </div>
 </body>
