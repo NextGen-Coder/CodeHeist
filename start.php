@@ -110,7 +110,7 @@ if($currentTime >=$startTime) {
 
 else {
     // Competition isn't started
-    echo "<p id='timer' class='text-white text-center space h3'></p>";
+    echo "<p id='timer' class='text-white text-center digital h3'></p>";
     ?>
     <div class="btnn">
         <a class="btnn"href="#">

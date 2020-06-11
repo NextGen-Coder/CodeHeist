@@ -32,7 +32,6 @@
             border: 1px solid black;
             border-radius: 5px;
             color: black;
-            z-index:1000;
             display: none;
             left: 150px;
         }
@@ -57,14 +56,18 @@
             color: whitesmoke;
             opacity: 0.8;
         }
+        
         .code-heist-logo{
-            width: 100% !important;
-            height: auto;
+            margin: auto;
         }
         .code-heist-logo img{
             height: 150px;
             width: auto;
+            margin: auto;
         }
+       .names a{
+        border-bottom: 2px solid;
+       }
     </style>
 </head>
 <body>
@@ -78,10 +81,10 @@
     we appreciate your presence and efforts to solve</br>
     the code heist competition</p>
     
-    <textarea class="text-white" name="" id="" cols="50" rows="4" placeholder="PLEASE ENTER YOUR FEEDDBACK"></textarea>
+    <textarea class="text-white" name="" id="" cols="50" rows="4" placeholder="PLEASE ENTER YOUR FEEDBACK"></textarea>
     
     <h4 class="hacked text-danger">OUR TEAM</h4>
-    <p class="aquire"><a href="https://instagram.com/rajatpatil7?igshid=vsazl5mj2o7v" target="_blank">rajat patil</a> - lead developer</br>
+    <p class="aquire names"><a href="https://instagram.com/rajatpatil7?igshid=vsazl5mj2o7v" target="_blank">rajat patil</a> - lead developer</br>
     <a href="https://instagram.com/mohitugemuge" target="_blank">mohit ugemuge</a> - frontend developer</br>
     <a href="https://instagram.com/akramshaha75?igshid=x1ovcdgjqm87" target="_blank">akram shaha</a> - backend developer</br>
     <a href="https://instagram.com/kawadkar_nikhil?igshid=yetjzqvoo1qb" target="_blank">nikhil kawadkar</a> - coding challenges</br>
@@ -108,7 +111,8 @@
     <br>
     <button class="btn btn-info aquire" onclick="off()">exit</button>
 </div>
-
+<div id="display1">
+    
     <div class="name">
         <img src="assets/images/name.png" alt="">
     </div>
@@ -125,6 +129,7 @@
             <b>Priyadarshini J.L. College of Engineering</b>
         </p>
     </div>
+</div>
 </body>
 <script src="bootstrap/jquery/dist/jquery.min.js"></script>
 <script src="bootstrap/dist/js/bootstrap.min.js"></script>
@@ -132,9 +137,11 @@
     function on(){
        document.getElementById('display').style.display = "block";
        document.getElementById('display').style.transitionDuration = "2s";
+       document.getElementById('display1').style.display = "none";
     }
     function off(){
        document.getElementById('display').style.display = "none";
+       document.getElementById('display1').style.display = "block";
        window.location = "controller/LogoutController.php";
     }
 </script>
