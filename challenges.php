@@ -107,7 +107,7 @@
                     for( $i=1; $i<=5; $i++) {
                         echo "<li class='p-2 space h4'>";
 
-                        echo ($i==$level) ? "<a href='#'" : "<a href='challenges.php?season=$season&level=".($i)."'";
+                        echo ($i==$level) ? "<a  class='text-secondary list py-2 px-4' href='#'" : "<a href='challenges.php?season=$season&level=".($i)."'";
 
                         echo "class='list text-danger py-2 px-4'>CODE
                                 ".($i)."</a> </li>";
@@ -266,7 +266,7 @@
                     let caseHtml = "";
 
                     for(let i=1; i<=4; i++) {
-                        caseHtml += "<div class='col-md-3 text-white'>"+
+                        caseHtml += "<div class='col-md-3 mt-2 text-white'>"+
                             "<span class='round border py-2 pr-4'>"+
                             "<img id='test"+i+"-img' class='pb-1 pr-5' src='assets/images/case-waiting.png' alt=''>"+
                             "<span id='test"+i+"-span' class='h5 text-right test1-span'>waiting</span>"+

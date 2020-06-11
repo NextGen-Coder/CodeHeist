@@ -116,7 +116,7 @@
                 // prepare and bind
                 $sub = $codeExeRow["submitted"];
 
-                if( $sub <= 1) {
+                if( $sub < 1) {
                     if($codeExeRow["case_2"]=="success") {
                         $newPoints += $points;
                     }
