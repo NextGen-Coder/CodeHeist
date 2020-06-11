@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if( !isset($_SESSION['login_user'])) {
+        echo "<script>window.location='login.php';</script>";
+    } else {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,55 +13,55 @@
     <link rel="stylesheet"href="assets/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet"href="assets/styles/fonts.css">
     <style>
-    body {
-        background: #00071d;
-    }
+        body {
+            background: #00071d;
+        }
 
-    .name {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+        .name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .start {
-        position: absolute;
-        height: 140px;
-        width: 140px;
-        border-radius: 50%;
-        border: 10px solid #9C74F2;
-        box-shadow: 1px 2px 15px 10px #9C74F2;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        color: #9C74F2;
-    }
+        .start {
+            position: absolute;
+            height: 140px;
+            width: 140px;
+            border-radius: 50%;
+            border: 10px solid #9C74F2;
+            box-shadow: 1px 2px 15px 10px #9C74F2;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            color: #9C74F2;
+        }
 
-    .start:hover {
-        border: 10px solid rgb(242, 116, 116);
-        box-shadow: 1px 2px 15px 10px rgb(242, 116, 116);
-        color: rgb(242, 116, 116);
-    }
+        .start:hover {
+            border: 10px solid rgb(242, 116, 116);
+            box-shadow: 1px 2px 15px 10px rgb(242, 116, 116);
+            color: rgb(242, 116, 116);
+        }
 
-    .btnn {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+        .btnn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .start p {
-        font-weight: bolder;
-    }
+        .start p {
+            font-weight: bolder;
+        }
 
-    @font-face {
-        font-family: "Space Age";
-        src: url(./fonts/spaceage.ttf);
-    }
+        @font-face {
+            font-family: "Space Age";
+            src: url(./fonts/spaceage.ttf);
+        }
 
-    .start {
-        font-family: "Space Age";
-        font-size: 1.1em;
-    }
+        .start {
+            font-family: "Space Age";
+            font-size: 1.1em;
+        }
     </style>
 </head>
 <body>
@@ -63,7 +69,7 @@
     <img src="assets/images/name.png"alt="">
 </div>
     
-<?php session_start();
+<?php
 include("model/config.php");
 date_default_timezone_set("Asia/Kolkata");
 
@@ -140,26 +146,30 @@ else {
     
 </div>
 </body>
-<script>
-var countDownDate=new Date("June 15, 2020 11:00:00").getTime();
+    <script>
+    var countDownDate=new Date("June 15, 2020 11:00:00").getTime();
 
-var x=setInterval(function() {
-        var now=new Date().getTime();
-        var distance=countDownDate - now;
-        // Time calculations for days, hours, minutes and seconds
-        var days=Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours=Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes=Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds=Math.floor((distance % (1000 * 60)) / 1000);
+    var x=setInterval(function() {
+            var now=new Date().getTime();
+            var distance=countDownDate - now;
+            // Time calculations for days, hours, minutes and seconds
+            var days=Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours=Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes=Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds=Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Display the result in the element with id="demo"
-        document.getElementById("timer").innerHTML=days + "d "+ hours + "h "
-        + minutes + "m "+ seconds + "s ";
+            // Display the result in the element with id="demo"
+            document.getElementById("timer").innerHTML=days + "d "+ hours + "h "
+            + minutes + "m "+ seconds + "s ";
 
-        // If the count down is finished, write some text 
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("timer").innerHTML="YOU CAN START TEST NOW";
-        }
-    }, 1000);
-</script><script src="assets/bootstrap/jquery/dist/jquery.min.js"></script><script src="assets/bootstrap/dist/js/bootstrap.min.js"></script></html>
+            // If the count down is finished, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML="YOU CAN START TEST NOW";
+            }
+        }, 1000);
+    </script>
+    <script src="assets/bootstrap/jquery/dist/jquery.min.js"></script>
+    <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+</html>
+<?php } ?>

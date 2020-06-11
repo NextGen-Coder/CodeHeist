@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+    if( !isset($_SESSION['login_user'])) {
+        echo "<script>window.location='login.php';</script>";
+    } else {
+        if( !isset($_SESSION['end_time'])) {
+            echo "<script>window.location='start.php';</script>";
+        } else {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +16,7 @@
     <link rel="stylesheet" href="assets/styles/phase.css">
     <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/styles/fonts.css">
-    <link rel="stylesheet" href="/assets/styles/mediaquery.css">
+    <link rel="stylesheet" href="assets/styles/mediaquery.css">
     <style>
         body {
             min-height: 100vh;
@@ -55,7 +64,6 @@
 
 <?php 
     include("model/config.php");
-    session_start();
     date_default_timezone_set("Asia/Kolkata");
 
     $season = $_GET['season'];
@@ -69,8 +77,6 @@
 
     $codeQuery = "SELECT * FROM code WHERE challenge_id=".$challengeData["challenge_id"]." AND user_id=".$userRow["user_id"]; 
     $codeRow = mysqli_fetch_assoc( mysqli_query($db,$codeQuery));
-
-    if( $_SESSION['login_user']) { 
 ?>
 
 <body>
@@ -318,9 +324,5 @@
         //return;
     };
 </script>
-
-<?php
-} else {
-    echo "<script>window.location='login.php';</script>";
-} ?>
 </html>
+<?php } } ?>
