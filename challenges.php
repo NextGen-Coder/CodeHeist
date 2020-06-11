@@ -250,6 +250,7 @@
 
         var checkingData = {
             "code" : code,
+            "isOnlyRun" : isOnlyRun,
             "language" : document.getElementById("prolang").value,
             "challengeId" : document.getElementById("chId").value
         }
@@ -280,20 +281,25 @@
                 console.log(msg)
                 response = JSON.parse(msg);
                 
-                if(isOnlyRun) {
-                    document.getElementById("outputPrint").innerText = response["output"];
+                if(response["isSubmitted"]) {
+                    alert("Your submition count for this challenge exceeded")
+                    document.getElementById("test-cases-div").innerHTML = ""
                 } else {
-                    if(response["success"]){
-                        document.getElementById("test1-span").innerText = "Success";
-                        document.getElementById("test1-span").style.color = "#33ff33";
-                        document.getElementById("test1-img").src = "assets/images/case-success.png";
+                    if(isOnlyRun) {
+                        document.getElementById("outputPrint").innerText = response["output"];
                     } else {
-                        document.getElementById("test1-span").innerText = "Failed";
-                        document.getElementById("test1-span").style.color = "#ff3333";
-                        document.getElementById("test1-img").src = "assets/images/case-failed.png";
-                    }
-                    checkTestCase( 1);
-                }                
+                        if(response["success"]){
+                            document.getElementById("test1-span").innerText = "Success";
+                            document.getElementById("test1-span").style.color = "#33ff33";
+                            document.getElementById("test1-img").src = "assets/images/case-success.png";
+                        } else {
+                            document.getElementById("test1-span").innerText = "Failed";
+                            document.getElementById("test1-span").style.color = "#ff3333";
+                            document.getElementById("test1-img").src = "assets/images/case-failed.png";
+                        }
+                        checkTestCase( 1);
+                    } 
+                }              
             }
         });    
     }

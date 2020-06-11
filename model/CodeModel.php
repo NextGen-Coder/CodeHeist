@@ -7,6 +7,7 @@
         $code = $_POST['code'];
         $language = $_POST['language'];
         $challengeId = $_POST['challengeId'];
+        $isOnlyRun = $_POST['isOnlyRun'];
         $id = $_SESSION['login_user'];
 
         // Getting User Id From Mail
@@ -19,7 +20,8 @@
         $codeRow = mysqli_fetch_assoc( mysqli_query($db,$codeQuery));
 
         // Creating Ajax Response Object
-        $ajaxResponse = json_decode('{ "success" : false, "output" : null, "alertToGive" : null, "save" : false }', TRUE);
+        $ajaxResponse = json_decode('{ "isSubmitted" : false, "success" : false, "output" : null, "alertToGive" : null, "save" : false }', TRUE);
+        $sub = 0;
 
         // Creating Query for Saving codes
         $stmt = "";
@@ -68,8 +70,8 @@
             "language" => $language,
             "stdin" => $inputs,
             "versionIndex" => "2",
-            "clientId" => "be9a209b50977cbd22c436977ab648d0",
-            "clientSecret" => "55794f230a6a52e27542d1f034747eb869b7ceef03b5c8f9cb0ae726c4ee14cc"
+            "clientId" => "6a12fd18773efb45dd8c612433895194",
+            "clientSecret" => "18e0fd8cdd07136086af0f620d57a4af982d04e5c9e29b8274371a6c82b58a94"
         );
 
         // Create the context for the request
@@ -100,54 +102,65 @@
         }
         $ajaxResponse["output"] = $responseData["output"];
         
-        // Fetching Code Execution Row
-        $codeExeFetchingQuery = "SELECT * FROM code_exe WHERE challenge_id=$challengeId and user_id=$userId"; 
-        $codeExeRow = mysqli_fetch_assoc( mysqli_query($db, $codeExeFetchingQuery));
+        if( $isOnlyRun==false || $isOnlyRun=="false") {
+            // Fetching Code Execution Row
+            $codeExeFetchingQuery = "SELECT * FROM code_exe WHERE challenge_id=$challengeId and user_id=$userId"; 
+            $codeExeRow = mysqli_fetch_assoc( mysqli_query($db, $codeExeFetchingQuery));
 
-        // Creating Query for Saving codes exe
-        $stmt1 = "";
-        $points = $row["points_per_case"];
-        $newPoints = 0;
-        $caseResult = "failed";
-        if( $codeExeRow) {
-            // prepare and bind
-            if($codeExeRow["case_2"]=="success") {
-                $newPoints += $points;
-            }
-            if($codeExeRow["case_3"]=="success") {
-                $newPoints += $points;
-            }
-            if($codeExeRow["case_4"]=="success") {
-                $newPoints += $points;
-            }
+            // Creating Query for Saving codes exe
+            $stmt1 = "";
+            $points = $row["points_per_case"];
+            $newPoints = 0;
+            $caseResult = "failed";
+            if( $codeExeRow) {
+                // prepare and bind
+                $sub = $codeExeRow["submitted"];
 
-            $stmt1 = $db->prepare("UPDATE code_exe SET case_1 = ?, points = ? WHERE challenge_id = ? and user_id = ?");
+                if( $sub <= 1) {
+                    if($codeExeRow["case_2"]=="success") {
+                        $newPoints += $points;
+                    }
+                    if($codeExeRow["case_3"]=="success") {
+                        $newPoints += $points;
+                    }
+                    if($codeExeRow["case_4"]=="success") {
+                        $newPoints += $points;
+                    }
 
-            if($ajaxResponse["success"]) {
-                $newPoints += $points;
-                $caseResult = "success";
+                    $stmt1 = $db->prepare("UPDATE code_exe SET case_1 = ?, points = ?, submitted = ? WHERE challenge_id = ? and user_id = ?");
+
+                    if($ajaxResponse["success"]) {
+                        $newPoints += $points;
+                        $caseResult = "success";
+                    } else {
+                        $caseResult = "failed";
+                    }
+                    $sub += 1;
+                    $stmt1->bind_param("sssss", $caseResult, $newPoints, $sub, $challengeId, $userId);
+
+                    if ( ! $stmt1->execute()) {
+                        $ajaxResponse["alertToGive"] = " . $stmt->errno "."    ". $stmt->error;
+                    }
+                } else {
+                    $ajaxResponse["isSubmitted"] = true;
+                }
             } else {
-                $caseResult = "failed";
-            }
-            
-            $stmt1->bind_param("ssss", $caseResult, $newPoints, $challengeId, $userId);
-        } else {
-            // prepare and bind
-            $stmt1 = $db->prepare("INSERT INTO code_exe (user_id, challenge_id, case_1, points) VALUES ( ?, ?, ?, ?)");
-            
-            if($ajaxResponse["success"]) {
-                $newPoints += $points;
-                $caseResult = "success";
-            } else {
-                $caseResult = "failed";
-            }
-            $stmt1->bind_param("ssss", $userId, $challengeId, $caseResult, $newPoints);
-        }
+                // prepare and bind
+                $stmt1 = $db->prepare("INSERT INTO code_exe (user_id, challenge_id, case_1, points) VALUES ( ?, ?, ?, ?)");
+                
+                if($ajaxResponse["success"]) {
+                    $newPoints += $points;
+                    $caseResult = "success";
+                } else {
+                    $caseResult = "failed";
+                }
+                $stmt1->bind_param("ssss", $userId, $challengeId, $caseResult, $newPoints);
 
-        if ( ! $stmt1->execute()) {
-            $ajaxResponse["alertToGive"] = " . $stmt->errno "."    ". $stmt->error;
+                if ( ! $stmt1->execute()) {
+                    $ajaxResponse["alertToGive"] = " . $stmt->errno "."    ". $stmt->error;
+                }
+            }
         }
-        
         echo json_encode($ajaxResponse);
     }
 ?>
