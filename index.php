@@ -121,9 +121,8 @@
     }
 </script>
 <?php  
-    session_start();
-
     if(isset($_GET["competition"]) && $_GET["competition"]=="ended") {
+        session_start();
         echo "<script> on() </script>";
     }
 ?>
