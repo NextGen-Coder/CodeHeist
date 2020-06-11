@@ -147,8 +147,8 @@
                             </select>
                             <input type="hidden" id="chId" value="<?php echo $challengeData['challenge_id'] ?>">
                             <input type="text" hidden name="code" id="hiddencode">
-                            <button id="run" onclick="saveCode( true)" type="button">
-                                <img id="run-img" src="assets/images/run.png">
+                            <button id="run" class="bg-dark rounded border" onclick="saveCode( true)" type="button">
+                                <img id="run-img" src="assets/images/run.png"> <p class="text-white d-inline">Run</p> 
                             </button>
                         </div>
                         <div id="editor"> </div>
@@ -160,7 +160,7 @@
                         <p id="outputPrint"> </p>
                     </div>
                     <div class="submit-division">
-                        <button id="submit-btn" class="btn btn-danger w-100" onclick="saveCode( false)">SUBMIT</button>
+                        <button id="submit-btn" class="btn btn-danger w-100" onclick="saveCode( false)">SUBMIT CODE <?php echo $level ?> </button>
                     </div>
                 </div>
             </div>
