@@ -86,8 +86,9 @@
             session_start();
 
             $query = "SELECT * FROM admin WHERE admin_id = '$adminId' and password = '$password1'";
-            
-            if(mysqli_query($db, $query)){
+            $admin = mysqli_fetch_assoc( mysqli_query($db, $query));
+
+            if( $admin){
                 $_SESSION['login_user'] = $adminId;
                 $_SESSION['admin'] = true;
                 echo "<script>window.alert('Login Successfull'); 

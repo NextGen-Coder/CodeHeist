@@ -38,8 +38,8 @@
             "language" => $language,
             "stdin" => $inputs."",
             "versionIndex" => "2",
-            "clientId" => "6a12fd18773efb45dd8c612433895194",
-            "clientSecret" => "18e0fd8cdd07136086af0f620d57a4af982d04e5c9e29b8274371a6c82b58a94"
+            "clientId" => "ed3d8b92ac70bc1c3ad2382d334afc1d",
+            "clientSecret" => "ad03c152017d7fccc90dcfd4ac6bd6bde753f53438061dd1cecc46e56b57d85b"
         );
 
         // Create the context for the request

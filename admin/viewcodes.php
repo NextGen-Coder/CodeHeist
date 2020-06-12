@@ -66,31 +66,18 @@
 </head>
 
 <body>
-<?php 
-        session_start();
-        if( $_SESSION['login_user']) {
-        } else {
-            echo "<script>window.location='viewcodes.php';</script>";
-        }
-    ?>
     <div class="name">
         <img src="../assets/images/name.png" alt="">
     </div>
-
-    <div class="text-center">
-
-        <h2>USER CODES</h2>
-    </div>
+    <h3 class="text-center text-white my-4">All Codes</h3>
 
     <?php
+        include("../model/config.php");
+        $sql = "SELECT * FROM user";
 
-include("../model/config.php");
-$sql = "SELECT * FROM user ";
-
-if($result = mysqli_query($db, $sql)){
-if(mysqli_num_rows($result) > 0){
-
-?>
+        if($result = mysqli_query($db, $sql)){
+        if(mysqli_num_rows($result) > 0){
+    ?>
     <div class="">
         <div class="justify-content-center">
             <table class="table text-white bg-secondary text-center" style="border-radius: 8px;">
@@ -99,69 +86,55 @@ if(mysqli_num_rows($result) > 0){
 
                         <th>UserID</th>
                         <th>Name</th>
-                        <th>Mobile</th>
+                        <th>Mail</th>
                         <th>Level</th>
                         <th>Codes</th>
                     </tr>
                 </thead>
                 <tbody>
                     <div id="accordion">
-                        <?php
-    
-    while($row = mysqli_fetch_array($result)){ 
-        $code_sql = "SELECT * FROM code WHERE user_id=".$row['user_id']."";
-                    if($coderesult = mysqli_query($db, $code_sql)){
-                        if(mysqli_num_rows($coderesult) > 0){ ?>
+    <?php
+        while($row = mysqli_fetch_array($result)) { 
+            $code_sql = "SELECT * FROM code WHERE user_id=".$row['user_id']."";
+                if($coderesult = mysqli_query($db, $code_sql)){
+                    if(mysqli_num_rows($coderesult) > 0){ 
+    ?>
                         <tr>
                             <td> <?php echo $row['user_id'] ?> </td>
                             <td> <?php echo $row['user_name'] ?> </td>
-                            <td> <?php echo $row['user_phone'] ?> </td>
+                            <td> <?php echo $row['user_mail'] ?> </td>
                             <td>
                                 <?php 
-                    $u = $row['user_id'];
-
-                    for( $i=0; $i<10; $i++) {
-                        $code1 = "SELECT * FROM code,user WHERE code.challenge_id = $i AND user.user_id= '$u' ";
-                        if($result1 = mysqli_query($db, $code1)){ 
-                            $row1 = mysqli_fetch_assoc($result1);
-                            if(mysqli_num_rows($result1)>0) { ?>
-                                <button type="button" class="btn btn-light mb-2" data-toggle="collapse"
-                                    data-target="#demo<?php echo $row1['challenge_id'].$u ?>">Level
-                                    <?php echo $row1['challenge_id'] ?></button>
-                                <?php echo "<br>";}  } } ?>
+                                    $codeQuery1 = "SELECT * FROM code WHERE user_id= ".$row['user_id'];
+                                    $codeResult1 = mysqli_query($db, $codeQuery1);
+                                    //$codeRow1 = mysqli_fetch_array( mysqli_query($db, $codeQuery1));
+                                    while($codeRow1 = mysqli_fetch_array( $codeResult1)) {
+                                        echo "<button type='button' class='btn btn-light mb-2' data-toggle='collapse' data-target='#demo".$codeRow1['challenge_id'].$row['user_id']."'>Level ".$codeRow1['challenge_id']."</button>
+                                        <br>";
+                                    }
+                                ?>
                             </td>
                             <td>
+                            <?php 
+                                    $codeQuery1 = "SELECT * FROM code WHERE user_id= ".$row['user_id'];
+                                    $codeResult1 = mysqli_query($db, $codeQuery1);
+                                    //$codeRow1 = mysqli_fetch_array( mysqli_query($db, $codeQuery1));
+                                    while($codeRow1 = mysqli_fetch_array( $codeResult1)) {
+                                        $htmlCode = "<div id='demo".$codeRow1['challenge_id'].$row['user_id']."' class='collapse' data-parent='#accordion'>".
+                                        "Language = ".$codeRow1['language']."<br> ".$codeRow1['program']." </div>";
 
-                                <?php 
-                    $u = $row['user_id'];
-
-                    for( $i=0; $i<10; $i++) {
-                        $code1 = "SELECT * FROM code,user WHERE code.challenge_id = $i AND user.user_id= '$u' ";
-                        if($result1 = mysqli_query($db, $code1)){ 
-                            $row1 = mysqli_fetch_assoc($result1);
-                            if(mysqli_num_rows($result1)>0) { ?>
-
-                                <div id="demo<?php echo $row1['challenge_id'].$u ?>" class="collapse"
-                                    data-parent="#accordion">
-                                    Language = <?php echo $row1['language'] ; ?><br>
-                                    <?php echo $row1['program'] ?>
-                                </div>
-                                <?php } } } ?>
+                                        $code = str_replace("<><><>","+",$htmlCode);
+                                        $code = str_replace(">",">\n",$code);
+                                        echo $code;
+                                    }
+                            ?>
                             </td>
                         </tr>
                         <?php  } ?>
-
-
-
                         <?php }  } }}?>
-
-
                     </div>
                 </tbody>
             </table>
-            <div class="row justify-content-center mt-3">
-                <a type="submit" class="btn formbtn1 btn-info" href="./token.php">Register Token</a>
-            </div>
         </div>
     </div>
 

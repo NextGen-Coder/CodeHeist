@@ -67,12 +67,43 @@
     <div class="name">
         <img src="../assets/images/name.png" alt="">
     </div>
-    <div class="btnn text-white my-5">
-        <a class="btn btn-danger my-3" href="../controller/LogoutController.php">Log out</a>
-        <a class="btn bg-dark text-white mt-2 py-2" href="token.php">Generate  Token</a>
-        <a class="btn bg-dark text-white mt-2 py-2" href="generateresults.php">Generate  Result</a>
-        <a class="btn bg-dark text-white mt-2 py-2" href="viewcodes.php">View Codes</a>
-        <a class="btn bg-dark text-white mt-2 py-2" href="viewusers.php">View Users</a>
+    <?php
+
+include("../model/config.php");
+$sql = "SELECT * FROM user ";
+
+if($result = mysqli_query($db, $sql)){
+    if(mysqli_num_rows($result) > 0){
+
+?>
+    <div class="container my-5">
+        <h3 class="text-center text-white my-4">All Users</h3>
+        <div class="justify-content-center">
+            <table class="table table-dark text-white bg-secondary" style="border-radius: 8px;">
+                <thead>
+                    <tr class="bg-dark">
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>College</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    while($row = mysqli_fetch_array($result)){ ?>
+                    <tr>
+                        <td> <?php echo $row['user_id'] ?> </td>
+                        <td> <?php echo $row['user_name'] ?> </td>
+                        <td> <?php echo $row['user_college'] ?> </td>
+                        <td> <?php echo $row['user_phone'] ?> </td>
+                        <td> <?php echo $row['user_mail'] ?> </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table> <?php } }
+            ?>
+        </div>
     </div>
     <div class="name text-white">
         <p class="text-center">
