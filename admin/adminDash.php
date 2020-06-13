@@ -77,7 +77,7 @@
     <div class="name text-white">
         <p class="text-center">
             In association with <br>
-            <b>Priyadarshani J.L. College of Engineering</b>
+            <b>Priyadarshini J.L. College of Engineering</b>
         </p>
     </div>
 </body>
