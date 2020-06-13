@@ -79,6 +79,7 @@
             <table class="table table-dark text-white bg-secondary" style="border-radius: 8px;">
                 <thead>
                     <tr class="bg-dark">
+                        <th>Rank</th>
                         <th>Id</th>
                         <th>Name</th>
                         <th>Mobile</th>
@@ -88,15 +89,20 @@
                 </thead>
                 <tbody>
                     <?php
+                    $rank = 1;
                     while($codeRow1 = mysqli_fetch_array( $codeResult1)) { ?>
                     <tr>
+                        <td> <?php echo $rank ?> </td>
                         <td> <?php echo $codeRow1['user_id'] ?> </td>
                         <td> <?php echo $codeRow1['user_name'] ?> </td>
                         <td> <?php echo $codeRow1['user_phone'] ?> </td>
                         <td> <?php echo $codeRow1['user_mail'] ?> </td>
                         <td> <?php echo $codeRow1['total_points'] ?> </td>
                     </tr>
-                    <?php } ?>
+                    
+                    <?php 
+                        $rank++;
+                    } ?>
                 </tbody>
             </table> 
         </div>

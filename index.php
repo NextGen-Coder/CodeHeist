@@ -81,7 +81,7 @@
     we appreciate your presence and efforts to solve</br>
     the code heist competition</p>
     
-    <textarea class="text-white" name="" id="" cols="50" rows="4" placeholder="PLEASE ENTER YOUR FEEDBACK"></textarea>
+    <textarea class="text-white" id="message" cols="50" rows="4" placeholder="PLEASE ENTER YOUR FEEDBACK"></textarea>
     
     <h4 class="hacked text-danger">OUR TEAM</h4>
     <p class="aquire names"><a href="https://instagram.com/rajatpatil7?igshid=vsazl5mj2o7v" target="_blank">rajat patil</a> - lead developer</br>
@@ -131,7 +131,7 @@
     </div>
 </div>
 </body>
-<script src="bootstrap/jquery/dist/jquery.min.js"></script>
+<script src="assets/jquery/dist/jquery.min.js"></script>  
 <script src="bootstrap/dist/js/bootstrap.min.js"></script>
 <script>
     function on(){
@@ -140,9 +140,7 @@
        document.getElementById('display1').style.display = "none";
     }
     function off(){
-       document.getElementById('display').style.display = "none";
-       document.getElementById('display1').style.display = "block";
-       window.location = "controller/LogoutController.php";
+        saveFeedback();
     }
 </script>
 <?php  
@@ -150,4 +148,29 @@
         echo "<script> on() </script>";
     }
 ?>
+<!-- Script for Running Code -->
+<script>
+    function saveFeedback() {
+        var message = document.getElementById("message").value;
+        var userId = <?php echo $_GET["userId"] ?>;
+
+        var checkingData = {
+            "message" : message,
+            "user_id" : userId
+        }
+        
+        $.ajax({
+            type: "POST",
+            url: "model/Feedback.php",
+            data: checkingData,
+            beforeSend: function () {
+                document.getElementById('display').style.display = "none";
+                document.getElementById('display1').style.display = "block";
+            },
+            success: function (msg) {
+                window.location = "controller/LogoutController.php";
+            }
+        });    
+    }
+</script>
 </html>

@@ -161,7 +161,7 @@
                         <h3 class="pt-3 hacked">OUTPUT</h3>
                         <p id="outputPrint"> </p>
                     </div>
-                    <div class="submit-division">
+                    <div id="sub-div" class="submit-division">
                         <button id="submit-btn" class="btn btn-danger w-100" onclick="saveCode( false)">SUBMIT CODE <?php echo $level ?> </button>
                     </div>
                 </div>
@@ -261,7 +261,7 @@
             data: checkingData,
             beforeSend: function () {
                 if(isOnlyRun) {
-                    document.getElementById("outputPrint").innerText = "Please wait for the response"
+                    document.getElementById("outputPrint").innerText = "Please wait for the response";
                 } else {
                     let caseHtml = "";
 
@@ -283,7 +283,11 @@
                 
                 if(response["isSubmitted"]) {
                     alert("Your submition count for this challenge exceeded")
-                    document.getElementById("test-cases-div").innerHTML = ""
+                    document.getElementById("test-cases-div").innerHTML = "";
+                    document.getElementById("run").disabled = true;
+                    document.getElementById("submit-btn").disabled = true;
+                    document.getElementById("sub-div").style.display = "none";
+                    document.getElementById("run").style.display = "none";
                 } else {
                     if(isOnlyRun) {
                         document.getElementById("outputPrint").innerText = response["output"];
@@ -320,7 +324,7 @@
     function endTimer(){
         clearInterval(intervalVar);
         window.onbeforeunload = true;
-        window.location =  "index.php?competition=ended";
+        window.location =  "index.php?competition=ended&userId=<?php echo $_SESSION['login_user'] ?>";
     }
 </script>
 <!-- No allowing unload -->
